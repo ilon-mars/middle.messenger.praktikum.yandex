@@ -1,0 +1,55 @@
+@import '@/assets/styles/utils/_vars.sass'
+@import '@/assets/styles/utils/_mixins.sass'
+
+.wrapper
+  width: 100%
+  max-height: 63px
+  padding: $space-xs
+  border-radius: $border-radius-s
+  background-color: $base-dark
+  display: grid
+  gap: $space-xxs $space-xs
+  grid-template-columns: 47px repeat(2, 1fr) 25px
+  grid-template-rows: repeat(2, 1fr)
+  grid-template-areas: "avatar name time time" "avatar text text counter"
+
+.avatar
+  width: 47px
+  height: 47px
+  object-fit: cover
+  border-radius: 50%
+  background-color: $base-neutral
+  grid-area: avatar
+
+.name
+  font-size: 14px
+  font-weight: $font-weight-m
+  grid-area: name
+
+.text
+  color: $base-neutral
+  font-size: 12px
+  line-height: 130%
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+  grid-area: text
+
+.time
+  color: $base-neutral
+  text-align: right
+  font-size: 10px
+  line-height: 130%
+  grid-area: time
+
+.counter
+  width: clamp(20px, 20px, 40px)
+  height: 20px
+  background-color: $fg-role-active
+  padding: $space-xxs
+  border-radius: 50%
+  grid-area: counter
+  font-size: 10px
+  overflow: hidden
+  justify-self: flex-end
+  +centering
