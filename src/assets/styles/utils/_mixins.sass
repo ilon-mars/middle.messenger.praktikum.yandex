@@ -1,0 +1,27 @@
+@mixin centering
+  display: flex
+  justify-content: center
+  align-items: center
+
+@mixin dashed-border($size: $border-radius-s)
+  position: relative
+
+  &::before, &::after
+    content: ''
+    position: absolute
+    width: 100%
+    height: $size * 2
+    border: 1px solid $border-base-light
+    z-index: -1
+
+  &::before
+    top: 0
+    border-top-left-radius: $size
+    border-top-right-radius: $size
+    border-bottom: none
+
+  &::after
+    bottom: 0
+    border-bottom-left-radius: $size
+    border-bottom-right-radius: $size
+    border-top: none
