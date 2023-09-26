@@ -30,3 +30,12 @@ yarn start
 ```bash
 yarn dev
 ```
+
+### Ссылки на страницы:
+
+- Логин: https://yup-messenger.netlify.app/
+- Регистрация: https://yup-messenger.netlify.app/registration
+- Чат: https://yup-messenger.netlify.app/chat
+- Профиль: https://yup-messenger.netlify.app/profile
+- 400: https://yup-messenger.netlify.app/400
+- 500: https://yup-messenger.netlify.app/500
