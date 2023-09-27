@@ -1,4 +1,5 @@
 import { LinkEnum } from '@/enums';
+import { ErrorPage, RouteLink } from '@/types';
 
 export const LOGIN_INPUT = Object.freeze({
   labelText: 'Логин',
@@ -37,42 +38,42 @@ export const REPEAT_PASSWORD_INPUT = Object.freeze({
   name: 'repeat_password',
 });
 
-export const LOGIN_BUTTON = Object.freeze({
+export const LOGIN_BUTTON: RouteLink = Object.freeze({
   text: 'Авторизоваться',
   to: `/${LinkEnum.LOGIN}`,
 });
 
-export const LOGIN_LINK = Object.freeze({
+export const LOGIN_LINK: RouteLink = Object.freeze({
   text: 'Нет аккаунта?',
   to: `/${LinkEnum.REGISTER}`,
 });
 
-export const REGISTER_BUTTON = Object.freeze({
+export const REGISTER_BUTTON: RouteLink = Object.freeze({
   text: 'Зарегистрироваться',
   to: `/${LinkEnum.REGISTER}`,
 });
 
-export const REGISTER_LINK = Object.freeze({
+export const REGISTER_LINK: RouteLink = Object.freeze({
   text: 'Есть аккаунт?',
   to: `/${LinkEnum.LOGIN}`,
 });
 
-export const NOT_FOUND_PAGE = Object.freeze({
+export const NOT_FOUND_PAGE: ErrorPage = Object.freeze({
   errorNumber: '404',
   text: 'Не туда попали',
 });
 
-export const NOT_FOUND_LINK = Object.freeze({
+export const NOT_FOUND_LINK: RouteLink = Object.freeze({
   text: 'Назад к чатам',
   to: `/${LinkEnum.CHAT}`,
 });
 
-export const SERVER_ERROR_PAGE = Object.freeze({
+export const SERVER_ERROR_PAGE: ErrorPage = Object.freeze({
   errorNumber: '500',
   text: 'Мы уже фиксим',
 });
 
-export const SERVER_ERROR_LINK = Object.freeze({
+export const SERVER_ERROR_LINK: RouteLink = Object.freeze({
   text: 'Назад к чатам',
   to: `/${LinkEnum.CHAT}`,
 });

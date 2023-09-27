@@ -1,16 +1,16 @@
 import { chatPage } from '@/pages/chat/modules/chatWindow';
 import { chatList } from '@/pages/chat/modules/chatList';
 import { loginPage } from '@/pages/login/index';
-import { notFound } from '@/pages/notFound/index';
 import { profilePage } from '@/pages/profile/index';
 import { registerPage } from '@/pages/register/index';
-import { serverError } from '@/pages/serverError/index';
+import { errorPage } from '@/pages/errorPage';
+
 import mainLayout from '@/layout/main/index.hbs';
 import chatLayout from '@/layout/chat/index.hbs';
 
 import { LayoutEnum, LinkEnum } from '@/enums';
-import { getRouteFromLocation } from '@/utils';
 import { RoutesList } from '@/types';
+import { NOT_FOUND_LINK, NOT_FOUND_PAGE, SERVER_ERROR_LINK, SERVER_ERROR_PAGE, getRouteFromLocation } from '@/utils';
 
 import '@/assets/styles/index.sass';
 
@@ -24,7 +24,7 @@ const ROUTES: RoutesList = Object.freeze({
     layout: LayoutEnum.MAIN,
   },
   [`/${LinkEnum.NOT_FOUND}`]: {
-    templateHandler: notFound,
+    templateHandler: () => errorPage({ linkProps: NOT_FOUND_LINK, pageText: NOT_FOUND_PAGE }),
     layout: LayoutEnum.MAIN,
   },
   [`/${LinkEnum.PROFILE}`]: {
@@ -36,7 +36,7 @@ const ROUTES: RoutesList = Object.freeze({
     layout: LayoutEnum.MAIN,
   },
   [`/${LinkEnum.SERVER_ERROR}`]: {
-    templateHandler: serverError,
+    templateHandler: () => errorPage({ linkProps: SERVER_ERROR_LINK, pageText: SERVER_ERROR_PAGE }),
     layout: LayoutEnum.MAIN,
   },
 });

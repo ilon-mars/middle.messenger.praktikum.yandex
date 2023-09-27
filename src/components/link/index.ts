@@ -1,13 +1,11 @@
 import Handlebars from 'handlebars';
 
 import { tmpl } from './index.tmpl';
+
+import { RouteLink } from '@/types';
+
 import $style from './index.module.sass';
 
-type linkProps = {
-  text: string;
-  to: string;
-};
-
-export const link = (props: linkProps) => {
+export const link = (props: RouteLink) => {
   return Handlebars.compile(tmpl)({ ...props, $style });
 };
