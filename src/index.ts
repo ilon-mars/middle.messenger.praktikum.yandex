@@ -1,10 +1,10 @@
 import { chatPage } from '@/pages/chat/modules/chatWindow';
 import { chatList } from '@/pages/chat/modules/chatList';
-import { loginPage } from '@/pages/login/index';
-import { profilePage } from '@/pages/profile/index';
-import { registerPage } from '@/pages/register/index';
+import { loginPage } from '@/pages/login';
+import { profilePage } from '@/pages/profile';
+import { registerPage } from '@/pages/register';
 import { errorPage } from '@/pages/errorPage';
-import { editProfilePage } from '@/pages/editProfile/index';
+import { editProfilePage } from '@/pages/editProfile';
 
 import mainLayout from '@/layout/main/index.hbs';
 import chatLayout from '@/layout/chat/index.hbs';
