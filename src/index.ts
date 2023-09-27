@@ -5,6 +5,7 @@ import { profilePage } from '@/pages/profile';
 import { registerPage } from '@/pages/register';
 import { errorPage } from '@/pages/errorPage';
 import { editProfilePage } from '@/pages/editProfile';
+import { editPasswordPage } from '@/pages/editPassword';
 
 import mainLayout from '@/layout/main/index.hbs';
 import chatLayout from '@/layout/chat/index.hbs';
@@ -42,6 +43,10 @@ const ROUTES: RoutesList = Object.freeze({
   },
   [`/${LinkEnum.EDIT_PROFILE}`]: {
     templateHandler: editProfilePage,
+    layout: LayoutEnum.MAIN,
+  },
+  [`/${LinkEnum.EDIT_PASSWORD}`]: {
+    templateHandler: editPasswordPage,
     layout: LayoutEnum.MAIN,
   },
 });

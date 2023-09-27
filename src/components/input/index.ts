@@ -10,6 +10,7 @@ type inputProps = {
   type?: string;
   value?: string;
   errorText?: string;
+  isProfile?: boolean;
 };
 
 export const input = (props: inputProps) => {

@@ -44,7 +44,7 @@ export const REPEAT_PASSWORD_INPUT = Object.freeze({
 
 export const LOGIN_BUTTON: RouteLink = Object.freeze({
   text: 'Авторизоваться',
-  to: `/${LinkEnum.LOGIN}`,
+  to: `/${LinkEnum.CHAT}`,
 });
 
 export const LOGIN_LINK: RouteLink = Object.freeze({
@@ -54,7 +54,7 @@ export const LOGIN_LINK: RouteLink = Object.freeze({
 
 export const REGISTER_BUTTON: RouteLink = Object.freeze({
   text: 'Зарегистрироваться',
-  to: `/${LinkEnum.REGISTER}`,
+  to: `/${LinkEnum.CHAT}`,
 });
 
 export const REGISTER_LINK: RouteLink = Object.freeze({
@@ -179,7 +179,28 @@ export const EDIT_PROFILE_INPUTS = [
   },
 ];
 
-export const EDIT_PROFILE_BUTTON: RouteLink = Object.freeze({
+export const SAVE_PROFILE_BUTTON: RouteLink = Object.freeze({
   text: 'Сохранить',
   to: `/${LinkEnum.PROFILE}`,
 });
+
+export const EDIT_PASSWORD_INPUTS = [
+  {
+    labelText: 'Старый пароль',
+    name: 'oldPassword',
+    value: '',
+    errorText: '',
+  },
+  {
+    labelText: 'Новый пароль',
+    name: 'newPassword',
+    value: '',
+    errorText: '',
+  },
+  {
+    labelText: 'Повторите новый пароль',
+    name: 'newPassword',
+    value: '',
+    errorText: '',
+  },
+];
