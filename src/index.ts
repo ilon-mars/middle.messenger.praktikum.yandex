@@ -4,6 +4,7 @@ import { loginPage } from '@/pages/login/index';
 import { profilePage } from '@/pages/profile/index';
 import { registerPage } from '@/pages/register/index';
 import { errorPage } from '@/pages/errorPage';
+import { editProfilePage } from '@/pages/editProfile/index';
 
 import mainLayout from '@/layout/main/index.hbs';
 import chatLayout from '@/layout/chat/index.hbs';
@@ -37,6 +38,10 @@ const ROUTES: RoutesList = Object.freeze({
   },
   [`/${LinkEnum.SERVER_ERROR}`]: {
     templateHandler: () => errorPage({ linkProps: SERVER_ERROR_LINK, pageText: SERVER_ERROR_PAGE }),
+    layout: LayoutEnum.MAIN,
+  },
+  [`/${LinkEnum.EDIT_PROFILE}`]: {
+    templateHandler: editProfilePage,
     layout: LayoutEnum.MAIN,
   },
 });

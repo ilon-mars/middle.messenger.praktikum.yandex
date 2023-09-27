@@ -5,6 +5,6 @@ export const tmpl = `
     </picture>
 
     <span class="h3">{{ name }}</span>
-    <span class="{{ $style.overlay }}">Поменять аватар</span>
+    <a href="{{ to }}" class="{{ $style.overlay }}">Поменять аватар</a>
   </div>
 `;

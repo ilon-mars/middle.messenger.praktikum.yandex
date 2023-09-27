@@ -5,4 +5,5 @@ export enum LinkEnum {
   CHAT = 'chat',
   NOT_FOUND = '400',
   SERVER_ERROR = '500',
+  EDIT_PROFILE = 'edit-profile',
 }

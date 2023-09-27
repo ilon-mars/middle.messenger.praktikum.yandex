@@ -4,6 +4,11 @@ import { tmpl } from './index.tmpl';
 
 import $style from './index.module.sass';
 
-export const avatar = (name: string) => {
-  return Handlebars.compile(tmpl)({ $style, name });
+type avatarProps = {
+  name: string;
+  to: string;
+};
+
+export const avatar = (props: avatarProps) => {
+  return Handlebars.compile(tmpl)({ ...props, $style });
 };

@@ -137,3 +137,49 @@ export const CHATS = [
     counter: '',
   },
 ];
+
+export const EDIT_PROFILE_INPUTS = [
+  {
+    labelText: 'Логин',
+    name: 'login',
+    value: 'ivanivanov',
+    errorText: '',
+  },
+  {
+    labelText: 'Имя в чате',
+    name: 'display_name',
+    value: 'Иван',
+    errorText: '',
+  },
+  {
+    labelText: 'Имя',
+    name: 'first_name',
+    value: 'Иван',
+    errorText: '',
+  },
+  {
+    labelText: 'Фамилия',
+    name: 'second_name',
+    value: 'Иванов',
+    errorText: '',
+  },
+  {
+    labelText: 'Почта',
+    name: 'email',
+    value: 'pochta@yandex.ru',
+    errorText: '',
+    type: 'email',
+  },
+  {
+    labelText: 'Телефон',
+    name: 'phone',
+    value: '+7 (909) 967 30 30',
+    errorText: '',
+    type: 'tel',
+  },
+];
+
+export const EDIT_PROFILE_BUTTON: RouteLink = Object.freeze({
+  text: 'Сохранить',
+  to: `/${LinkEnum.PROFILE}`,
+});
