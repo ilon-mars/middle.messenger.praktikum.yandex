@@ -2,12 +2,15 @@ import Handlebars from 'handlebars';
 
 import { tmpl } from './index.tmpl';
 import { input } from '@/components/input';
+import { button } from '@/components/button';
+
 import {
   EMAIL_INPUT,
   LOGIN_INPUT,
   NAME_INPUT,
   PASSWORD_INPUT,
   PHONE_INPUT,
+  REGISTER_BUTTON,
   REPEAT_PASSWORD_INPUT,
   SECOND_NAME_INPUT,
 } from '@/utils';
@@ -23,6 +26,7 @@ export const content = () => {
     loginInput: input(LOGIN_INPUT),
     passwordInput: input(PASSWORD_INPUT),
     repeatPasswordInput: input(REPEAT_PASSWORD_INPUT),
+    submitButton: button(REGISTER_BUTTON),
     $style,
   });
 };
