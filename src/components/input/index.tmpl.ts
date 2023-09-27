@@ -1,5 +1,5 @@
 export const tmpl = `
-  <div class="{{ $style.field }}">
+  <div class="{{ $style.field }} profile-card">
     <label for="{{ name }}" class="{{ $style.label }}">{{ labelText }}</label>
 
     <input

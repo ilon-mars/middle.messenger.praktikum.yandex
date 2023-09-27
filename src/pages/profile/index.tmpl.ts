@@ -15,7 +15,7 @@ export const tmpl = `
 
       <ul class="{{ $style.cards }}">
         {{#each cards}}
-          <li class="{{ ../$style.card }}">
+          <li class="{{ ../$style.card }} profile-card">
             <span class="text {{ ../$style.caption }}">{{ caption }}</span>
             <span class="h3">{{ text }}</span>
           </li>
