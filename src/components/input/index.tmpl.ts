@@ -6,6 +6,7 @@ export const tmpl = `
       id="{{ name }}"
       name="{{ name }}"
       value="{{ value }}"
+      type="{{#if type }}{{ type }}{{ else }}text{{/if}}"
       class="{{ $style.input }} {{#if errorText}} {{ $style.error }} {{/if}}"
     />
 

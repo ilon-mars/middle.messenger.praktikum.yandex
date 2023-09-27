@@ -11,6 +11,7 @@ export const LOGIN_INPUT = Object.freeze({
 export const PASSWORD_INPUT = Object.freeze({
   labelText: 'Пароль',
   name: 'password',
+  type: 'password',
 });
 
 export const NAME_INPUT = Object.freeze({
@@ -26,16 +27,19 @@ export const SECOND_NAME_INPUT = Object.freeze({
 export const EMAIL_INPUT = Object.freeze({
   labelText: 'Почта',
   name: 'email',
+  type: 'email',
 });
 
 export const PHONE_INPUT = Object.freeze({
   labelText: 'Телефон',
   name: 'phone',
+  type: 'tel',
 });
 
 export const REPEAT_PASSWORD_INPUT = Object.freeze({
   labelText: 'Пароль (еще раз)',
   name: 'repeat_password',
+  type: 'password',
 });
 
 export const LOGIN_BUTTON: RouteLink = Object.freeze({
