@@ -13,7 +13,7 @@ import $style from './index.module.sass';
 export const editProfilePage = () => {
   return Handlebars.compile(tmpl)({
     $style,
-    to: `/${LinkEnum.CHAT}`,
+    goBack: `/${LinkEnum.CHAT}`,
     avatar: avatar({
       name: 'Иван',
       to: `/${LinkEnum.EDIT_PROFILE}`,

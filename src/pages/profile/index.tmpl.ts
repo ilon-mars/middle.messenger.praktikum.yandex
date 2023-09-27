@@ -1,6 +1,6 @@
 export const tmpl = `
   <section class="{{ $style.container }}">
-    <a href="{{ to }}" class="{{ $style.goBack }}">&#8612;</a>
+    <a href="{{ goBack }}" class="{{ $style.goBack }}">&#8612;</a>
 
     <div class="{{ $style.content }}">
       <div class="{{ $style.avatarWrapper }}">
