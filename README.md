@@ -37,5 +37,7 @@ yarn dev
 - Регистрация: https://yup-messenger.netlify.app/registration
 - Чат: https://yup-messenger.netlify.app/chat
 - Профиль: https://yup-messenger.netlify.app/profile
+- Изменить пароль: https://yup-messenger.netlify.app/edit-password
+- Изменить профиль: https://yup-messenger.netlify.app/edit-profile
 - 400: https://yup-messenger.netlify.app/400
 - 500: https://yup-messenger.netlify.app/500

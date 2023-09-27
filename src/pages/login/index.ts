@@ -5,7 +5,9 @@ import { modal } from '@/components/modal';
 import { modalContent } from '@/components/modal/modules/modalContent';
 import { modalControls } from '@/components/modal/modules/modalControls';
 import { content } from '@/pages/login/modules/content';
-import { controls } from './modules/controls';
+import { link } from '@/components/link';
+
+import { LOGIN_LINK } from '@/utils';
 
 export const loginPage = () => {
   return Handlebars.compile(tmpl)({
@@ -15,7 +17,7 @@ export const loginPage = () => {
         content: content(),
       }),
       controls: modalControls({
-        controls: controls(),
+        controls: link(LOGIN_LINK),
       }),
     }),
   });

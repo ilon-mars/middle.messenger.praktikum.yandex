@@ -1,3 +1,3 @@
 export const tmpl = `
-  <section class="{{ $style.content }}">{{{ content }}}</section>
+  <form class="{{ $style.content }}" action="#">{{{ content }}}</form>
 `;
