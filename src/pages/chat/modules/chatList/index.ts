@@ -1,11 +1,12 @@
 import Handlebars from 'handlebars';
 
 import { tmpl } from './index.tmpl';
-import $style from './index.module.sass';
+import { chatItem } from '@/pages/chat/modules/chatItem';
 
 import { LinkEnum } from '@/enums';
 import { CHATS } from '@/utils';
-import { chatItem } from '../chatItem';
+
+import $style from './index.module.sass';
 
 export const chatList = () => {
   return Handlebars.compile(tmpl)({
