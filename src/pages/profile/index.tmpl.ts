@@ -3,12 +3,8 @@ export const tmpl = `
     <a href="{{ to }}" class="{{ $style.goBack }}">&#8612;</a>
 
     <div class="{{ $style.content }}">
-      <div class="{{ $style.avatar }}">
-        <div class="{{ $style.imageWrapper }}">
-          <img class="{{ $style.image }}">
-        </div>
-        <span class="h3">{{ name }}</span>
-        <span class="{{ $style.overlay }}">Поменять аватар</span>
+      <div class="{{ $style.avatarWrapper }}">
+        {{{ avatar }}}
       </div>
 
       <div class="{{ $style.controls }}">
