@@ -1,0 +1,15 @@
+.chat-layout
+  width: 100%
+  height: 100%
+  display: grid
+  grid-template-columns: 310px 1fr
+  grid-template-areas: "list window"
+
+.chat-list
+  grid-area: list
+  border-right: 1px solid $border-base-light
+  background-color: $bg-base-dark
+
+.chat-window
+  grid-area: window
+  +centering
