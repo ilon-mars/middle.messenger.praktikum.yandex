@@ -31,6 +31,18 @@ yarn start
 yarn dev
 ```
 
+Запуск линтера с фиксом ошибок:
+
+```bash
+yarn lint
+```
+
+Запуск проверки типов tsc:
+
+```bash
+yarn prebuild
+```
+
 ### Ссылки на страницы:
 
 - Логин: https://yup-messenger.netlify.app/
