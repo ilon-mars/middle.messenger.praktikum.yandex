@@ -1,4 +1,4 @@
-import { chatPage } from '@/pages/chat/modules/chatWindow';
+import { chatPage } from '@/pages/chat/modules/window';
 import { chatList } from '@/pages/chat/modules/chatList';
 import { loginPage } from '@/pages/login';
 import { profilePage } from '@/pages/profile';
