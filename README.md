@@ -53,3 +53,7 @@ yarn prebuild
 - Изменить профиль: https://yup-messenger.netlify.app/edit-profile
 - 400: https://yup-messenger.netlify.app/400
 - 500: https://yup-messenger.netlify.app/500
+
+#### Особенности stylelint
+
+Stylelint добавлен в проект из-за тестов, самого линтинга на основе stylelint нет, т.к. для sass-файлов он не работает (из-за особенностей sass-файла: нет скобок и точек запятой, все основано на отступах).
