@@ -9,7 +9,15 @@
   grid-area: list
   border-right: 1px solid $border-base-light
   background-color: $bg-base-dark
+  height: 100%
+  overflow: hidden
 
 .chat-window
   grid-area: window
-  +centering
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-direction: column
+  padding: 0 $space-s
+  height: 100%
+  overflow: hidden
