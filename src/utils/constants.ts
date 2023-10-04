@@ -2,6 +2,8 @@ import { ChatParticipantEnum, LinkEnum, MessageStatusEnum } from '@/enums';
 import { ErrorPage, RouteLink } from '@/types';
 import { ReceiverMessage, SenderMessage } from '@/types/ChatMessage';
 
+export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager: true });
+
 export const LOGIN_INPUT = Object.freeze({
   labelText: 'Логин',
   errorText: 'Неверный логин',
