@@ -1,4 +1,5 @@
 @import '@/assets/styles/utils/_vars.sass'
+@import '@/assets/styles/utils/_mixins.sass'
 
 .field
   display: flex
@@ -18,7 +19,8 @@
   font-size: 14px
   line-height: 140%
   padding-bottom:  $space-xxs
-  transition: border-color $transition-duration ease-in-out
+  transition-property: border-color
+  +transition
 
   &:active, &:focus
     border-color: $fg-role-active
