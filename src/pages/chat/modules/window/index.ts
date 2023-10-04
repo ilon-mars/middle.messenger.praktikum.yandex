@@ -11,6 +11,6 @@ export const chatPage = () => {
     $style,
     chat: chatSection(),
     stub: windowStub(),
-    chatIsSelected: false,
+    chatIsSelected: true,
   });
 };
