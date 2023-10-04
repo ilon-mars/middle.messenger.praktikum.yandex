@@ -12,7 +12,7 @@ export const content = () => {
   return Handlebars.compile(tmpl)({
     loginInput: input(LOGIN_INPUT),
     passwordInput: input(PASSWORD_INPUT),
-    submitButton: button(LOGIN_BUTTON),
+    submitButton: button({ ...LOGIN_BUTTON, hasIcon: true }),
     $style,
   });
 };

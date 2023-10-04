@@ -1,5 +1,9 @@
 export const tmpl = `
-  <div class="{{ $style.buttonWrapper }}">
-    <a href="{{ to }}" class="{{ $style.button }}">{{ text }}</a>
-  </div>
+  <a href="{{ to }}" class="{{ $style.button }}">
+    <span class="{{ $style.text }}">{{ text }}</span>
+
+    {{#if hasIcon}}
+      <span class="{{ $style.icon }}">{{{ icon }}}</span>
+    {{/if}}
+  </a>
 `;

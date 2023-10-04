@@ -26,7 +26,7 @@ export const content = () => {
     loginInput: input(LOGIN_INPUT),
     passwordInput: input(PASSWORD_INPUT),
     repeatPasswordInput: input(REPEAT_PASSWORD_INPUT),
-    submitButton: button(REGISTER_BUTTON),
+    submitButton: button({ ...REGISTER_BUTTON, hasIcon: true }),
     $style,
   });
 };

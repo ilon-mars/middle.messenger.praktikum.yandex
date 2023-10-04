@@ -14,6 +14,6 @@ export const editPasswordPage = () => {
     $style,
     goBack: `/${LinkEnum.PROFILE}`,
     inputs: EDIT_PASSWORD_INPUTS.map(item => input({ ...item, isProfile: true })).join(' '),
-    saveButton: button(SAVE_PROFILE_BUTTON),
+    saveButton: button({ ...SAVE_PROFILE_BUTTON, hasIcon: true }),
   });
 };
