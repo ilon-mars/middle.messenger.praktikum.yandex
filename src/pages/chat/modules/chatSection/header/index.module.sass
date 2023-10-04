@@ -1,0 +1,45 @@
+@import '@/assets/styles/utils/_vars.sass'
+@import '@/assets/styles/utils/_mixins.sass'
+
+.header
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: $space-xs 0
+  border-bottom: 1px solid $border-base-light
+  width: 100%
+  height: 52px
+
+.avatar
+  display: flex
+  align-items: center
+  width: 36px
+  height: 36px
+
+.imageWrapper
+  width: 100%
+  height: 100%
+  aspect-ratio: 1/1
+  padding: $space-xxs
+  margin-right: $space-xs
+  +centering
+  +dashed-border($space-xxs)
+
+.image
+  width: 100%
+  height: 100%
+  object-fit: cover
+  aspect-ratio: 1/1
+  background-color: $base-neutral
+
+.name
+  font-size: 14px
+  font-weight: $font-weight-m
+  color: $base-neutral
+
+.menuButton
+  color: $base-light
+  cursor: pointer
+
+  svg
+    fill: currentColor

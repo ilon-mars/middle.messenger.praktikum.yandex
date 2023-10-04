@@ -137,6 +137,54 @@ export const CHATS = [
     time: '3 мая 2022',
     counter: '',
   },
+  {
+    name: 'Андрей',
+    text: 'Изображение',
+    time: '10:49',
+    counter: '2',
+  },
+  {
+    name: 'Андрей',
+    text: 'Изображение',
+    time: 'Пн',
+    counter: '2333',
+  },
+  {
+    name: 'Андрей',
+    text: 'Изображение',
+    time: '1 мая 2022',
+    counter: '2',
+  },
+  {
+    name: 'Андрей',
+    text: 'Изображение',
+    time: '3 мая 2022',
+    counter: '',
+  },
+  {
+    name: 'Андрей',
+    text: 'Изображение',
+    time: '10:49',
+    counter: '2',
+  },
+  {
+    name: 'Андрей',
+    text: 'Изображение',
+    time: 'Пн',
+    counter: '2333',
+  },
+  {
+    name: 'Андрей',
+    text: 'Изображение',
+    time: '1 мая 2022',
+    counter: '2',
+  },
+  {
+    name: 'Андрей',
+    text: 'Изображение',
+    time: '3 мая 2022',
+    counter: '',
+  },
 ];
 
 export const EDIT_PROFILE_INPUTS = [
