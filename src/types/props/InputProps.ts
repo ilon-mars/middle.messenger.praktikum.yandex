@@ -9,7 +9,8 @@ type InputName =
   | 'message'
   | 'repeat_password'
   | 'oldPassword'
-  | 'newPassword';
+  | 'newPassword'
+  | 'display_name';
 type InputType = 'text' | 'email' | 'password' | 'tel' | 'search';
 
 export type InputProps = {

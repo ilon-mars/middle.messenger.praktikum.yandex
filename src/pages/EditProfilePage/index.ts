@@ -5,12 +5,11 @@ import { tmpl } from './index.tmpl';
 import { MainButton } from '@/components/Button';
 import { Avatar } from '@/components/Avatar';
 import { GoBack } from '@/components/GoBack';
-// import { Input } from '@/components/Input';
+import { Input } from '@/components/Input';
 
 import { EditProfilePageProps } from '@/types';
-import { PROFILE_AVATAR, SAVE_PROFILE_BUTTON } from '@/utils';
+import { PROFILE_AVATAR, SAVE_PROFILE_BUTTON, EDIT_PROFILE_INPUTS } from '@/utils';
 import { LinkEnum } from '@/enums';
-// import { EDIT_PASSWORD_INPUTS } from '@/utils';
 
 import $style from './index.module.sass';
 
@@ -24,7 +23,7 @@ export class EditProfilePage extends Block {
   }
 
   init() {
-    // this.children.inputs = EDIT_PASSWORD_INPUTS.map(item => new Input(item, 'profile-card')).join(' ');
+    this.children.inputs = EDIT_PROFILE_INPUTS.map(item => new Input(item, 'profile-card'));
     this.children.avatar = new Avatar(PROFILE_AVATAR);
     this.children.goBack = new GoBack({ to: `/${LinkEnum.PROFILE}` });
     this.children.saveButton = new MainButton({

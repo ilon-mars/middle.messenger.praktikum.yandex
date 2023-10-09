@@ -5,6 +5,6 @@ export const tmpl = `
   </header>
 
   <ul class="{{ $style.chats }}">
-    {{{ chats }}}
+    {{{chats}}}
   </ul>
 `;

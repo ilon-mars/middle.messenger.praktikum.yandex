@@ -189,7 +189,7 @@ export const CHATS = [
   },
 ];
 
-export const EDIT_PROFILE_INPUTS = [
+export const EDIT_PROFILE_INPUTS: InputProps[] = [
   {
     labelText: 'Логин',
     name: 'login',
