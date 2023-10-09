@@ -65,7 +65,7 @@ export const REGISTER_LINK: RouteLink = Object.freeze({
   to: `/${LinkEnum.LOGIN}`,
 });
 
-export const NOT_FOUND_PAGE: ErrorPage = Object.freeze({
+export const NOT_FOUND_PAGE: ErrorPageContent = Object.freeze({
   errorNumber: '404',
   text: 'Не туда попали',
 });
@@ -75,7 +75,7 @@ export const NOT_FOUND_LINK: RouteLink = Object.freeze({
   to: `/${LinkEnum.CHAT}`,
 });
 
-export const SERVER_ERROR_PAGE: ErrorPage = Object.freeze({
+export const SERVER_ERROR_PAGE: ErrorPageContent = Object.freeze({
   errorNumber: '500',
   text: 'Мы уже фиксим',
 });

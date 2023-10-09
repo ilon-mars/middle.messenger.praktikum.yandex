@@ -1,21 +1,31 @@
-import Handlebars from 'handlebars';
+import { Block } from '@/core/Block';
 
 import { tmpl } from './index.tmpl';
-import { link } from '@/components/link';
 
-import { ErrorPage, RouteLink } from '@/types';
+import { Link } from '@/components/Link';
+
+import { ErrorPageProps } from '@/types';
+import { navigateTo } from '@/utils';
 
 import $style from './index.module.sass';
 
-type errorPageProps = {
-  linkProps: RouteLink;
-  pageText: ErrorPage;
-};
+export class ErrorPage extends Block {
+  constructor(props: ErrorPageProps) {
+    super('main', {
+      ...props,
+      classes: [$style.container, 'main-layout'],
+      $style,
+    });
+  }
 
-export const errorPage = ({ linkProps, pageText }: errorPageProps) => {
-  return Handlebars.compile(tmpl)({
-    $style,
-    link: link(linkProps),
-    ...pageText,
-  });
-};
+  init() {
+    this.children.link = new Link({
+      ...this.props.linkProps,
+      events: { click: () => navigateTo(this.props.linkProps.to) },
+    });
+  }
+
+  render() {
+    return this.compile(tmpl, this.props);
+  }
+}
