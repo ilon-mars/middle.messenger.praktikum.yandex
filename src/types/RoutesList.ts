@@ -1,9 +1,10 @@
+import { Block } from '@/core/Block';
 import { LayoutsList } from './LayoutsList';
 
 export type RoutesList = Record<
   string,
   {
-    templateHandler: (props?: unknown) => string;
+    component: Block;
     layout: LayoutsList;
   }
 >;

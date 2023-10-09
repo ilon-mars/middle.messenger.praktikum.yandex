@@ -2,15 +2,15 @@ import { Block } from '@/core/Block';
 
 import { tmpl } from './index.tmpl';
 
-import { AvatarProps } from '@/types';
+import { ChatItemProps } from '@/types';
 
 import $style from './index.module.sass';
 
-export class Avatar extends Block {
-  constructor(props: AvatarProps, className: string = '') {
-    super('div', {
+export class ChatItem extends Block {
+  constructor(props: ChatItemProps) {
+    super('li', {
       ...props,
-      classes: [$style.avatar, $style[className]],
+      classes: [$style.wrapper],
       $style,
     });
   }

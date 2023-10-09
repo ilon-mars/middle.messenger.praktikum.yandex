@@ -5,3 +5,4 @@ export * from './queryStringify';
 export * from './customFetch';
 export * from './getRawSvg';
 export * from './createIconsMap';
+export * from './navigateTo';

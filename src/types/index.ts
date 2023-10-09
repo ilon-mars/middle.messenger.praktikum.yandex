@@ -1,6 +1,6 @@
 export * from './RoutesList';
 export * from './LayoutsList';
-export * from './ChatItem';
+export * from './props/ChatItemProps';
 export * from './RouteLink';
 export * from './ErrorPageContent';
 export * from './FetchOptions';
