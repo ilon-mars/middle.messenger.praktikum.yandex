@@ -235,7 +235,7 @@ export const SAVE_PROFILE_BUTTON: RouteLink = Object.freeze({
   to: `/${LinkEnum.PROFILE}`,
 });
 
-export const EDIT_PASSWORD_INPUTS = [
+export const EDIT_PASSWORD_INPUTS: InputProps[] = [
   {
     labelText: 'Старый пароль',
     name: 'oldPassword',
