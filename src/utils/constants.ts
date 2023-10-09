@@ -312,3 +312,23 @@ export const PROFILE_PAGE: ProfilePageProps = {
 export const EDIT_PAGE: EditPasswordPageProps = {
   goBack: `/${LinkEnum.CHAT}`,
 };
+
+export const GO_TO_PROFILE: RouteLink = Object.freeze({
+  text: 'Профиль',
+  to: `/${LinkEnum.PROFILE}`,
+});
+
+export const EDIT_PROFILE: RouteLink = Object.freeze({
+  text: 'Изменить данные',
+  to: `/${LinkEnum.EDIT_PROFILE}`,
+});
+
+export const EDIT_PASSWORD: RouteLink = Object.freeze({
+  text: 'Изменить пароль',
+  to: `/${LinkEnum.EDIT_PASSWORD}`,
+});
+
+export const LOGOUT: RouteLink = Object.freeze({
+  text: 'Выйти',
+  to: `/${LinkEnum.LOGIN}`,
+});

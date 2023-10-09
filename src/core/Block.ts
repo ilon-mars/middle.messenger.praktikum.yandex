@@ -218,6 +218,13 @@ export abstract class Block<T extends Record<string, any> = any> {
       const classes: string = this.props.classes.filter((item: string) => item);
       element.classList.add(...classes);
     }
+
+    if (this.props.attrs && this.props.attrs.length) {
+      this.props.attrs.forEach((attr: Record<string, string>) => {
+        const [name, value] = Object.entries(attr)[0];
+        element.setAttribute(name, value);
+      });
+    }
     return element;
   }
 

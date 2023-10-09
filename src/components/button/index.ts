@@ -11,6 +11,7 @@ export class Button extends Block {
     super('button', {
       ...props,
       classes: [$style.button, $style.small],
+      attrs: [{ type: 'button' }],
       $style,
     });
   }

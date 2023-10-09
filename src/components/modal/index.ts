@@ -74,14 +74,12 @@ export class RegisterModal extends Modal {
     this.children.personalButton = new Button({
       text: 'Личные данные',
       icon: new Icon({ name: 'arrow' }),
-      type: 'button',
       events: { click: () => console.log('Click') },
     });
 
     this.children.accountButton = new Button({
       text: 'Данные профиля',
       icon: new Icon({ name: 'arrow' }),
-      type: 'button',
       events: { click: () => console.log('Click') },
     });
 

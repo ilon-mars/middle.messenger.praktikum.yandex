@@ -7,9 +7,9 @@ export const tmpl = `
     </div>
 
     <div class="{{ $style.controls }}">
-      <a href="{{ editProfile }}" class="{{ $style.button }}">Изменить данные</a>
-      <a href="{{ editPassword }}" class="{{ $style.button }}">Изменить пароль</a>
-      <a href="{{ logout }}" class="{{ $style.logout }}">Выйти</a>
+      {{{editProfileLink}}}
+      {{{editPasswordLink}}}
+      {{{logout}}}
     </div>
 
     <ul class="{{ $style.cards }}">

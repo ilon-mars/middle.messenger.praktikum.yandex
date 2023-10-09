@@ -7,8 +7,13 @@ import { LinkProps } from '@/types';
 import $style from './index.module.sass';
 
 export class Link extends Block {
-  constructor(props: LinkProps) {
-    super('button', { ...props, classes: [$style.link], $style });
+  constructor(props: LinkProps, className: string = '') {
+    super('a', {
+      ...props,
+      classes: [$style.link, $style[className]],
+      attrs: [{ href: props.to }],
+      $style,
+    });
   }
 
   render() {

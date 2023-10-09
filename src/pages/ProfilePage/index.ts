@@ -4,8 +4,9 @@ import { tmpl } from './index.tmpl';
 
 import { Avatar } from '@/components/Avatar';
 import { GoBack } from '@/components/GoBack';
+import { Link } from '@/components/Link';
 
-import { PROFILE_AVATAR, PROFILE_INFO_CARDS } from '@/utils';
+import { EDIT_PASSWORD, EDIT_PROFILE, LOGOUT, PROFILE_AVATAR, PROFILE_INFO_CARDS } from '@/utils';
 import { ProfilePageProps } from '@/types';
 import { LinkEnum } from '@/enums';
 
@@ -24,6 +25,9 @@ export class ProfilePage extends Block {
   init() {
     this.children.avatar = new Avatar(PROFILE_AVATAR);
     this.children.goBack = new GoBack({ to: `/${LinkEnum.CHAT}` });
+    this.children.editProfileLink = new Link(EDIT_PROFILE);
+    this.children.editPasswordLink = new Link(EDIT_PASSWORD);
+    this.children.logout = new Link(LOGOUT, 'logout');
   }
 
   render() {

@@ -9,13 +9,3 @@ export const tmpl = `
     </svg>
   </button>
 `;
-
-/*
-<div class="{{ $style.avatar }}">
-      <picture class="{{ $style.imageWrapper }}">
-        <img class="{{ $style.image }}">
-      </picture>
-
-      <span class="{{ $style.name }}">{{ name }}</span>
-    </div>
-*/
