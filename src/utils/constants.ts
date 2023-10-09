@@ -296,3 +296,11 @@ export const MESSAGES: Array<SenderMessage | ReceiverMessage> = [
     time: '15:40',
   },
 ];
+export const PROFILE_AVATAR: AvatarProps = {
+  name: 'Иван',
+  to: `/${LinkEnum.EDIT_PROFILE}`,
+};
+
+export const EDIT_PAGE: EditPasswordPageProps = {
+  goBack: `/${LinkEnum.CHAT}`,
+};
