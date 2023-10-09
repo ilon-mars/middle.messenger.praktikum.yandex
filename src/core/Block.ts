@@ -13,7 +13,7 @@ export abstract class Block<T extends Record<string, any> = any> {
   } as const;
 
   public id = uuid();
-  public children: Record<string, Block>;
+  public children: Record<string, Block | Block[]>;
 
   protected props: T;
 
@@ -41,12 +41,14 @@ export abstract class Block<T extends Record<string, any> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  #getChildrenAndProps(childrenAndProps: T): { props: T; children: Record<string, Block> } {
+  #getChildrenAndProps(childrenAndProps: T): { props: T; children: Record<string, Block | Block[]> } {
     const props: Record<string, unknown> = {};
-    const children: Record<string, Block> = {};
+    const children: Record<string, Block | Block[]> = {};
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
-      if (value instanceof Block) {
+      if (Array.isArray(value) && value.length > 0 && value.every(item => item instanceof Block)) {
+        children[key as string] = value;
+      } else if (value instanceof Block) {
         children[key as string] = value;
       } else {
         props[key] = value;
@@ -95,7 +97,13 @@ export abstract class Block<T extends Record<string, any> = any> {
   public dispatchComponentDidMount() {
     this.#eventBus().emit(Block.EVENTS.FLOW_CDM);
 
-    Object.values(this.children).forEach(child => child.dispatchComponentDidMount());
+    Object.values(this.children).forEach(child => {
+      if (Array.isArray(child)) {
+        child.forEach(item => item.dispatchComponentDidMount());
+      } else {
+        child.dispatchComponentDidMount();
+      }
+    });
   }
 
   #componentShouldUpdate(oldProps: T, newProps: T) {
@@ -136,7 +144,11 @@ export abstract class Block<T extends Record<string, any> = any> {
     const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
-      contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
+      if (Array.isArray(component)) {
+        contextAndStubs[name] = component.map(child => `<div data-id="${child.id}"></div>`).join('');
+      } else {
+        contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
+      }
     });
 
     const html = Handlebars.compile(template)(contextAndStubs);
@@ -145,8 +157,7 @@ export abstract class Block<T extends Record<string, any> = any> {
 
     temp.innerHTML = html;
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    Object.entries(this.children).forEach(([_, component]) => {
+    const replaceStub = (component: Block) => {
       const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
 
       if (!stub) {
@@ -156,6 +167,15 @@ export abstract class Block<T extends Record<string, any> = any> {
       component.getContent()?.append(...Array.from(stub.childNodes));
 
       stub.replaceWith(component.getContent()!);
+    };
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    Object.entries(this.children).forEach(([_, component]) => {
+      if (Array.isArray(component)) {
+        component.forEach(replaceStub);
+      } else {
+        replaceStub(component);
+      }
     });
 
     return temp.content;
