@@ -4,4 +4,5 @@ export * from './props/ChatItemProps';
 export * from './RouteLink';
 export * from './ErrorPageContent';
 export * from './FetchOptions';
+export * from './Optional';
 export * from './props';

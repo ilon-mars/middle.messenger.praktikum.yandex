@@ -2,9 +2,10 @@ import { Block } from '@/core/Block';
 
 import { loginTmpl, registerTmpl } from './index.tmpl';
 
-import { Button } from '@/components/Button';
+import { MainButton, Button } from '@/components/Button';
 import { EmailInput, LoginInput, NameInput, PasswordInput, PhoneInput } from '@/components/Input';
 import { Link } from '@/components/Link';
+import { Icon } from '@/components/Icon';
 
 import { ModalProps } from '@/types';
 import {
@@ -42,9 +43,9 @@ export class LoginModal extends Modal {
     this.children.loginInput = new LoginInput(LOGIN_INPUT);
     this.children.passwordInput = new PasswordInput(PASSWORD_INPUT);
 
-    this.children.submitButton = new Button({
+    this.children.submitButton = new MainButton({
       ...LOGIN_BUTTON,
-      hasIcon: true,
+      icon: new Icon({ name: 'arrow-tail' }),
       events: { click: () => console.log('Click') },
     });
 
@@ -70,9 +71,23 @@ export class RegisterModal extends Modal {
     this.children.passwordInput = new PasswordInput(PASSWORD_INPUT);
     this.children.repeatPasswordInput = new PasswordInput(REPEAT_PASSWORD_INPUT);
 
-    this.children.submitButton = new Button({
+    this.children.personalButton = new Button({
+      text: 'Личные данные',
+      icon: new Icon({ name: 'arrow' }),
+      type: 'button',
+      events: { click: () => console.log('Click') },
+    });
+
+    this.children.accountButton = new Button({
+      text: 'Данные профиля',
+      icon: new Icon({ name: 'arrow' }),
+      type: 'button',
+      events: { click: () => console.log('Click') },
+    });
+
+    this.children.submitButton = new MainButton({
       ...REGISTER_BUTTON,
-      hasIcon: true,
+      icon: new Icon({ name: 'arrow-tail' }),
       events: { click: () => console.log('Click') },
     });
 

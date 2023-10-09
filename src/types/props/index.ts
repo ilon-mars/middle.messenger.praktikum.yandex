@@ -3,6 +3,7 @@ export * from './InputProps';
 export * from './LinkProps';
 export * from './ModalProps';
 export * from './AvatarProps';
+export * from './IconProps';
 export * from './ErrorPageProps';
 export * from './AuthPageProps';
 export * from './ProfilePageProps';

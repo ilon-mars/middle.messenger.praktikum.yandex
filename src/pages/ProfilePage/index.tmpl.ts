@@ -1,5 +1,5 @@
 export const tmpl = `
-  <a href="{{ goBack }}" class="{{ $style.goBack }}">&#8612;</a>
+  {{{ goBack }}}
 
   <div class="{{ $style.content }}">
     <div class="{{ $style.avatarWrapper }}">
