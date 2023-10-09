@@ -1,20 +1,17 @@
-import Handlebars from 'handlebars';
+import { Block } from '@/core/Block';
 
 import { tmpl } from './index.tmpl';
-import { icon } from '@/components/icon';
 
-import { RouteLink } from '@/types';
+import { ButtonProps } from '@/types';
 
 import $style from './index.module.sass';
 
-type ButtonProps = {
-  hasIcon: boolean;
-} & RouteLink;
+export class Button extends Block {
+  constructor(props: ButtonProps) {
+    super('button', { ...props, classes: [$style.button], $style });
+  }
 
-export const button = (props: ButtonProps) => {
-  return Handlebars.compile(tmpl)({
-    ...props,
-    icon: icon('arrow-tail'),
-    $style,
-  });
-};
+  render() {
+    return this.compile(tmpl, this.props);
+  }
+}
