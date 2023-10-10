@@ -13,10 +13,3 @@ export const baseInputTmpl = `
     <span class="{{ $style.errorText }}">{{ errorText }}</span>
   {{/if}}
 `;
-
-export const searchInputTmpl = `<input type="search" class="{{ $style.search }}" placeholder="Поиск" name="search" />`;
-
-export const messageInputTmpl = `
-  <textarea name="message" class="{{ $style.messageInput }}" placeholder="Сообщение"></textarea>
-  <button class="{{ $style.sendButton }}">{{{icon}}}</button>
-`;

@@ -11,7 +11,7 @@ export class Link extends Block {
     super('a', {
       ...props,
       classes: [$style.link, $style[className]],
-      attrs: [{ href: props.to }],
+      attrs: { href: props.to },
       $style,
     });
   }

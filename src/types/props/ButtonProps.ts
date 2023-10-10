@@ -10,6 +10,6 @@ type Attributes = {
 
 export type ButtonProps = {
   icon?: Block;
-  attrs?: Attributes[];
+  attrs?: Attributes;
   events?: Record<string, () => void>;
 } & Optional<RouteLink, 'to'>;

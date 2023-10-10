@@ -1,6 +1,6 @@
 import { Block } from '@/core/Block';
 
-import { baseInputTmpl, searchInputTmpl, messageInputTmpl } from './index.tmpl';
+import { baseInputTmpl } from './index.tmpl';
 
 import { InputProps, SearchInputProps, MessageInputProps } from '@/types';
 import { EMAIL_INPUT, LOGIN_INPUT, PASSWORD_INPUT, PHONE_INPUT } from '@/utils';
@@ -53,28 +53,37 @@ export class PhoneInput extends Input {
 
 export class SearchInput extends Block {
   constructor(props: SearchInputProps, $style: CSSModuleClasses) {
-    super('form', {
+    super('input', {
       ...props,
-      classes: [$style.searchWrapper],
+      classes: [$style.search],
+      attrs: {
+        placeholder: 'Поиск',
+        name: 'search',
+        type: 'search',
+      },
       $style,
     });
   }
 
   render() {
-    return this.compile(searchInputTmpl, this.props);
+    return this.compile('', this.props);
   }
 }
 
 export class MessageInput extends Block {
   constructor(props: MessageInputProps, $style: CSSModuleClasses) {
-    super('form', {
+    super('textarea', {
       ...props,
-      classes: [$style.messageForm],
+      classes: [$style.messageInput],
+      attrs: {
+        name: 'message',
+        placeholder: 'Сообщение',
+      },
       $style,
     });
   }
 
   render() {
-    return this.compile(messageInputTmpl, this.props);
+    return this.compile('', this.props);
   }
 }

@@ -1,7 +1,9 @@
 export const tmpl = `
   <header class="{{ $style.header }}">
     {{{link}}}
-    {{{ searchInput }}}
+    <form name="search" action="#" class="{{ $style.searchWrapper }}">
+      {{{ searchInput }}}
+    </form>
   </header>
 
   <ul class="{{ $style.chats }}">

@@ -15,7 +15,7 @@ export class Footer extends Block {
   }
 
   init() {
-    this.children.messageInput = new MessageInput({ name: 'message' }, $style);
+    this.children.messageInput = new MessageInput({}, $style);
   }
 
   render() {
