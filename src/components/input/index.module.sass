@@ -6,6 +6,16 @@
   flex-direction: column
   width: 100%
 
+  &.error
+    .input
+      color: $fg-role-warning
+      border-color: $fg-role-warning
+      margin-bottom: $space-xs
+
+    .label
+      color: $fg-role-warning
+
+
 .label
   color: $base-neutral
   margin-bottom: $space-xs
@@ -24,11 +34,6 @@
 
   &:active, &:focus
     border-color: $fg-role-active
-
-  &.error
-    color: $fg-role-warning
-    border-color: $fg-role-warning
-    margin-bottom: $space-xs
 
 .errorText
   color: $fg-role-warning

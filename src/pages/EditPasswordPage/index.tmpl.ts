@@ -4,7 +4,9 @@ export const tmpl = `
 
     <form class="{{ $style.content }}" action="#">
       <div class="{{ $style.inputs }}">
-        {{{ inputs }}}
+        {{{ oldPassword }}}
+        {{{ newPassword }}}
+        {{{ repeatPassword }}}
       </div>
 
       <div class="{{ $style.controls }}">

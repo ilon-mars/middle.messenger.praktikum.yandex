@@ -6,8 +6,8 @@ export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager
 
 export const LOGIN_INPUT = Object.freeze({
   labelText: 'Логин',
-  errorText: 'Неверный логин',
-  value: '121',
+  errorText: '',
+  value: '',
   name: 'login',
 });
 
@@ -43,6 +43,25 @@ export const REPEAT_PASSWORD_INPUT = Object.freeze({
   labelText: 'Пароль (еще раз)',
   name: 'repeat_password',
   type: 'password',
+});
+
+export const NEW_PASSWORD_INPUT = Object.freeze({
+  labelText: 'Новый пароль',
+  name: 'newPassword',
+  type: 'password',
+});
+
+export const REPEAT_NEW_PASSWORD_INPUT = Object.freeze({
+  labelText: 'Повторите новый пароль',
+  name: 'newPassword',
+  type: 'password',
+});
+
+export const DISPLAY_NAME_INPUT = Object.freeze({
+  labelText: 'Имя в чате',
+  name: 'display_name',
+  value: 'Иван',
+  errorText: '',
 });
 
 export const LOGIN_BUTTON: RouteLink = Object.freeze({
@@ -186,47 +205,6 @@ export const CHATS = [
     text: 'Изображение',
     time: '3 мая 2022',
     counter: '',
-  },
-];
-
-export const EDIT_PROFILE_INPUTS: InputProps[] = [
-  {
-    labelText: 'Логин',
-    name: 'login',
-    value: 'ivanivanov',
-    errorText: '',
-  },
-  {
-    labelText: 'Имя в чате',
-    name: 'display_name',
-    value: 'Иван',
-    errorText: '',
-  },
-  {
-    labelText: 'Имя',
-    name: 'first_name',
-    value: 'Иван',
-    errorText: '',
-  },
-  {
-    labelText: 'Фамилия',
-    name: 'second_name',
-    value: 'Иванов',
-    errorText: '',
-  },
-  {
-    labelText: 'Почта',
-    name: 'email',
-    value: 'pochta@yandex.ru',
-    errorText: '',
-    type: 'email',
-  },
-  {
-    labelText: 'Телефон',
-    name: 'phone',
-    value: '+7 (909) 967 30 30',
-    errorText: '',
-    type: 'tel',
   },
 ];
 

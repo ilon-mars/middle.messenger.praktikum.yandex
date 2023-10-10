@@ -9,7 +9,12 @@ export const tmpl = `
       <input type="file" name="avatar" class="{{ $style.fileInput }}" />
 
       <div class="{{ $style.inputs }}">
-        {{{ inputs }}}
+        {{{ loginInput }}}
+        {{{ displayNameInput }}}
+        {{{ nameInput }}}
+        {{{ secondNameInput }}}
+        {{{ emailInput }}}
+        {{{ phoneInput }}}
       </div>
 
       <div class="{{ $style.controls }}">

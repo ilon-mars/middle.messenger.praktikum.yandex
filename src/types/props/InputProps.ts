@@ -19,7 +19,7 @@ export type InputProps = {
   type?: InputType;
   value?: string;
   errorText?: string;
-  events?: Record<string, () => void>;
+  events?: Record<string, (e?: Event) => void>;
 };
 
 export type SearchInputProps = Omit<InputProps, 'labelText' | 'errorText'>;

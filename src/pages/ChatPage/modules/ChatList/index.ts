@@ -11,6 +11,8 @@ import { CHATS, GO_TO_PROFILE } from '@/utils';
 import $style from './index.module.sass';
 
 export class ChatList extends Block {
+  #search = '';
+
   constructor() {
     super('aside', {
       classes: ['chat-list'],
@@ -20,8 +22,20 @@ export class ChatList extends Block {
 
   init() {
     this.children.link = new Link(GO_TO_PROFILE, 'chat');
-    this.children.searchInput = new SearchInput({}, $style);
     this.children.chats = CHATS.map(chat => new ChatItem(chat));
+    this.children.searchInput = new SearchInput(
+      {
+        value: '',
+        events: {
+          input: e => {
+            const target = e?.target;
+
+            this.#search = (target as HTMLInputElement).value || '';
+          },
+        },
+      },
+      $style,
+    );
   }
 
   render() {
