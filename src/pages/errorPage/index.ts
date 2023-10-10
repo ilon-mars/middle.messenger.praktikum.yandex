@@ -5,7 +5,6 @@ import { tmpl } from './index.tmpl';
 import { Link } from '@/components/Link';
 
 import { ErrorPageProps } from '@/types';
-import { navigateTo } from '@/utils';
 
 import $style from './index.module.sass';
 
@@ -19,10 +18,7 @@ export class ErrorPage extends Block {
   }
 
   init() {
-    this.children.link = new Link({
-      ...this.props.linkProps,
-      events: { click: () => navigateTo(this.props.linkProps.to) },
-    });
+    this.children.link = new Link(this.props.linkProps);
   }
 
   render() {
