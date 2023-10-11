@@ -27,6 +27,7 @@ export class Input extends Block {
     return this.compile(baseInputTmpl, this.props);
   }
 
+  // метод будет перезаписан
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   checkField(_target: HTMLInputElement, _field: { value: string; isValid: boolean }) {}
 }

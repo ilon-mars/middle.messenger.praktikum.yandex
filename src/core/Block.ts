@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 
 import { EventBus } from './EventBus';
 
+// может быть любая структура
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export abstract class Block<T extends Record<string, any> = any> {
   static EVENTS = {
@@ -112,6 +113,7 @@ export abstract class Block<T extends Record<string, any> = any> {
     }
   }
 
+  // метод будет перезаписан
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected componentShouldUpdate(_oldProps: T, _newProps: T) {
     return true;
@@ -139,6 +141,7 @@ export abstract class Block<T extends Record<string, any> = any> {
     this.#addEvents();
   }
 
+  // может быть любая структура
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   protected compile(template: string, context: any) {
     const contextAndStubs = { ...context };
@@ -169,6 +172,7 @@ export abstract class Block<T extends Record<string, any> = any> {
       stub.replaceWith(component.getContent()!);
     };
 
+    // не нужен первый параметр
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     Object.entries(this.children).forEach(([_, component]) => {
       if (Array.isArray(component)) {
