@@ -1,32 +1,6 @@
-@import '@/assets/styles/utils/_vars.sass'
 @import '@/assets/styles/utils/_mixins.sass'
 
 .container
   width: 100%
   height: 100%
   +centering
-
-.content
-  width: 836px
-  min-height: 276px
-  display: grid
-  grid-template-columns: 132px 1fr
-  grid-template-rows: 170px 1fr 40px
-  grid-template-areas: "avatar inputs" ". inputs" "controls controls"
-  gap: $space-l
-
-.inputs
-  grid-area: inputs
-  display: grid
-  grid-template-columns: repeat(2, 332px)
-  gap: $space-xs
-
-.fileInput
-  display: none
-
-.controls
-  grid-area: controls
-  display: flex
-  justify-self: center
-  width: 260px
-  margin-top: 150px

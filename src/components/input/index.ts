@@ -16,13 +16,6 @@ export class Input extends Block {
     });
   }
 
-  init() {
-    const inputNode = this.element?.querySelector('input');
-    if (inputNode) {
-      inputNode.value = this.props.value || '';
-    }
-  }
-
   render() {
     return this.compile(baseInputTmpl, this.props);
   }
@@ -114,7 +107,7 @@ export class SearchInput extends Block {
   constructor(props: SearchInputProps, $style: CSSModuleClasses) {
     super('input', {
       ...props,
-      classes: [$style.search],
+      classes: [$style.searchInput],
       attrs: {
         placeholder: 'Поиск',
         name: 'search',
@@ -148,5 +141,10 @@ export class MessageInput extends Block {
 
   render() {
     return this.compile('{{value}}', this.props);
+  }
+
+  checkField(target: HTMLTextAreaElement, field: { value: string; isValid: boolean }) {
+    field.value = (target as HTMLTextAreaElement).value;
+    field.isValid = !!field.value;
   }
 }

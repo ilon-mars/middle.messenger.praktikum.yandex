@@ -1,10 +1,8 @@
 export const loginTmpl = `
-  <h2 class="h2 {{ $style.title }}">{{ title }}</h2>
-  <form class="{{ $style.content }}" action="#">
-    {{{ loginInput }}}
-    {{{ passwordInput }}}
-    <div class="{{ $style.buttons }}">{{{ submitButton }}}</div>
-  </form>
+  <h2 class="h2 {{ $style.title }}" id="title">{{ title }}</h2>
+
+  {{{form}}}
+
   <footer class="{{ $style.controls }}">
     {{{ link }}}
   </footer>
@@ -13,31 +11,7 @@ export const loginTmpl = `
 export const registerTmpl = `
   <h2 class="h2 {{ $style.title }}">{{ title }}</h2>
 
-  <form action="#" class="{{ $style.form }}">
-    <fieldset class="{{ $style.fieldset }}">
-      <legend class="h3 {{ $style.legend }}">
-        {{{ personalButton }}}
-      </legend>
-
-      {{{ nameInput }}}
-      {{{ secondNameInput }}}
-      {{{ emailInput }}}
-      {{{ phoneInput }}}
-    </fieldset>
-
-    <fieldset class="{{ $style.fieldset }}">
-      <legend class="h3 {{ $style.legend }}">
-      {{{ accountButton }}}
-      </legend>
-      {{{ loginInput }}}
-      {{{ passwordInput }}}
-      {{{ repeatPasswordInput }}}
-    </fieldset>
-
-    <div class="{{ $style.buttons }}">
-      {{{ submitButton }}}
-    </div>
-  </form>
+  {{{form}}}
 
   <footer class="{{ $style.controls }}">
     {{{ link }}}

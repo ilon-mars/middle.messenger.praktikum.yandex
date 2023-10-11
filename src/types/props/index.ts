@@ -13,3 +13,4 @@ export * from './MainLayoutProps';
 export * from './ChatPageProps';
 export * from './ChatItemProps';
 export * from './MessageProps';
+export * from './FormProps';

@@ -11,8 +11,5 @@ export const tmpl = `
     </svg>
   </button>
 
-  <form class="{{$style.messageForm}}" name="message" action="#">
-    {{{ messageInput }}}
-    <button class="{{ $style.sendButton }}">{{{icon}}}</button>
-  </form>
+  {{{form}}}
 `;
