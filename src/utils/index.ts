@@ -7,5 +7,6 @@ export * from './getRawSvg';
 export * from './createIconsMap';
 export * from './inRange';
 export * from './inUpperCase';
-export * from './onBlurHandler';
-export * from './onInputHandler';
+export * from './handlers/onBlurHandler';
+export * from './handlers/onInputHandler';
+export * from './handlers/onSubmitHandler';

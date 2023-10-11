@@ -1,5 +1,5 @@
 import { ChatParticipantEnum, LinkEnum, MessageStatusEnum } from '@/enums';
-import { AvatarProps, EditPasswordPageProps, ErrorPageContent, InputProps, ProfilePageProps, RouteLink } from '@/types';
+import { AvatarProps, EditPasswordPageProps, ErrorPageContent, ProfilePageProps, RouteLink } from '@/types';
 import { ReceiverMessage, SenderMessage } from '@/types/ChatMessage';
 
 export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager: true });
@@ -42,6 +42,12 @@ export const PHONE_INPUT = Object.freeze({
 export const REPEAT_PASSWORD_INPUT = Object.freeze({
   labelText: 'Пароль (еще раз)',
   name: 'repeat_password',
+  type: 'password',
+});
+
+export const OLD_PASSWORD_INPUT = Object.freeze({
+  labelText: 'Старый пароль',
+  name: 'oldPassword',
   type: 'password',
 });
 
@@ -212,27 +218,6 @@ export const SAVE_PROFILE_BUTTON: RouteLink = Object.freeze({
   text: 'Сохранить',
   to: `/${LinkEnum.PROFILE}`,
 });
-
-export const EDIT_PASSWORD_INPUTS: InputProps[] = [
-  {
-    labelText: 'Старый пароль',
-    name: 'oldPassword',
-    value: '',
-    errorText: '',
-  },
-  {
-    labelText: 'Новый пароль',
-    name: 'newPassword',
-    value: '',
-    errorText: '',
-  },
-  {
-    labelText: 'Повторите новый пароль',
-    name: 'newPassword',
-    value: '',
-    errorText: '',
-  },
-];
 
 export const MESSAGES: Array<SenderMessage | ReceiverMessage> = [
   {

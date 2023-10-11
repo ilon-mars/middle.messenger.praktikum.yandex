@@ -1,7 +1,7 @@
 // может быть любая структура
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Handler<A extends any[] = unknown[]> = (...args: A) => void;
-type MapInterface<P> = P[keyof P];
+type MapInterface<T> = T[keyof T];
 
 export class EventBus<
   E extends Record<string, string> = Record<string, string>,

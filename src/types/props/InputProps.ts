@@ -1,3 +1,5 @@
+import { Attributes } from '../Attributes';
+
 type InputName =
   | 'first_name'
   | 'second_name'
@@ -14,12 +16,11 @@ type InputName =
 type InputType = 'text' | 'email' | 'password' | 'tel' | 'search';
 
 export type InputProps = {
-  labelText: string;
-  name?: InputName;
+  attrs?: Attributes & { name?: InputName };
   type?: InputType;
   value?: string;
-  errorText?: string;
   events?: Record<string, (e?: Event) => void>;
+  classes?: string[];
 };
 
 export type SearchInputProps = Omit<InputProps, 'labelText' | 'errorText'>;

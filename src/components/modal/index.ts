@@ -7,6 +7,7 @@ import { LoginForm, RegisterForm } from '@/components/Form';
 
 import { ModalProps } from '@/types';
 import { LOGIN_LINK, REGISTER_LINK } from '@/utils/constants';
+import { onSubmitHandler } from '@/utils';
 
 import $style from './index.module.sass';
 
@@ -26,7 +27,16 @@ export class LoginModal extends Modal {
   }
 
   init() {
-    this.children.form = new LoginForm({});
+    this.children.form = new LoginForm({
+      events: {
+        submit: e => {
+          const form = this.children.form as LoginForm;
+
+          onSubmitHandler(e, form);
+        },
+      },
+    });
+
     this.children.link = new Link(LOGIN_LINK);
   }
 
@@ -41,7 +51,16 @@ export class RegisterModal extends Modal {
   }
 
   init() {
-    this.children.form = new RegisterForm({});
+    this.children.form = new RegisterForm({
+      events: {
+        submit: e => {
+          const form = this.children.form as RegisterForm;
+
+          onSubmitHandler(e, form);
+        },
+      },
+    });
+
     this.children.link = new Link(REGISTER_LINK);
   }
 

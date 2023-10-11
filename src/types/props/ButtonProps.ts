@@ -2,14 +2,10 @@ import { Block } from '@/core/Block';
 
 import { RouteLink } from '../RouteLink';
 import { Optional } from '../Optional';
-
-type Attributes = {
-  type?: 'submit' | 'button';
-  [key: string]: string | undefined;
-};
+import { Attributes } from '../Attributes';
 
 export type ButtonProps = {
   icon?: Block;
-  attrs?: Attributes;
+  attrs?: Attributes & { type?: 'submit' | 'button' };
   events?: Record<string, () => void>;
 } & Optional<RouteLink, 'to'>;

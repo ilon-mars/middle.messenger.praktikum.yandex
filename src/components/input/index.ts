@@ -1,105 +1,137 @@
 import { Block } from '@/core/Block';
 
-import { baseInputTmpl } from './index.tmpl';
+import { inputWithLabelTmpl } from './index.tmpl';
 
-import { InputProps, SearchInputProps, MessageInputProps } from '@/types';
+import { InputProps, SearchInputProps, MessageInputProps, InputField, InputWithLabelProps } from '@/types';
 import { EMAIL_INPUT, LOGIN_INPUT, PASSWORD_INPUT, PHONE_INPUT, inRange, startsWithUpperCase } from '@/utils';
 
 import $style from './index.module.sass';
 
 export class Input extends Block {
-  constructor(props: InputProps, className: string = '') {
-    super('div', {
+  constructor(props: InputProps) {
+    super('input', {
       ...props,
-      classes: [$style.field, className],
+      classes: [$style.input],
       $style,
     });
   }
 
   render() {
-    return this.compile(baseInputTmpl, this.props);
+    return this.compile('', this.props);
   }
 
   // метод будет перезаписан
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  checkField(_target: HTMLInputElement, _field: { value: string; isValid: boolean }) {}
+  checkField(_value: string, _field: InputField) {}
+
+  resetField(field: InputField) {
+    field.value = '';
+    field.isValid = false;
+  }
 }
 
 export class NameInput extends Input {
-  #validations = {
+  validations = {
     pattern: new RegExp(/^[А-я-]+|[A-z-]+$/i),
   };
 
-  constructor(props: InputProps, className: string = '') {
-    super({ ...props, type: 'text' }, className);
+  constructor(props: InputProps) {
+    super({
+      ...props,
+      attrs: { ...props.attrs, type: 'text' },
+    });
   }
 
-  checkField(target: HTMLInputElement, field: { value: string; isValid: boolean }) {
-    field.value = (target as HTMLInputElement).value;
-    field.isValid = this.#validations.pattern.test(field.value) && startsWithUpperCase(field.value);
+  checkField(value: string, field: InputField) {
+    field.value = value;
+    field.isValid = this.validations.pattern.test(field.value) && startsWithUpperCase(field.value);
   }
 }
 
 export class LoginInput extends Input {
-  #validations = {
+  validations = {
     pattern: new RegExp(/^(?=.*[A-z])[0-9A-z_-]+$/),
     range: [3, 20] as [number, number],
   };
 
-  constructor(props: InputProps, className: string = '') {
-    super({ ...props, name: LOGIN_INPUT.name, type: 'text' }, className);
+  constructor(props: InputProps) {
+    super({
+      ...props,
+      attrs: {
+        name: LOGIN_INPUT.name,
+        type: 'text',
+      },
+    });
   }
 
-  checkField(target: HTMLInputElement, field: { value: string; isValid: boolean }) {
-    field.value = (target as HTMLInputElement).value;
-    field.isValid = this.#validations.pattern.test(field.value) && inRange(field.value, this.#validations.range);
+  checkField(value: string, field: InputField) {
+    field.value = value;
+    field.isValid = this.validations.pattern.test(field.value) && inRange(field.value, this.validations.range);
   }
 }
 
 export class PasswordInput extends Input {
-  #validations = {
+  validations = {
     pattern: new RegExp(/(?=.*[A-ZА-Я])(?=.*\d)/),
     range: [8, 40] as [number, number],
   };
 
-  constructor(props: InputProps, className: string = '') {
-    super({ ...props, name: PASSWORD_INPUT.name, type: PASSWORD_INPUT.type }, className);
+  constructor(props: InputProps) {
+    super({
+      ...props,
+      attrs: {
+        ...props.attrs,
+        type: PASSWORD_INPUT.type,
+      },
+    });
   }
 
-  checkField(target: HTMLInputElement, field: { value: string; isValid: boolean }) {
-    field.value = (target as HTMLInputElement).value;
-    field.isValid = this.#validations.pattern.test(field.value) && inRange(field.value, this.#validations.range);
+  checkField(value: string, field: InputField) {
+    field.value = value;
+    field.isValid = this.validations.pattern.test(field.value) && inRange(field.value, this.validations.range);
   }
 }
 
 export class EmailInput extends Input {
-  #validations = {
+  validations = {
     pattern: new RegExp(/[\w-.]+@([\w-]+\.)+[\w-]{2,4}/),
   };
 
-  constructor(props: InputProps, className: string = '') {
-    super({ ...props, name: EMAIL_INPUT.name, type: EMAIL_INPUT.type }, className);
+  constructor(props: InputProps) {
+    super({
+      ...props,
+      attrs: {
+        name: EMAIL_INPUT.name,
+        type: EMAIL_INPUT.type,
+      },
+    });
   }
 
-  checkField(target: HTMLInputElement, field: { value: string; isValid: boolean }) {
-    field.value = (target as HTMLInputElement).value;
-    field.isValid = this.#validations.pattern.test(field.value);
+  checkField(value: string, field: InputField) {
+    field.value = value;
+    field.isValid = this.validations.pattern.test(field.value);
   }
 }
 
 export class PhoneInput extends Input {
-  #validations = {
+  validations = {
     pattern: new RegExp(/^[+]?\d+$/),
     range: [10, 15] as [number, number],
   };
 
-  constructor(props: InputProps, className: string = '') {
-    super({ ...props, name: PHONE_INPUT.name, type: PHONE_INPUT.type }, className);
+  constructor(props: InputProps) {
+    super({
+      ...props,
+      attrs: {
+        name: PHONE_INPUT.name,
+        type: PHONE_INPUT.type,
+      },
+    });
   }
 
-  checkField(target: HTMLInputElement, field: { value: string; isValid: boolean }) {
-    field.value = (target as HTMLInputElement).value;
-    field.isValid = this.#validations.pattern.test(field.value) && inRange(field.value, this.#validations.range);
+  checkField(value: string, field: InputField) {
+    field.value = value;
+    field.isValid = this.validations.pattern.test(field.value) && inRange(field.value, this.validations.range);
   }
 }
 
@@ -115,10 +147,6 @@ export class SearchInput extends Block {
       },
       $style,
     });
-  }
-
-  init() {
-    (this.element! as HTMLInputElement).value = this.props.value || '';
   }
 
   render() {
@@ -143,8 +171,22 @@ export class MessageInput extends Block {
     return this.compile('{{value}}', this.props);
   }
 
-  checkField(target: HTMLTextAreaElement, field: { value: string; isValid: boolean }) {
-    field.value = (target as HTMLTextAreaElement).value;
+  checkField(value: string, field: InputField) {
+    field.value = value;
     field.isValid = !!field.value;
+  }
+}
+
+export class InputWithLabel extends Block {
+  constructor(props: InputWithLabelProps, className = '') {
+    super('div', {
+      ...props,
+      classes: [$style.field, className],
+      $style,
+    });
+  }
+
+  render() {
+    return this.compile(inputWithLabelTmpl, this.props);
   }
 }

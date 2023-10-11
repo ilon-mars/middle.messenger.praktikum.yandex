@@ -1,5 +1,6 @@
 import { RedirectTo } from '../RouteLink';
 
-export type EditPasswordPageProps = {
+export type EditPageProps = {
   goBack: RedirectTo;
+  isPasswordEditing: boolean;
 };

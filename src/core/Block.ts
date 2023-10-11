@@ -231,12 +231,4 @@ export abstract class Block<T extends Record<string, any> = any> {
 
     return element;
   }
-
-  show() {
-    this.getContent()!.style.display = 'block';
-  }
-
-  hide() {
-    this.getContent()!.style.display = 'none';
-  }
 }

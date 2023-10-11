@@ -32,7 +32,7 @@ export const registerTmpl = `
 
 export const searchTmpl = `{{{ searchInput }}}`;
 
-export const messageForm = `
+export const messageTmpl = `
   {{{ messageInput }}}
   <button class="{{ $style.sendMessageButton }}">{{{icon}}}</button>
 `;

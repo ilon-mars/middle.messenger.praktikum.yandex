@@ -3,8 +3,7 @@ import { Block } from '@/core/Block';
 import { AuthPage } from '@/pages/AuthPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { ErrorPage } from '@/pages/ErrorPage';
-import { EditProfilePage } from '@/pages/EditProfilePage';
-import { EditPasswordPage } from '@/pages/EditPasswordPage';
+import { EditPage } from '@/pages/EditPage';
 
 import { LayoutEnum, LinkEnum } from '@/enums';
 import { RoutesList } from '@/types';
@@ -49,11 +48,11 @@ const ROUTES: RoutesList = Object.freeze({
     layout: LayoutEnum.MAIN,
   },
   [`/${LinkEnum.EDIT_PROFILE}`]: {
-    component: new EditProfilePage(EDIT_PAGE),
+    component: new EditPage({ ...EDIT_PAGE, isPasswordEditing: false }),
     layout: LayoutEnum.MAIN,
   },
   [`/${LinkEnum.EDIT_PASSWORD}`]: {
-    component: new EditPasswordPage(EDIT_PAGE),
+    component: new EditPage({ ...EDIT_PAGE, isPasswordEditing: true }),
     layout: LayoutEnum.MAIN,
   },
 });

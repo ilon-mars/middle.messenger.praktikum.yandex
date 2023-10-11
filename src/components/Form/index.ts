@@ -1,11 +1,12 @@
 import { Block } from '@/core/Block';
 
-import { editPasswordTmpl, editProfileTmpl, loginTmpl, messageForm, registerTmpl, searchTmpl } from './index.tmpl';
+import { editPasswordTmpl, editProfileTmpl, loginTmpl, messageTmpl, registerTmpl, searchTmpl } from './index.tmpl';
 
 import { Button, MainButton } from '@/components/Button';
 import {
   EmailInput,
   Input,
+  InputWithLabel,
   LoginInput,
   MessageInput,
   NameInput,
@@ -16,7 +17,7 @@ import {
 import { Icon } from '@/components/Icon';
 import { Avatar } from '@/components/Avatar';
 
-import { FormProps } from '@/types';
+import { FormProps, InputField } from '@/types';
 import {
   DISPLAY_NAME_INPUT,
   EMAIL_INPUT,
@@ -24,6 +25,7 @@ import {
   LOGIN_INPUT,
   NAME_INPUT,
   NEW_PASSWORD_INPUT,
+  OLD_PASSWORD_INPUT,
   PASSWORD_INPUT,
   PHONE_INPUT,
   PROFILE_AVATAR,
@@ -38,16 +40,17 @@ import {
 
 import $style from './index.module.sass';
 import $inputStyle from '@/components/Input/index.module.sass';
-import { Avatar } from '../Avatar';
 
-abstract class Form extends Block {
+export class Form extends Block {
+  formData: Record<string, InputField> | undefined;
+
   constructor(props: FormProps) {
     super('form', props);
   }
 }
 
 export class LoginForm extends Form {
-  #formData = {
+  formData: Record<string, InputField> = {
     login: {
       value: '',
       isValid: false,
@@ -67,42 +70,35 @@ export class LoginForm extends Form {
   }
 
   init() {
-    this.children.loginInput = new LoginInput({
-      ...LOGIN_INPUT,
+    const loginInput = new LoginInput({
       events: {
-        focusout: e => {
-          if (e) {
-            onBlurHandler(e, this.children.loginInput as Input, this.#formData.login, $inputStyle);
-          }
-        },
-        input: e => {
-          if (e) {
-            onInputHandler(e, this.children.loginInput as Input, this.#formData.login, $inputStyle);
-          }
-        },
+        blur: e => onBlurHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
+        input: e => onInputHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
       },
     });
 
-    this.children.passwordInput = new PasswordInput({
-      ...PASSWORD_INPUT,
+    const passwordInput = new PasswordInput({
       events: {
-        focusout: e => {
-          if (e) {
-            onBlurHandler(e, this.children.passwordInput as Input, this.#formData.password, $inputStyle);
-          }
-        },
-        input: e => {
-          if (e) {
-            onInputHandler(e, this.children.passwordInput as Input, this.#formData.password, $inputStyle);
-          }
-        },
+        blur: e => onBlurHandler(e, this.children.passwordInput as Input, this.formData.password, $inputStyle),
+        input: e => onInputHandler(e, this.children.passwordInput as Input, this.formData.password, $inputStyle),
       },
+    });
+
+    this.children.loginInput = new InputWithLabel({
+      labelText: LOGIN_INPUT.labelText,
+      input: loginInput,
+      name: LOGIN_INPUT.name,
+    });
+
+    this.children.passwordInput = new InputWithLabel({
+      labelText: PASSWORD_INPUT.labelText,
+      input: passwordInput,
+      name: PASSWORD_INPUT.name,
     });
 
     this.children.submitButton = new MainButton({
       ...LOGIN_BUTTON,
       icon: new Icon({ name: 'arrow-tail' }),
-      events: { click: () => console.log('Click') },
     });
   }
 
@@ -112,7 +108,7 @@ export class LoginForm extends Form {
 }
 
 export class RegisterForm extends Form {
-  #formData = {
+  formData: Record<string, InputField> = {
     first_name: {
       value: '',
       isValid: false,
@@ -152,122 +148,102 @@ export class RegisterForm extends Form {
   }
 
   init() {
-    this.children.nameInput = new NameInput({
-      ...NAME_INPUT,
+    const nameInput = new NameInput({
+      attrs: { name: NAME_INPUT.name },
       events: {
-        focusout: e => {
-          if (e) {
-            onBlurHandler(e, this.children.nameInput as Input, this.#formData.first_name, $inputStyle);
-          }
-        },
-        input: e => {
-          if (e) {
-            onInputHandler(e, this.children.nameInput as Input, this.#formData.first_name, $inputStyle);
-          }
-        },
+        blur: e => onBlurHandler(e, this.children.nameInput as Input, this.formData.first_name, $inputStyle),
+        input: e => onInputHandler(e, this.children.nameInput as Input, this.formData.first_name, $inputStyle),
       },
     });
-    this.children.secondNameInput = new NameInput({
-      ...SECOND_NAME_INPUT,
+
+    const secondNameInput = new NameInput({
+      attrs: { name: SECOND_NAME_INPUT.name },
       events: {
-        focusout: e => {
-          if (e) {
-            onBlurHandler(e, this.children.secondNameInput as Input, this.#formData.second_name, $inputStyle);
-          }
-        },
-        input: e => {
-          if (e) {
-            onInputHandler(e, this.children.secondNameInput as Input, this.#formData.second_name, $inputStyle);
-          }
-        },
+        blur: e => onBlurHandler(e, this.children.secondNameInput as Input, this.formData.second_name, $inputStyle),
+        input: e => onInputHandler(e, this.children.secondNameInput as Input, this.formData.second_name, $inputStyle),
       },
     });
-    this.children.emailInput = new EmailInput({
-      ...EMAIL_INPUT,
+
+    const emailInput = new EmailInput({
       events: {
-        focusout: e => {
-          if (e) {
-            onBlurHandler(e, this.children.emailInput as Input, this.#formData.email, $inputStyle);
-          }
-        },
-        input: e => {
-          if (e) {
-            onInputHandler(e, this.children.emailInput as Input, this.#formData.email, $inputStyle);
-          }
-        },
+        blur: e => onBlurHandler(e, this.children.emailInput as Input, this.formData.email, $inputStyle),
+        input: e => onInputHandler(e, this.children.emailInput as Input, this.formData.email, $inputStyle),
       },
     });
-    this.children.phoneInput = new PhoneInput({
-      ...PHONE_INPUT,
+
+    const phoneInput = new PhoneInput({
       events: {
-        focusout: e => {
-          if (e) {
-            onBlurHandler(e, this.children.phoneInput as Input, this.#formData.phone, $inputStyle);
-          }
-        },
-        input: e => {
-          if (e) {
-            onInputHandler(e, this.children.phoneInput as Input, this.#formData.phone, $inputStyle);
-          }
-        },
+        blur: e => onBlurHandler(e, this.children.phoneInput as Input, this.formData.phone, $inputStyle),
+        input: e => onInputHandler(e, this.children.phoneInput as Input, this.formData.phone, $inputStyle),
       },
     });
-    this.children.loginInput = new LoginInput({
+
+    const loginInput = new LoginInput({
       ...LOGIN_INPUT,
       events: {
-        focusout: e => {
-          if (e) {
-            onBlurHandler(e, this.children.loginInput as Input, this.#formData.login, $inputStyle);
-          }
-        },
-        input: e => {
-          if (e) {
-            onInputHandler(e, this.children.loginInput as Input, this.#formData.login, $inputStyle);
-          }
-        },
+        blur: e => onBlurHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
+        input: e => onInputHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
       },
     });
-    this.children.passwordInput = new PasswordInput({
+
+    const passwordInput = new PasswordInput({
       ...PASSWORD_INPUT,
       events: {
-        focusout: e => {
-          if (e) {
-            onBlurHandler(e, this.children.passwordInput as Input, this.#formData.password, $inputStyle);
-          }
-        },
-        input: e => {
-          if (e) {
-            onInputHandler(e, this.children.passwordInput as Input, this.#formData.password, $inputStyle);
-          }
-        },
+        blur: e => onBlurHandler(e, this.children.passwordInput as Input, this.formData.password, $inputStyle),
+        input: e => onInputHandler(e, this.children.passwordInput as Input, this.formData.password, $inputStyle),
       },
     });
-    this.children.repeatPasswordInput = new PasswordInput({
+
+    const repeatPasswordInput = new PasswordInput({
       ...REPEAT_PASSWORD_INPUT,
       events: {
-        focusout: e => {
-          const target = e?.target;
-
-          if (target) {
-            this.#formData.repeat_password.value = (target as HTMLInputElement).value;
-            this.#formData.repeat_password.isValid =
-              this.#formData.password.value === this.#formData.repeat_password.value;
-            this.#formData.repeat_password.isValid
-              ? (target as HTMLInputElement).classList.remove($inputStyle.error)
-              : (target as HTMLInputElement).classList.add($inputStyle.error);
-          }
-        },
-        input: e => {
-          const target = e?.target;
-
-          if (target) {
-            (target as HTMLInputElement).classList.remove($style.error);
-            this.#formData.repeat_password.value = (target as HTMLInputElement).value;
-            this.#formData.repeat_password.isValid =
-              this.#formData.password.value === this.#formData.repeat_password.value;
-          }
-        },
+        blur: e =>
+          onBlurHandler(e, this.children.repeatPasswordInput as Input, this.formData.repeat_password, $inputStyle),
+        input: e =>
+          onInputHandler(e, this.children.repeatPasswordInput as Input, this.formData.repeat_password, $inputStyle),
       },
+    });
+
+    this.children.nameInput = new InputWithLabel({
+      labelText: NAME_INPUT.labelText,
+      input: nameInput,
+      name: NAME_INPUT.name,
+    });
+
+    this.children.secondNameInput = new InputWithLabel({
+      labelText: SECOND_NAME_INPUT.labelText,
+      input: secondNameInput,
+      name: SECOND_NAME_INPUT.name,
+    });
+
+    this.children.emailInput = new InputWithLabel({
+      labelText: EMAIL_INPUT.labelText,
+      input: emailInput,
+      name: EMAIL_INPUT.name,
+    });
+
+    this.children.phoneInput = new InputWithLabel({
+      labelText: PHONE_INPUT.labelText,
+      input: phoneInput,
+      name: PHONE_INPUT.name,
+    });
+
+    this.children.loginInput = new InputWithLabel({
+      labelText: LOGIN_INPUT.labelText,
+      input: loginInput,
+      name: LOGIN_INPUT.name,
+    });
+
+    this.children.passwordInput = new InputWithLabel({
+      labelText: PASSWORD_INPUT.labelText,
+      input: passwordInput,
+      name: PASSWORD_INPUT.name,
+    });
+
+    this.children.repeatPasswordInput = new InputWithLabel({
+      labelText: REPEAT_PASSWORD_INPUT.labelText,
+      input: repeatPasswordInput,
+      name: REPEAT_PASSWORD_INPUT.name,
     });
 
     this.children.personalButton = new Button({
@@ -285,7 +261,6 @@ export class RegisterForm extends Form {
     this.children.submitButton = new MainButton({
       ...REGISTER_BUTTON,
       icon: new Icon({ name: 'arrow-tail' }),
-      events: { click: () => console.log('Click') },
     });
   }
 
@@ -295,7 +270,7 @@ export class RegisterForm extends Form {
 }
 
 export class SearchForm extends Form {
-  #search = '';
+  search = '';
 
   constructor(props: FormProps) {
     super({
@@ -313,7 +288,7 @@ export class SearchForm extends Form {
           input: e => {
             const target = e?.target;
 
-            this.#search = (target as HTMLInputElement).value || '';
+            this.search = (target as HTMLInputElement).value || '';
           },
         },
       },
@@ -327,9 +302,11 @@ export class SearchForm extends Form {
 }
 
 export class MessageForm extends Form {
-  #message = {
-    value: '',
-    isValid: false,
+  formData: Record<string, InputField> = {
+    message: {
+      value: '',
+      isValid: false,
+    },
   };
 
   constructor(props: FormProps) {
@@ -345,16 +322,8 @@ export class MessageForm extends Form {
       {
         value: '',
         events: {
-          blur: e => {
-            if (e) {
-              onBlurHandler(e, this.children.messageInput as Input, this.#message, $style);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.messageInput as Input, this.#message, $style);
-            }
-          },
+          blur: e => onBlurHandler(e, this.children.messageInput as Input, this.formData.message, $style),
+          input: e => onInputHandler(e, this.children.messageInput as Input, this.formData.message, $style),
         },
       },
       $style,
@@ -362,12 +331,12 @@ export class MessageForm extends Form {
   }
 
   render() {
-    return this.compile(messageForm, this.props);
+    return this.compile(messageTmpl, this.props);
   }
 }
 
 export class EditPasswordForm extends Form {
-  #formData = {
+  formData: Record<string, InputField> = {
     oldPassword: {
       value: '',
       isValid: false,
@@ -376,7 +345,7 @@ export class EditPasswordForm extends Form {
       value: '',
       isValid: false,
     },
-    repeatPassword: {
+    repeat_password: {
       value: '',
       isValid: false,
     },
@@ -391,64 +360,59 @@ export class EditPasswordForm extends Form {
   }
 
   init() {
-    this.children.oldPassword = new PasswordInput(
-      {
-        ...PASSWORD_INPUT,
-        events: {
-          focusout: e => {
-            if (e) {
-              onBlurHandler(e, this.children.oldPassword as Input, this.#formData.oldPassword, $inputStyle);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.oldPassword as Input, this.#formData.oldPassword, $inputStyle);
-            }
-          },
-        },
+    const oldPassword = new PasswordInput({
+      attrs: { name: OLD_PASSWORD_INPUT.name },
+      events: {
+        blur: e => onBlurHandler(e, this.children.oldPassword as Input, this.formData.oldPassword, $inputStyle),
+        input: e => onInputHandler(e, this.children.oldPassword as Input, this.formData.oldPassword, $inputStyle),
       },
-      'profile-card',
-    );
-    this.children.newPassword = new PasswordInput(
-      {
-        ...NEW_PASSWORD_INPUT,
-        events: {
-          focusout: e => {
-            if (e) {
-              onBlurHandler(e, this.children.newPassword as Input, this.#formData.newPassword, $inputStyle);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.newPassword as Input, this.#formData.newPassword, $inputStyle);
-            }
-          },
-        },
-      },
-      'profile-card',
-    );
-    this.children.repeatPassword = new PasswordInput(
-      {
-        ...REPEAT_NEW_PASSWORD_INPUT,
-        events: {
-          focusout: e => {
-            if (e) {
-              onBlurHandler(e, this.children.repeatPassword as Input, this.#formData.repeatPassword, $inputStyle);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.repeatPassword as Input, this.#formData.repeatPassword, $inputStyle);
-            }
-          },
-        },
-      },
-      'profile-card',
-    );
-    this.children.saveButton = new MainButton({
-      ...SAVE_PROFILE_BUTTON,
-      events: { click: () => console.log('Click') },
     });
+
+    const newPassword = new PasswordInput({
+      attrs: { name: NEW_PASSWORD_INPUT.name },
+      events: {
+        blur: e => onBlurHandler(e, this.children.newPassword as Input, this.formData.newPassword, $inputStyle),
+        input: e => onInputHandler(e, this.children.newPassword as Input, this.formData.newPassword, $inputStyle),
+      },
+    });
+
+    const repeatPassword = new PasswordInput({
+      attrs: { name: REPEAT_NEW_PASSWORD_INPUT.name },
+      events: {
+        blur: e => onBlurHandler(e, this.children.repeatPassword as Input, this.formData.repeat_password, $inputStyle),
+        input: e =>
+          onInputHandler(e, this.children.repeatPassword as Input, this.formData.repeat_password, $inputStyle),
+      },
+    });
+
+    this.children.oldPassword = new InputWithLabel(
+      {
+        labelText: OLD_PASSWORD_INPUT.labelText,
+        input: oldPassword,
+        name: OLD_PASSWORD_INPUT.name,
+      },
+      'profile-card',
+    );
+
+    this.children.newPassword = new InputWithLabel(
+      {
+        labelText: NEW_PASSWORD_INPUT.labelText,
+        input: newPassword,
+        name: NEW_PASSWORD_INPUT.name,
+      },
+      'profile-card',
+    );
+
+    this.children.repeatPassword = new InputWithLabel(
+      {
+        labelText: REPEAT_NEW_PASSWORD_INPUT.labelText,
+        input: repeatPassword,
+        name: REPEAT_NEW_PASSWORD_INPUT.name,
+      },
+      'profile-card',
+    );
+
+    this.children.saveButton = new MainButton(SAVE_PROFILE_BUTTON);
   }
 
   render() {
@@ -457,7 +421,7 @@ export class EditPasswordForm extends Form {
 }
 
 export class EditProfileForm extends Form {
-  #formData = {
+  formData: Record<string, InputField> = {
     first_name: {
       value: '',
       isValid: false,
@@ -493,120 +457,106 @@ export class EditProfileForm extends Form {
   }
 
   init() {
-    this.children.loginInput = new LoginInput(
+    const loginInput = new LoginInput({
+      events: {
+        blur: e => onBlurHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
+        input: e => onInputHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
+      },
+    });
+
+    const displayNameInput = new LoginInput({
+      events: {
+        blur: e => onBlurHandler(e, this.children.displayNameInput as Input, this.formData.display_name, $inputStyle),
+        input: e => onInputHandler(e, this.children.displayNameInput as Input, this.formData.display_name, $inputStyle),
+      },
+    });
+
+    const nameInput = new NameInput({
+      attrs: { name: NAME_INPUT.name },
+      events: {
+        blur: e => onBlurHandler(e, this.children.nameInput as Input, this.formData.first_name, $inputStyle),
+        input: e => onInputHandler(e, this.children.nameInput as Input, this.formData.first_name, $inputStyle),
+      },
+    });
+
+    const secondNameInput = new NameInput({
+      attrs: { name: SECOND_NAME_INPUT.name },
+      events: {
+        blur: e => onBlurHandler(e, this.children.secondNameInput as Input, this.formData.second_name, $inputStyle),
+        input: e => onInputHandler(e, this.children.secondNameInput as Input, this.formData.second_name, $inputStyle),
+      },
+    });
+
+    const emailInput = new EmailInput({
+      events: {
+        blur: e => onBlurHandler(e, this.children.emailInput as Input, this.formData.email, $inputStyle),
+        input: e => onInputHandler(e, this.children.emailInput as Input, this.formData.email, $inputStyle),
+      },
+    });
+
+    const phoneInput = new PhoneInput({
+      events: {
+        blur: e => onBlurHandler(e, this.children.phoneInput as Input, this.formData.phone, $inputStyle),
+        input: e => onInputHandler(e, this.children.phoneInput as Input, this.formData.phone, $inputStyle),
+      },
+    });
+
+    this.children.loginInput = new InputWithLabel(
       {
-        ...LOGIN_INPUT,
-        events: {
-          focusout: e => {
-            if (e) {
-              onBlurHandler(e, this.children.loginInput as Input, this.#formData.login, $inputStyle);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.loginInput as Input, this.#formData.login, $inputStyle);
-            }
-          },
-        },
+        labelText: LOGIN_INPUT.labelText,
+        input: loginInput,
+        name: LOGIN_INPUT.name,
       },
       'profile-card',
     );
-    this.children.displayNameInput = new NameInput(
+
+    this.children.displayNameInput = new InputWithLabel(
       {
-        ...DISPLAY_NAME_INPUT,
-        events: {
-          focusout: e => {
-            if (e) {
-              onBlurHandler(e, this.children.displayNameInput as Input, this.#formData.display_name, $inputStyle);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.displayNameInput as Input, this.#formData.display_name, $inputStyle);
-            }
-          },
-        },
+        labelText: DISPLAY_NAME_INPUT.labelText,
+        input: displayNameInput,
+        name: DISPLAY_NAME_INPUT.name,
       },
       'profile-card',
     );
-    this.children.nameInput = new NameInput(
+
+    this.children.nameInput = new InputWithLabel(
       {
-        ...NAME_INPUT,
-        events: {
-          focusout: e => {
-            if (e) {
-              onBlurHandler(e, this.children.nameInput as Input, this.#formData.first_name, $inputStyle);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.nameInput as Input, this.#formData.first_name, $inputStyle);
-            }
-          },
-        },
+        labelText: NAME_INPUT.labelText,
+        input: nameInput,
+        name: NAME_INPUT.name,
       },
       'profile-card',
     );
-    this.children.secondNameInput = new NameInput(
+
+    this.children.secondNameInput = new InputWithLabel(
       {
-        ...SECOND_NAME_INPUT,
-        events: {
-          focusout: e => {
-            if (e) {
-              onBlurHandler(e, this.children.secondNameInput as Input, this.#formData.second_name, $inputStyle);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.secondNameInput as Input, this.#formData.second_name, $inputStyle);
-            }
-          },
-        },
+        labelText: SECOND_NAME_INPUT.labelText,
+        input: secondNameInput,
+        name: SECOND_NAME_INPUT.name,
       },
       'profile-card',
     );
-    this.children.emailInput = new EmailInput(
+
+    this.children.emailInput = new InputWithLabel(
       {
-        ...EMAIL_INPUT,
-        events: {
-          focusout: e => {
-            if (e) {
-              onBlurHandler(e, this.children.emailInput as Input, this.#formData.email, $inputStyle);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.emailInput as Input, this.#formData.email, $inputStyle);
-            }
-          },
-        },
+        labelText: EMAIL_INPUT.labelText,
+        input: emailInput,
+        name: EMAIL_INPUT.name,
       },
       'profile-card',
     );
-    this.children.phoneInput = new PhoneInput(
+
+    this.children.phoneInput = new InputWithLabel(
       {
-        ...PHONE_INPUT,
-        events: {
-          focusout: e => {
-            if (e) {
-              onBlurHandler(e, this.children.phoneInput as Input, this.#formData.phone, $inputStyle);
-            }
-          },
-          input: e => {
-            if (e) {
-              onInputHandler(e, this.children.phoneInput as Input, this.#formData.phone, $inputStyle);
-            }
-          },
-        },
+        labelText: PHONE_INPUT.labelText,
+        input: phoneInput,
+        name: PHONE_INPUT.name,
       },
       'profile-card',
     );
 
     this.children.avatar = new Avatar(PROFILE_AVATAR);
-    this.children.saveButton = new MainButton({
-      ...SAVE_PROFILE_BUTTON,
-      events: { click: () => console.log('Click') },
-    });
+    this.children.saveButton = new MainButton(SAVE_PROFILE_BUTTON);
   }
 
   render() {

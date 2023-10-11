@@ -5,4 +5,5 @@ export * from './RouteLink';
 export * from './ErrorPageContent';
 export * from './FetchOptions';
 export * from './Optional';
+export * from './InputField';
 export * from './props';

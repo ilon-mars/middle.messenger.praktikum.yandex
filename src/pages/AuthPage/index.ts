@@ -8,9 +8,9 @@ import { AuthPageProps } from '@/types';
 
 export class AuthPage extends Block {
   constructor(props: AuthPageProps) {
-    super('main', {
+    super('section', {
       ...props,
-      classes: ['main-layout'],
+      classes: ['container'],
     });
   }
 

@@ -14,9 +14,9 @@ import $style from './index.module.sass';
 
 export class ProfilePage extends Block {
   constructor(props: ProfilePageProps) {
-    super('main', {
+    super('section', {
       ...props,
-      classes: [$style.container, 'main-layout'],
+      classes: [$style.wrapper, 'container'],
       cards: PROFILE_INFO_CARDS,
       $style,
     });
