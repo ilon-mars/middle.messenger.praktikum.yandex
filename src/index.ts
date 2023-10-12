@@ -1,9 +1,12 @@
 import { Block } from '@/core/Block';
+import { createApp } from '@/core/createApp';
 
 import { AuthPage } from '@/pages/AuthPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { ErrorPage } from '@/pages/ErrorPage';
 import { EditPage } from '@/pages/EditPage';
+import { MainLayout } from '@/layout/MainLayout';
+import { ChatLayout } from '@/layout/ChatLayout';
 
 import { LayoutEnum, LinkEnum } from '@/enums';
 import { RoutesList } from '@/types';
@@ -18,9 +21,6 @@ import {
 } from '@/utils';
 
 import '@/assets/styles/index.sass';
-import { MainLayout } from './layout/MainLayout';
-import { ChatLayout } from './layout/ChatLayout';
-import { createApp } from './core/createApp';
 
 const ROUTES: RoutesList = Object.freeze({
   [`/${LinkEnum.CHAT}`]: {
