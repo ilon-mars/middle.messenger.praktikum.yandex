@@ -1,12 +1,12 @@
 import { ChatParticipantEnum, LinkEnum, MessageStatusEnum } from '@/enums';
-import { AvatarProps, EditPasswordPageProps, ErrorPageContent, ProfilePageProps, RouteLink } from '@/types';
+import { AvatarProps, EditPageProps, ErrorPageContent, ProfilePageProps, RouteLink } from '@/types';
 import { ReceiverMessage, SenderMessage } from '@/types/ChatMessage';
 
 export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager: true });
 
 export const LOGIN_INPUT = Object.freeze({
   labelText: 'Логин',
-  errorText: '',
+  errorText: 'Логин может содержать только латиницу, цифры и -',
   value: '',
   name: 'login',
 });
@@ -15,59 +15,68 @@ export const PASSWORD_INPUT = Object.freeze({
   labelText: 'Пароль',
   name: 'password',
   type: 'password',
+  errorText: 'Пароль должен быть от 8 до 40 символов, содержать заглавную букву и цифру',
 });
 
 export const NAME_INPUT = Object.freeze({
   labelText: 'Имя',
   name: 'first_name',
+  errorText: 'Должно начинаться с заглавной буквы, длина от 3 до 20 символов',
 });
 
 export const SECOND_NAME_INPUT = Object.freeze({
   labelText: 'Фамилия',
   name: 'second_name',
+  errorText: 'Должно начинаться с заглавной буквы, длина от 3 до 20 символов',
 });
 
 export const EMAIL_INPUT = Object.freeze({
   labelText: 'Почта',
   name: 'email',
   type: 'email',
+  errorText: 'Неверный формат почты',
 });
 
 export const PHONE_INPUT = Object.freeze({
   labelText: 'Телефон',
   name: 'phone',
   type: 'tel',
+  errorText: 'Введите телефон цифрами без спец символов, от 10 до 15 символов',
 });
 
 export const REPEAT_PASSWORD_INPUT = Object.freeze({
   labelText: 'Пароль (еще раз)',
   name: 'repeat_password',
   type: 'password',
+  errorText: 'Неверный пароль',
 });
 
 export const OLD_PASSWORD_INPUT = Object.freeze({
   labelText: 'Старый пароль',
   name: 'oldPassword',
   type: 'password',
+  errorText: 'Неверный пароль',
 });
 
 export const NEW_PASSWORD_INPUT = Object.freeze({
   labelText: 'Новый пароль',
   name: 'newPassword',
   type: 'password',
+  errorText: 'Пароль должен содержать от 8 до 40 символов, заглавную букву и цифру',
 });
 
 export const REPEAT_NEW_PASSWORD_INPUT = Object.freeze({
   labelText: 'Повторите новый пароль',
   name: 'newPassword',
   type: 'password',
+  errorText: 'Пароль должен содержать от 8 до 40 символов, заглавную букву и цифру',
 });
 
 export const DISPLAY_NAME_INPUT = Object.freeze({
   labelText: 'Имя в чате',
   name: 'display_name',
   value: 'Иван',
-  errorText: '',
+  errorText: 'Должно начинаться с большой буквы',
 });
 
 export const LOGIN_BUTTON: RouteLink = Object.freeze({
@@ -272,8 +281,9 @@ export const PROFILE_PAGE: ProfilePageProps = {
   logout: `/${LinkEnum.LOGIN}`,
 };
 
-export const EDIT_PAGE: EditPasswordPageProps = {
+export const EDIT_PAGE: EditPageProps = {
   goBack: `/${LinkEnum.CHAT}`,
+  isPasswordEditing: false,
 };
 
 export const GO_TO_PROFILE: RouteLink = Object.freeze({

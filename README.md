@@ -41,7 +41,7 @@ yarn lint
 Запуск проверки типов tsc:
 
 ```bash
-yarn prebuild
+yarn typecheck
 ```
 
 ### Ссылки на страницы:

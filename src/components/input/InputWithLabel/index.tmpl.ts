@@ -3,7 +3,5 @@ export const tmpl = `
 
   {{{input}}}
 
-  {{#if errorText}}
-    <span class="{{ $style.errorText }}">{{ errorText }}</span>
-  {{/if}}
+  <span class="{{ $style.errorText }}">{{ errorText }}</span>
 `;

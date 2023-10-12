@@ -112,6 +112,7 @@ export class EditProfileForm extends Form {
         labelText: LOGIN_INPUT.labelText,
         input: loginInput,
         name: LOGIN_INPUT.name,
+        errorText: LOGIN_INPUT.errorText,
       },
       'profile-card',
     );
@@ -121,6 +122,7 @@ export class EditProfileForm extends Form {
         labelText: DISPLAY_NAME_INPUT.labelText,
         input: displayNameInput,
         name: DISPLAY_NAME_INPUT.name,
+        errorText: DISPLAY_NAME_INPUT.errorText,
       },
       'profile-card',
     );
@@ -130,6 +132,7 @@ export class EditProfileForm extends Form {
         labelText: NAME_INPUT.labelText,
         input: nameInput,
         name: NAME_INPUT.name,
+        errorText: NAME_INPUT.errorText,
       },
       'profile-card',
     );
@@ -139,6 +142,7 @@ export class EditProfileForm extends Form {
         labelText: SECOND_NAME_INPUT.labelText,
         input: secondNameInput,
         name: SECOND_NAME_INPUT.name,
+        errorText: SECOND_NAME_INPUT.errorText,
       },
       'profile-card',
     );
@@ -148,6 +152,7 @@ export class EditProfileForm extends Form {
         labelText: EMAIL_INPUT.labelText,
         input: emailInput,
         name: EMAIL_INPUT.name,
+        errorText: EMAIL_INPUT.errorText,
       },
       'profile-card',
     );
@@ -157,6 +162,7 @@ export class EditProfileForm extends Form {
         labelText: PHONE_INPUT.labelText,
         input: phoneInput,
         name: PHONE_INPUT.name,
+        errorText: PHONE_INPUT.errorText,
       },
       'profile-card',
     );

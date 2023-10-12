@@ -75,6 +75,7 @@ export class EditPasswordForm extends Form {
         labelText: OLD_PASSWORD_INPUT.labelText,
         input: oldPassword,
         name: OLD_PASSWORD_INPUT.name,
+        errorText: OLD_PASSWORD_INPUT.errorText,
       },
       'profile-card',
     );
@@ -84,6 +85,7 @@ export class EditPasswordForm extends Form {
         labelText: NEW_PASSWORD_INPUT.labelText,
         input: newPassword,
         name: NEW_PASSWORD_INPUT.name,
+        errorText: NEW_PASSWORD_INPUT.errorText,
       },
       'profile-card',
     );
@@ -93,6 +95,7 @@ export class EditPasswordForm extends Form {
         labelText: REPEAT_NEW_PASSWORD_INPUT.labelText,
         input: repeatPassword,
         name: REPEAT_NEW_PASSWORD_INPUT.name,
+        errorText: REPEAT_NEW_PASSWORD_INPUT.errorText,
       },
       'profile-card',
     );

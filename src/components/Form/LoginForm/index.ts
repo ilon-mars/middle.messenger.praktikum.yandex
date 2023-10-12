@@ -52,12 +52,14 @@ export class LoginForm extends Form {
       labelText: LOGIN_INPUT.labelText,
       input: loginInput,
       name: LOGIN_INPUT.name,
+      errorText: LOGIN_INPUT.errorText,
     });
 
     this.children.passwordInput = new InputWithLabel({
       labelText: PASSWORD_INPUT.labelText,
       input: passwordInput,
       name: PASSWORD_INPUT.name,
+      errorText: PASSWORD_INPUT.errorText,
     });
 
     this.children.submitButton = new MainButton({

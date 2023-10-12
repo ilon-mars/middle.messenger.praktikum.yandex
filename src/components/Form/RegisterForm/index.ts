@@ -143,42 +143,49 @@ export class RegisterForm extends Form {
       labelText: NAME_INPUT.labelText,
       input: nameInput,
       name: NAME_INPUT.name,
+      errorText: NAME_INPUT.errorText,
     });
 
     this.children.secondNameInput = new InputWithLabel({
       labelText: SECOND_NAME_INPUT.labelText,
       input: secondNameInput,
       name: SECOND_NAME_INPUT.name,
+      errorText: SECOND_NAME_INPUT.errorText,
     });
 
     this.children.emailInput = new InputWithLabel({
       labelText: EMAIL_INPUT.labelText,
       input: emailInput,
       name: EMAIL_INPUT.name,
+      errorText: EMAIL_INPUT.errorText,
     });
 
     this.children.phoneInput = new InputWithLabel({
       labelText: PHONE_INPUT.labelText,
       input: phoneInput,
       name: PHONE_INPUT.name,
+      errorText: PHONE_INPUT.errorText,
     });
 
     this.children.loginInput = new InputWithLabel({
       labelText: LOGIN_INPUT.labelText,
       input: loginInput,
       name: LOGIN_INPUT.name,
+      errorText: LOGIN_INPUT.errorText,
     });
 
     this.children.passwordInput = new InputWithLabel({
       labelText: PASSWORD_INPUT.labelText,
       input: passwordInput,
       name: PASSWORD_INPUT.name,
+      errorText: PASSWORD_INPUT.errorText,
     });
 
     this.children.repeatPasswordInput = new InputWithLabel({
       labelText: REPEAT_PASSWORD_INPUT.labelText,
       input: repeatPasswordInput,
       name: REPEAT_PASSWORD_INPUT.name,
+      errorText: REPEAT_PASSWORD_INPUT.errorText,
     });
 
     this.children.personalButton = new Button({

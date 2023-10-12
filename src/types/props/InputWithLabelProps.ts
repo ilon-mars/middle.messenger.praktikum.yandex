@@ -4,5 +4,5 @@ export type InputWithLabelProps = {
   labelText: string;
   input: Input;
   name: string;
-  errorText?: string;
+  errorText: string;
 };
