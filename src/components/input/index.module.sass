@@ -1,26 +1,6 @@
 @import '@/assets/styles/utils/_vars.sass'
 @import '@/assets/styles/utils/_mixins.sass'
 
-.field
-  display: flex
-  flex-direction: column
-  width: 100%
-
-  &.error
-    .input
-      color: $fg-role-warning
-      border-color: $fg-role-warning
-      margin-bottom: $space-xs
-
-    .label
-      color: $fg-role-warning
-
-
-.label
-  color: $base-neutral
-  margin-bottom: $space-xs
-  font-size: 10px
-
 .input
   outline: none
   border-bottom: 1px solid $border-base-light
@@ -34,7 +14,3 @@
 
   &:active, &:focus
     border-color: $fg-role-active
-
-.errorText
-  color: $fg-role-warning
-  font-size: 10px

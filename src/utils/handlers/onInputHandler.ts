@@ -5,7 +5,7 @@ export const onInputHandler = (
   e: Event | undefined,
   child: Input | InputWithLabel,
   field: InputField,
-  $inputStyle: CSSModuleClasses,
+  errorClass: string,
 ) => {
   if (!e) {
     return;
@@ -19,9 +19,9 @@ export const onInputHandler = (
   }
 
   if (child instanceof Input) {
-    input.element.classList.remove($inputStyle.error);
+    input.element.classList.remove(errorClass);
   } else {
-    child.element.classList.remove($inputStyle.error);
+    child.element.classList.remove(errorClass);
   }
 
   input.checkField(target.value, field);

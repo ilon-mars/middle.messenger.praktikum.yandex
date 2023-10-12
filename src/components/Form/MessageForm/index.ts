@@ -29,8 +29,8 @@ export class MessageForm extends Form {
       {
         value: '',
         events: {
-          blur: e => onBlurHandler(e, this.children.messageInput as Input, this.formData.message, $style),
-          input: e => onInputHandler(e, this.children.messageInput as Input, this.formData.message, $style),
+          blur: e => onBlurHandler(e, this.children.messageInput as Input, this.formData.message, $style.error),
+          input: e => onInputHandler(e, this.children.messageInput as Input, this.formData.message, $style.error),
         },
       },
       $style,

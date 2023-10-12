@@ -28,7 +28,7 @@ import {
 } from '@/utils';
 
 import $style from './index.module.sass';
-import $inputStyle from '@/components/Input/index.module.sass';
+import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
 
 export class RegisterForm extends Form {
   formData: Record<string, InputField> = {
@@ -74,45 +74,48 @@ export class RegisterForm extends Form {
     const nameInput = new NameInput({
       attrs: { name: NAME_INPUT.name },
       events: {
-        blur: e => onBlurHandler(e, this.children.nameInput as Input, this.formData.first_name, $inputStyle),
-        input: e => onInputHandler(e, this.children.nameInput as Input, this.formData.first_name, $inputStyle),
+        blur: e => onBlurHandler(e, this.children.nameInput as Input, this.formData.first_name, $wrapperStyle.error),
+        input: e => onInputHandler(e, this.children.nameInput as Input, this.formData.first_name, $wrapperStyle.error),
       },
     });
 
     const secondNameInput = new NameInput({
       attrs: { name: SECOND_NAME_INPUT.name },
       events: {
-        blur: e => onBlurHandler(e, this.children.secondNameInput as Input, this.formData.second_name, $inputStyle),
-        input: e => onInputHandler(e, this.children.secondNameInput as Input, this.formData.second_name, $inputStyle),
+        blur: e =>
+          onBlurHandler(e, this.children.secondNameInput as Input, this.formData.second_name, $wrapperStyle.error),
+        input: e =>
+          onInputHandler(e, this.children.secondNameInput as Input, this.formData.second_name, $wrapperStyle.error),
       },
     });
 
     const emailInput = new EmailInput({
       events: {
-        blur: e => onBlurHandler(e, this.children.emailInput as Input, this.formData.email, $inputStyle),
-        input: e => onInputHandler(e, this.children.emailInput as Input, this.formData.email, $inputStyle),
+        blur: e => onBlurHandler(e, this.children.emailInput as Input, this.formData.email, $wrapperStyle.error),
+        input: e => onInputHandler(e, this.children.emailInput as Input, this.formData.email, $wrapperStyle.error),
       },
     });
 
     const phoneInput = new PhoneInput({
       events: {
-        blur: e => onBlurHandler(e, this.children.phoneInput as Input, this.formData.phone, $inputStyle),
-        input: e => onInputHandler(e, this.children.phoneInput as Input, this.formData.phone, $inputStyle),
+        blur: e => onBlurHandler(e, this.children.phoneInput as Input, this.formData.phone, $wrapperStyle.error),
+        input: e => onInputHandler(e, this.children.phoneInput as Input, this.formData.phone, $wrapperStyle.error),
       },
     });
 
     const loginInput = new LoginInput({
       events: {
-        blur: e => onBlurHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
-        input: e => onInputHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
+        blur: e => onBlurHandler(e, this.children.loginInput as Input, this.formData.login, $wrapperStyle.error),
+        input: e => onInputHandler(e, this.children.loginInput as Input, this.formData.login, $wrapperStyle.error),
       },
     });
 
     const passwordInput = new PasswordInput({
       attrs: { name: PASSWORD_INPUT.name },
       events: {
-        blur: e => onBlurHandler(e, this.children.passwordInput as Input, this.formData.password, $inputStyle),
-        input: e => onInputHandler(e, this.children.passwordInput as Input, this.formData.password, $inputStyle),
+        blur: e => onBlurHandler(e, this.children.passwordInput as Input, this.formData.password, $wrapperStyle.error),
+        input: e =>
+          onInputHandler(e, this.children.passwordInput as Input, this.formData.password, $wrapperStyle.error),
       },
     });
 
@@ -120,9 +123,19 @@ export class RegisterForm extends Form {
       attrs: { name: REPEAT_PASSWORD_INPUT.name },
       events: {
         blur: e =>
-          onBlurHandler(e, this.children.repeatPasswordInput as Input, this.formData.repeat_password, $inputStyle),
+          onBlurHandler(
+            e,
+            this.children.repeatPasswordInput as Input,
+            this.formData.repeat_password,
+            $wrapperStyle.error,
+          ),
         input: e =>
-          onInputHandler(e, this.children.repeatPasswordInput as Input, this.formData.repeat_password, $inputStyle),
+          onInputHandler(
+            e,
+            this.children.repeatPasswordInput as Input,
+            this.formData.repeat_password,
+            $wrapperStyle.error,
+          ),
       },
     });
 

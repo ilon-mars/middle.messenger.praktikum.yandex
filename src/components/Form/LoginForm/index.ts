@@ -9,7 +9,7 @@ import { FormProps, InputField } from '@/types';
 import { LOGIN_BUTTON, LOGIN_INPUT, PASSWORD_INPUT, onBlurHandler, onInputHandler } from '@/utils';
 
 import $style from './index.module.sass';
-import $inputStyle from '@/components/Input/index.module.sass';
+import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
 
 export class LoginForm extends Form {
   formData: Record<string, InputField> = {
@@ -34,16 +34,17 @@ export class LoginForm extends Form {
   init() {
     const loginInput = new LoginInput({
       events: {
-        blur: e => onBlurHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
-        input: e => onInputHandler(e, this.children.loginInput as Input, this.formData.login, $inputStyle),
+        blur: e => onBlurHandler(e, this.children.loginInput as Input, this.formData.login, $wrapperStyle.error),
+        input: e => onInputHandler(e, this.children.loginInput as Input, this.formData.login, $wrapperStyle.error),
       },
     });
 
     const passwordInput = new PasswordInput({
       attrs: { name: PASSWORD_INPUT.name },
       events: {
-        blur: e => onBlurHandler(e, this.children.passwordInput as Input, this.formData.password, $inputStyle),
-        input: e => onInputHandler(e, this.children.passwordInput as Input, this.formData.password, $inputStyle),
+        blur: e => onBlurHandler(e, this.children.passwordInput as Input, this.formData.password, $wrapperStyle.error),
+        input: e =>
+          onInputHandler(e, this.children.passwordInput as Input, this.formData.password, $wrapperStyle.error),
       },
     });
 

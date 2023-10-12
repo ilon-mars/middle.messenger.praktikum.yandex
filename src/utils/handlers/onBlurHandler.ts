@@ -5,7 +5,7 @@ export const onBlurHandler = (
   e: Event | undefined,
   child: Input | InputWithLabel,
   field: InputField,
-  $inputStyle: CSSModuleClasses,
+  errorClass: string,
 ) => {
   if (!e) {
     return;
@@ -21,10 +21,10 @@ export const onBlurHandler = (
   input.checkField(target.value, field);
 
   if (child instanceof Input) {
-    input.element.classList.remove($inputStyle.error);
-    field.isValid ? input.element.classList.remove($inputStyle.error) : input.element.classList.add($inputStyle.error);
+    input.element.classList.remove(errorClass);
+    field.isValid ? input.element.classList.remove(errorClass) : input.element.classList.add(errorClass);
   } else {
-    child.element.classList.remove($inputStyle.error);
-    field.isValid ? child.element.classList.remove($inputStyle.error) : child.element.classList.add($inputStyle.error);
+    child.element.classList.remove(errorClass);
+    field.isValid ? child.element.classList.remove(errorClass) : child.element.classList.add(errorClass);
   }
 };

@@ -15,7 +15,7 @@ import {
 } from '@/utils';
 
 import $style from './index.module.sass';
-import $inputStyle from '@/components/Input/index.module.sass';
+import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
 
 export class EditPasswordForm extends Form {
   formData: Record<string, InputField> = {
@@ -45,25 +45,28 @@ export class EditPasswordForm extends Form {
     const oldPassword = new PasswordInput({
       attrs: { name: OLD_PASSWORD_INPUT.name },
       events: {
-        blur: e => onBlurHandler(e, this.children.oldPassword as Input, this.formData.oldPassword, $inputStyle),
-        input: e => onInputHandler(e, this.children.oldPassword as Input, this.formData.oldPassword, $inputStyle),
+        blur: e => onBlurHandler(e, this.children.oldPassword as Input, this.formData.oldPassword, $wrapperStyle.error),
+        input: e =>
+          onInputHandler(e, this.children.oldPassword as Input, this.formData.oldPassword, $wrapperStyle.error),
       },
     });
 
     const newPassword = new PasswordInput({
       attrs: { name: NEW_PASSWORD_INPUT.name },
       events: {
-        blur: e => onBlurHandler(e, this.children.newPassword as Input, this.formData.newPassword, $inputStyle),
-        input: e => onInputHandler(e, this.children.newPassword as Input, this.formData.newPassword, $inputStyle),
+        blur: e => onBlurHandler(e, this.children.newPassword as Input, this.formData.newPassword, $wrapperStyle.error),
+        input: e =>
+          onInputHandler(e, this.children.newPassword as Input, this.formData.newPassword, $wrapperStyle.error),
       },
     });
 
     const repeatPassword = new PasswordInput({
       attrs: { name: REPEAT_NEW_PASSWORD_INPUT.name },
       events: {
-        blur: e => onBlurHandler(e, this.children.repeatPassword as Input, this.formData.repeat_password, $inputStyle),
+        blur: e =>
+          onBlurHandler(e, this.children.repeatPassword as Input, this.formData.repeat_password, $wrapperStyle.error),
         input: e =>
-          onInputHandler(e, this.children.repeatPassword as Input, this.formData.repeat_password, $inputStyle),
+          onInputHandler(e, this.children.repeatPassword as Input, this.formData.repeat_password, $wrapperStyle.error),
       },
     });
 
