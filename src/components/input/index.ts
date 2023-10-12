@@ -1,18 +1,9 @@
-import Handlebars from 'handlebars';
-
-import { tmpl } from './index.tmpl';
-
-import $style from './index.module.sass';
-
-type inputProps = {
-  labelText: string;
-  name: string;
-  type?: string;
-  value?: string;
-  errorText?: string;
-  isProfile?: boolean;
-};
-
-export const input = (props: inputProps) => {
-  return Handlebars.compile(tmpl)({ ...props, $style });
-};
+export * from './Input';
+export * from './EmailInput';
+export * from './LoginInput';
+export * from './MessageInput';
+export * from './NameInput';
+export * from './PasswordInput';
+export * from './PhoneInput';
+export * from './SearchInput';
+export * from './InputWithLabel';

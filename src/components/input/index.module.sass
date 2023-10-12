@@ -1,14 +1,5 @@
 @import '@/assets/styles/utils/_vars.sass'
-
-.field
-  display: flex
-  flex-direction: column
-  width: 100%
-
-.label
-  color: $base-neutral
-  margin-bottom: $space-xs
-  font-size: 10px
+@import '@/assets/styles/utils/_mixins.sass'
 
 .input
   outline: none
@@ -18,16 +9,8 @@
   font-size: 14px
   line-height: 140%
   padding-bottom:  $space-xxs
-  transition: border-color $transition-duration ease-in-out
+  transition-property: border-color
+  +transition
 
   &:active, &:focus
     border-color: $fg-role-active
-
-  &.error
-    color: $fg-role-warning
-    border-color: $fg-role-warning
-    margin-bottom: $space-xs
-
-.errorText
-  color: $fg-role-warning
-  font-size: 10px

@@ -9,6 +9,22 @@
   width: 100%
   height: 100%
 
+  &.small
+    flex-direction: row
+    width: 36px
+    height: 36px
+
+    .imageWrapper
+      padding: $space-xxs
+      margin-right: $space-xs
+      margin-bottom: 0
+      +dashed-border($space-xxs)
+
+    .name
+      font-size: 14px
+      font-weight: $font-weight-m
+      color: $base-neutral
+
 .imageWrapper
   width: 100%
   aspect-ratio: 1/1
@@ -39,6 +55,8 @@
   pointer-events: none
   color: inherit
   display: none
+  transition-property: opacity
+  +transition
 
 .image
   width: 100%

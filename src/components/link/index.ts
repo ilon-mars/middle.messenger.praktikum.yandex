@@ -1,11 +1,22 @@
-import Handlebars from 'handlebars';
+import { Block } from '@/core/Block';
 
 import { tmpl } from './index.tmpl';
 
-import { RouteLink } from '@/types';
+import { LinkProps } from '@/types';
 
 import $style from './index.module.sass';
 
-export const link = (props: RouteLink) => {
-  return Handlebars.compile(tmpl)({ ...props, $style });
-};
+export class Link extends Block {
+  constructor(props: LinkProps, className: string = '') {
+    super('a', {
+      ...props,
+      classes: [$style.link, $style[className]],
+      attrs: { href: props.to },
+      $style,
+    });
+  }
+
+  render() {
+    return this.compile(tmpl, this.props);
+  }
+}

@@ -1,0 +1,28 @@
+@import '@/assets/styles/utils/_vars.sass'
+
+.field
+  display: flex
+  flex-direction: column
+  width: 100%
+
+  &.error
+    input
+      color: $fg-role-warning
+      border-color: $fg-role-warning
+      margin-bottom: $space-xs
+
+    .label
+      color: $fg-role-warning
+
+    .errorText
+      display: flex
+
+.label
+  color: $base-neutral
+  margin-bottom: $space-xs
+  font-size: 10px
+
+.errorText
+  color: $fg-role-warning
+  font-size: 10px
+  display: none
