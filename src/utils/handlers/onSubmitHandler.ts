@@ -43,7 +43,7 @@ export const onSubmitHandler = async (e: SubmitEvent | undefined, form: Form) =>
     });
 
     if (isValid) {
-      console.log('%c Send ', 'background: #222; color: #bada55', normalizeData(data));
+      console.log('%cSend', 'background: #242424; color: #FE5F05; padding: 4px 1px', normalizeData(data));
 
       inputs.forEach(input => {
         const inputEl = input as Input;
