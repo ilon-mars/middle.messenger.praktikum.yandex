@@ -1,5 +1,7 @@
 import { Input, InputWithLabel } from '@/components/Input';
+
 import { InputField } from '@/types';
+import { errorClassHandler } from '@/utils';
 
 export const onBlurHandler = (
   e: Event | undefined,
@@ -11,7 +13,7 @@ export const onBlurHandler = (
     return;
   }
 
-  const target = e?.target as HTMLInputElement | HTMLTextAreaElement;
+  const target = e.target as HTMLInputElement | HTMLTextAreaElement;
   const input = child instanceof InputWithLabel ? (child.children.input as Input) : child;
 
   if (!input.element || !child.element) {
@@ -22,9 +24,9 @@ export const onBlurHandler = (
 
   if (child instanceof Input) {
     input.element.classList.remove(errorClass);
-    field.isValid ? input.element.classList.remove(errorClass) : input.element.classList.add(errorClass);
+    errorClassHandler(field, input.element, errorClass);
   } else {
     child.element.classList.remove(errorClass);
-    field.isValid ? child.element.classList.remove(errorClass) : child.element.classList.add(errorClass);
+    errorClassHandler(field, child.element, errorClass);
   }
 };

@@ -2,8 +2,9 @@ import { Form } from '@/components/Form';
 import { Input, InputWithLabel } from '@/components/Input';
 
 import { InputField } from '@/types';
+import { errorClassHandler } from '@/utils';
 
-import $inputStyle from '@/components/Input/index.module.sass';
+import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
 
 const normalizeData = (data: Record<string, InputField>): Record<string, string> => {
   return Object.keys(data).reduce(
@@ -37,9 +38,7 @@ export const onSubmitHandler = async (e: SubmitEvent | undefined, form: Form) =>
 
       inputEl.checkField(value, field);
 
-      field.isValid
-        ? inputEl.element!.parentElement!.classList.remove($inputStyle.error)
-        : inputEl.element!.parentElement!.classList.add($inputStyle.error);
+      errorClassHandler(field, inputEl.element!.parentElement!, $wrapperStyle.error);
     });
 
     if (isValid) {

@@ -11,7 +11,7 @@ export const onInputHandler = (
     return;
   }
 
-  const target = e?.target as HTMLInputElement | HTMLTextAreaElement;
+  const target = e.target as HTMLInputElement | HTMLTextAreaElement;
   const input = child instanceof InputWithLabel ? (child.children.input as Input) : child;
 
   if (!input.element || !child.element) {
