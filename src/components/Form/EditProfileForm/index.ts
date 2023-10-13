@@ -66,7 +66,8 @@ export class EditProfileForm extends Form {
       },
     });
 
-    const displayNameInput = new LoginInput({
+    const displayNameInput = new NameInput({
+      attrs: { name: DISPLAY_NAME_INPUT.name },
       events: {
         blur: e =>
           onBlurHandler(e, this.children.displayNameInput as Input, this.formData.display_name, $wrapperStyle.error),
