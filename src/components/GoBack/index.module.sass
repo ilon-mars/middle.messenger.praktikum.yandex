@@ -1,0 +1,35 @@
+@import '@/assets/styles/utils/_vars.sass'
+@import '@/assets/styles/utils/_mixins.sass'
+
+.goBack
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  width: 65px
+  height: 100%
+  background-color: $bg-base-dark
+  border-right: 1px solid $border-base-light
+  color: $base-light
+  z-index: 10
+  display: flex
+  font-size: 12px
+  font-weight: $font-weight-m
+  cursor: pointer
+  transition-property: opacity
+  +centering
+  +transition
+
+  &:hover
+    opacity: $opacity-m
+
+    svg
+      fill: $fg-role-active
+
+  svg
+    width: 20px
+    height: 20px
+    transform: rotate(180deg)
+    fill: $base-light
+    transition-property: fill
+    +transition

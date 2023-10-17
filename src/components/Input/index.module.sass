@@ -1,0 +1,16 @@
+@import '@/assets/styles/utils/_vars.sass'
+@import '@/assets/styles/utils/_mixins.sass'
+
+.input
+  outline: none
+  border-bottom: 1px solid $border-base-light
+  caret-color: $fg-role-active
+  background-color: transparent
+  font-size: 14px
+  line-height: 140%
+  padding-bottom:  $space-xxs
+  transition-property: border-color
+  +transition
+
+  &:active, &:focus
+    border-color: $fg-role-active
