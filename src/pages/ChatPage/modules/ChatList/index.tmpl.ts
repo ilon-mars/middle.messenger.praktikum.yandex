@@ -5,7 +5,7 @@ export const tmpl = `
       {{{form}}}
     </header>
     <ul class="{{ chats }}">
-      {{{chats}}}
+      {{{chatList}}}
     </ul>
   </aside>
 `;

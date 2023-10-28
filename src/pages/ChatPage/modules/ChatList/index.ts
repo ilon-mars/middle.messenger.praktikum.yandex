@@ -18,7 +18,7 @@ export class ChatList extends Block {
   init() {
     this.children.link = new Link(GO_TO_PROFILE, 'chat');
     this.children.form = new SearchForm({});
-    this.children.chats = CHATS.map(chat => new ChatItem(chat));
+    this.children.chatList = CHATS.map(chat => new ChatItem(chat));
   }
 
   render() {

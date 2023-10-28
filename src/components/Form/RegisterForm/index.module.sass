@@ -17,16 +17,15 @@
   +centering
   +transition($transition-duration-m)
 
-  & > div
-    visibility: hidden
-    opacity: 0
+  svg
+    transition-property: transform
+    +transition($transition-duration-m)
 
   &.active
     max-height: 700px
 
-    & > div
-      visibility: visible
-      opacity: 1
+    svg
+      transform: rotate(90deg)
 
 .legend
   width: 100%
