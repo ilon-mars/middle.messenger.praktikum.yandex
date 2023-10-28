@@ -4,6 +4,7 @@ import { tmpl } from './index.tmpl';
 
 import { MessageForm } from '@/components/Form';
 import { MessageInput } from '@/components/Input';
+import { DefaultButton } from '@/components/Button';
 import { Icon } from '@/components/Icon';
 
 import { onSubmitHandler } from '@/utils';
@@ -28,7 +29,13 @@ export class Footer extends Block {
       },
     });
 
-    this.children.attachIcon = new Icon({ name: 'clip' });
+    this.children.attachButton = new DefaultButton(
+      {
+        hasText: false,
+        icon: new Icon({ name: 'clip' }),
+      },
+      $style.attachButton,
+    );
   }
 
   render() {

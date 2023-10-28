@@ -2,6 +2,8 @@ import { tmpl } from './index.tmpl';
 
 import { Form } from '@/components/Form/Form';
 import { Input, MessageInput } from '@/components/Input';
+import { MainButton } from '@/components/Button';
+import { Icon } from '@/components/Icon';
 
 import { FormProps, InputField } from '@/types';
 import { onBlurHandler, onInputHandler } from '@/utils';
@@ -33,6 +35,14 @@ export class MessageForm extends Form {
         },
       },
       $style,
+    );
+
+    this.children.sendButton = new MainButton(
+      {
+        hasText: false,
+        icon: new Icon({ name: 'arrow-tail' }),
+      },
+      $style.sendButton,
     );
   }
 

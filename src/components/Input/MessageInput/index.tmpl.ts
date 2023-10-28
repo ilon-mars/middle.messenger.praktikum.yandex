@@ -3,6 +3,5 @@ export const tmpl = `
     class="{{ $style.messageInput }}"
     name="message"
     placeholder="Сообщение"
-      >{{ value }}
-  </textarea>
+    >{{ value }}</textarea>
 `;

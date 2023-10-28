@@ -1,7 +1,7 @@
 import { tmpl } from './index.tmpl';
 
 import { Form } from '@/components/Form/Form';
-import { Button, MainButton } from '@/components/Button';
+import { DefaultButton, MainButton } from '@/components/Button';
 import {
   EmailInput,
   Input,
@@ -206,7 +206,8 @@ export class RegisterForm extends Form {
       errorText: REPEAT_PASSWORD_INPUT.errorText,
     });
 
-    this.children.personalButton = new Button({
+    this.children.personalButton = new DefaultButton({
+      hasText: true,
       text: 'Личные данные',
       icon: new Icon({ name: 'arrow' }),
       events: {
@@ -214,7 +215,8 @@ export class RegisterForm extends Form {
       },
     });
 
-    this.children.accountButton = new Button({
+    this.children.accountButton = new DefaultButton({
+      hasText: true,
       text: 'Данные профиля',
       icon: new Icon({ name: 'arrow' }),
       events: {

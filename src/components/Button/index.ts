@@ -6,11 +6,11 @@ import { ButtonProps } from '@/types';
 
 import $style from './index.module.sass';
 
-export class Button extends Block {
-  constructor(props: ButtonProps) {
+export class DefaultButton extends Block {
+  constructor(props: ButtonProps, className: string = '') {
     super({
       ...props,
-      classes: [$style.small],
+      classes: [$style.default, className],
       attrs: { type: 'button' },
       $style,
     });
@@ -22,10 +22,10 @@ export class Button extends Block {
 }
 
 export class MainButton extends Block {
-  constructor(props: ButtonProps) {
+  constructor(props: ButtonProps, className: string = $style.hover) {
     super({
       ...props,
-      classes: [$style.main],
+      classes: [$style.main, className],
       $style,
     });
   }

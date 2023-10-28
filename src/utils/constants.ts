@@ -79,7 +79,8 @@ export const DISPLAY_NAME_INPUT = Object.freeze({
   errorText: 'Должно начинаться с большой буквы',
 });
 
-export const LOGIN_BUTTON: RouteLink = Object.freeze({
+export const LOGIN_BUTTON: RouteLink & { hasText: boolean } = Object.freeze({
+  hasText: true,
   text: 'Авторизоваться',
   to: `/${LinkEnum.CHAT}`,
 });
@@ -89,7 +90,8 @@ export const LOGIN_LINK: RouteLink = Object.freeze({
   to: `/${LinkEnum.REGISTER}`,
 });
 
-export const REGISTER_BUTTON: RouteLink = Object.freeze({
+export const REGISTER_BUTTON: RouteLink & { hasText: boolean } = Object.freeze({
+  hasText: true,
   text: 'Зарегистрироваться',
   to: `/${LinkEnum.CHAT}`,
 });
@@ -223,7 +225,8 @@ export const CHATS = [
   },
 ];
 
-export const SAVE_PROFILE_BUTTON: RouteLink = Object.freeze({
+export const SAVE_PROFILE_BUTTON: RouteLink & { hasText: boolean } = Object.freeze({
+  hasText: true,
   text: 'Сохранить',
   to: `/${LinkEnum.PROFILE}`,
 });
