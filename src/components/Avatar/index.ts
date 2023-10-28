@@ -8,9 +8,9 @@ import $style from './index.module.sass';
 
 export class Avatar extends Block {
   constructor(props: AvatarProps, className: string = '') {
-    super('div', {
+    super({
       ...props,
-      classes: [$style.avatar, $style[className]],
+      classes: [$style[className]],
       $style,
     });
   }

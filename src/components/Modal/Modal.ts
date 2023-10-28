@@ -8,9 +8,8 @@ import $style from './index.module.sass';
 
 export abstract class Modal extends Block {
   constructor(props: ModalProps) {
-    super('dialog', {
+    super({
       ...props,
-      classes: [$style.modal],
       $style,
     });
   }

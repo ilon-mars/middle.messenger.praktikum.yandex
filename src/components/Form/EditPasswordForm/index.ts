@@ -36,7 +36,6 @@ export class EditPasswordForm extends Form {
   constructor(props: FormProps) {
     super({
       ...props,
-      classes: [$style.form],
       $style,
     });
   }

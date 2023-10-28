@@ -1,1 +1,5 @@
-export const tmpl = `{{{ modal }}}`;
+export const tmpl = `
+  <section class="container">
+    {{{ modal }}}
+  </section>
+`;

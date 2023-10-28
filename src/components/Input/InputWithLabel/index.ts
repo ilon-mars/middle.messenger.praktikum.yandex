@@ -7,9 +7,9 @@ import $style from './index.module.sass';
 
 export class InputWithLabel extends Block {
   constructor(props: InputWithLabelProps, className = '') {
-    super('div', {
+    super({
       ...props,
-      classes: [$style.field, className],
+      classes: [className],
       $style,
     });
   }

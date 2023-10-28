@@ -10,9 +10,8 @@ import $style from './index.module.sass';
 
 export class GoBack extends Block {
   constructor(props: { to: RedirectTo }) {
-    super('button', {
+    super({
       ...props,
-      classes: [$style.goBack],
       $style,
     });
   }

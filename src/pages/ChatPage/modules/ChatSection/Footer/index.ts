@@ -4,6 +4,7 @@ import { tmpl } from './index.tmpl';
 
 import { MessageForm } from '@/components/Form';
 import { MessageInput } from '@/components/Input';
+import { Icon } from '@/components/Icon';
 
 import { onSubmitHandler } from '@/utils';
 
@@ -11,10 +12,7 @@ import $style from './index.module.sass';
 
 export class Footer extends Block {
   constructor() {
-    super('footer', {
-      classes: [$style.footer],
-      $style,
-    });
+    super($style);
   }
 
   init() {
@@ -29,6 +27,8 @@ export class Footer extends Block {
         },
       },
     });
+
+    this.children.attachIcon = new Icon({ name: 'clip' });
   }
 
   render() {

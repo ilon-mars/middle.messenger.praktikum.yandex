@@ -1,4 +1,6 @@
 export const tmpl = `
-  {{{list}}}
-  {{{window}}}
+  <main class="chat-layout">
+    {{{list}}}
+    {{{window}}}
+  </main>
 `;

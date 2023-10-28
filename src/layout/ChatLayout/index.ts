@@ -9,10 +9,7 @@ import { ChatPageProps } from '@/types';
 
 export class ChatLayout extends Block {
   constructor(props: ChatPageProps) {
-    super('main', {
-      ...props,
-      classes: ['chat-layout'],
-    });
+    super(props);
   }
 
   init() {

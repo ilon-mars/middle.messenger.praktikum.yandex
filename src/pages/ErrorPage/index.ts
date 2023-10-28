@@ -10,9 +10,8 @@ import $style from './index.module.sass';
 
 export class ErrorPage extends Block {
   constructor(props: ErrorPageProps) {
-    super('section', {
+    super({
       ...props,
-      classes: [$style.wrapper, 'container'],
       $style,
     });
   }

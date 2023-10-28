@@ -13,9 +13,9 @@ import $style from './index.module.sass';
 
 export class EditPage extends Block {
   constructor(props: EditPageProps) {
-    super('section', {
+    super({
       ...props,
-      classes: [$style.wrapper],
+      $style,
     });
   }
 

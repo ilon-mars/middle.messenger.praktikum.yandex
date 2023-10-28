@@ -1,5 +1,7 @@
 export const tmpl = `
-  {{{ loginInput }}}
-  {{{ passwordInput }}}
-  <div class="{{ $style.buttons }}">{{{ submitButton }}}</div>
+  <form class="{{ $style.form }}">
+    {{{ loginInput }}}
+    {{{ passwordInput }}}
+    <div class="{{ $style.buttons }}">{{{ submitButton }}}</div>
+  </form>
 `;

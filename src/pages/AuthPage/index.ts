@@ -8,10 +8,7 @@ import { AuthPageProps } from '@/types';
 
 export class AuthPage extends Block {
   constructor(props: AuthPageProps) {
-    super('section', {
-      ...props,
-      classes: ['container'],
-    });
+    super(props);
   }
 
   init() {

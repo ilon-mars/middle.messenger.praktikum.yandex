@@ -10,10 +10,7 @@ import $style from './index.module.sass';
 
 export class Header extends Block {
   constructor() {
-    super('header', {
-      classes: [$style.header],
-      $style,
-    });
+    super($style);
   }
 
   init() {

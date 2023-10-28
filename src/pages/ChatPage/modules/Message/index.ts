@@ -8,13 +8,9 @@ import $style from './index.module.sass';
 
 export class Message extends Block {
   constructor(props: MessageProps) {
-    super('div', {
+    super({
       ...props,
-      classes: [
-        $style.wrapper,
-        props.isSender ? $style.sender : $style.receiver,
-        props.imageLink && $style.imageWrapper,
-      ],
+      classes: [props.isSender ? $style.sender : $style.receiver, props.imageLink && $style.imageWrapper],
       $style,
     });
   }

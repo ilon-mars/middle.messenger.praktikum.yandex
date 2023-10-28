@@ -1,4 +1,6 @@
 export const tmpl = `
-  {{{ messageInput }}}
-  <button class="{{ $style.sendButton }}">{{{icon}}}</button>
+  <form class="{{ $style.form }}">
+    {{{ messageInput }}}
+    <button class="{{ $style.sendButton }}">{{{icon}}}</button>
+  </form>
 `;

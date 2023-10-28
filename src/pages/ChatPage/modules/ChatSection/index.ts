@@ -12,10 +12,7 @@ import $style from './index.module.sass';
 
 export class ChatSection extends Block {
   constructor() {
-    super('div', {
-      classes: [$style.container],
-      $style,
-    });
+    super($style);
   }
 
   init() {

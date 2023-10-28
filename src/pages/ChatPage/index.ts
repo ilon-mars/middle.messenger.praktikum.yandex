@@ -9,10 +9,7 @@ import { ChatPageProps } from '@/types';
 
 export class ChatPage extends Block {
   constructor(props: ChatPageProps) {
-    super('section', {
-      ...props,
-      classes: ['chat-window'],
-    });
+    super(props);
   }
 
   init() {

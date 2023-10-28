@@ -53,7 +53,6 @@ export class EditProfileForm extends Form {
   constructor(props: FormProps) {
     super({
       ...props,
-      classes: [$style.form],
       $style,
     });
   }

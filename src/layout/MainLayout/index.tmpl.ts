@@ -1,1 +1,5 @@
-export const tmpl = `{{{content}}}`;
+export const tmpl = `
+  <main class="main-layout">
+    {{{content}}}
+  </main>
+`;

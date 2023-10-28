@@ -8,10 +8,9 @@ import $style from './index.module.sass';
 
 export class Link extends Block {
   constructor(props: LinkProps, className: string = '') {
-    super('a', {
+    super({
       ...props,
-      classes: [$style.link, $style[className]],
-      attrs: { href: props.to },
+      classes: [$style[className]],
       $style,
     });
   }

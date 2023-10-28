@@ -6,10 +6,7 @@ import { MainLayoutProps } from '@/types';
 
 export class MainLayout extends Block {
   constructor(props: MainLayoutProps) {
-    super('main', {
-      ...props,
-      classes: ['main-layout'],
-    });
+    super(props);
   }
 
   render() {
