@@ -7,5 +7,5 @@ import { Attributes } from '../Attributes';
 export type ButtonProps = {
   icon?: Block;
   attrs?: Attributes & { type?: 'submit' | 'button' };
-  events?: Record<string, () => void>;
+  events?: Record<string, (e?: Event) => void>;
 } & Optional<RouteLink, 'to'>;

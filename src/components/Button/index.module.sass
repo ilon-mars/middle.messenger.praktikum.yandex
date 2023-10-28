@@ -23,7 +23,6 @@ $hover-offset: 20px
 .button
   width: 100%
   color: $base-dark
-  height: 40px
   display: flex
   align-items: center
   gap: $space-l
@@ -41,6 +40,8 @@ $hover-offset: 20px
       width: calc(32px + $hover-offset)
 
   &.main
+    height: 40px
+
     .text
       @extend %button-common
       display: flex

@@ -9,6 +9,7 @@ export const tmpl = `
       {{{ emailInput }}}
       {{{ phoneInput }}}
     </fieldset>
+
     <fieldset class="{{ $style.fieldset }}">
       <legend class="h3 {{ $style.legend }}">
       {{{ accountButton }}}
@@ -17,6 +18,7 @@ export const tmpl = `
       {{{ passwordInput }}}
       {{{ repeatPasswordInput }}}
     </fieldset>
+
     <div class="{{ $style.buttons }}">
       {{{ submitButton }}}
     </div>

@@ -30,6 +30,25 @@ import {
 import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
 
+const toggleActiveClass = (e?: Event) => {
+  if (!e) {
+    return;
+  }
+
+  const target = e.target as HTMLElement;
+  const currentFieldset = target.closest(`.${$style.fieldset}`);
+  currentFieldset?.classList.toggle($style.active);
+
+  target
+    .closest(`.${$style.form}`)
+    ?.querySelectorAll(`.${$style.fieldset}`)
+    .forEach(fieldset => {
+      if (currentFieldset !== fieldset) {
+        fieldset.classList.remove($style.active);
+      }
+    });
+};
+
 export class RegisterForm extends Form {
   formData: Record<string, InputField> = {
     first_name: {
@@ -190,13 +209,17 @@ export class RegisterForm extends Form {
     this.children.personalButton = new Button({
       text: 'Личные данные',
       icon: new Icon({ name: 'arrow' }),
-      events: { click: () => console.log('Click') },
+      events: {
+        click: toggleActiveClass,
+      },
     });
 
     this.children.accountButton = new Button({
       text: 'Данные профиля',
       icon: new Icon({ name: 'arrow' }),
-      events: { click: () => console.log('Click') },
+      events: {
+        click: toggleActiveClass,
+      },
     });
 
     this.children.submitButton = new MainButton({

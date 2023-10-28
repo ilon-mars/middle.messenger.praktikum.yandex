@@ -4,13 +4,29 @@
 .form
   flex-direction: column
   width: 100%
+  gap: 24px
   +centering
 
 .fieldset
   width: 100%
   flex-direction: column
   gap: $space-m
+  max-height: 24px
+  overflow: hidden
+  transition-property: max-height, visibility, opacity
   +centering
+  +transition($transition-duration-m)
+
+  & > div
+    visibility: hidden
+    opacity: 0
+
+  &.active
+    max-height: 700px
+
+    & > div
+      visibility: visible
+      opacity: 1
 
 .legend
   width: 100%
