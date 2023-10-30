@@ -229,14 +229,16 @@ export class Block<T extends Record<string, any> = any> {
   }
 
   show() {
-    this.getContent()!.style.display = 'block';
+    const $el = this.getContent();
+
+    if (!$el) {
+      return;
+    }
+
+    $el.style.display = $el.dataset.layout!;
   }
 
   hide() {
     this.getContent()!.style.display = 'none';
-  }
-
-  instance() {
-    return this.constructor;
   }
 }

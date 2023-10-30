@@ -1,6 +1,6 @@
 export const tmpl = `
   <form class="{{ $style.form }}">
-    <fieldset class="{{ $style.fieldset }}">
+    <fieldset class="{{ $style.fieldset }} {{ $style.active }}">
       <legend class="h3 {{ $style.legend }}">
         {{{ personalButton }}}
       </legend>

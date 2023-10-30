@@ -1,3 +1,3 @@
 export const tmpl = `
-  <a class="{{ $style.link }}" href="{{ to }}">{{ text }}</a>
+  <button class="{{ $style.link }}" type="button" href="{{ to }}">{{ text }}</button>
 `;

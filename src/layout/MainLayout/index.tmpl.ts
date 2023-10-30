@@ -1,5 +1,5 @@
 export const tmpl = `
-  <main class="main-layout">
+  <main class="main-layout" data-layout="flex">
     {{{content}}}
   </main>
 `;

@@ -8,10 +8,10 @@ const isEqual = (lhs: string, rhs: string) => {
 export default class Route {
   #pathname: string;
   #block: Block | null = null;
-  readonly #blockClass: typeof Block;
+  readonly #blockClass: typeof Block | Block;
   readonly #query: string;
 
-  constructor(pathname: string, view: typeof Block, query: string) {
+  constructor(pathname: string, view: typeof Block | Block, query: string) {
     this.#pathname = pathname;
     this.#blockClass = view;
     this.#query = query;
@@ -34,11 +34,10 @@ export default class Route {
 
   render() {
     if (!this.#block) {
-      this.#block = new this.#blockClass({});
+      this.#block = this.#blockClass instanceof Block ? this.#blockClass : new this.#blockClass({});
       render(this.#query, this.#block!);
+
       return;
     }
-
-    this.#block.show();
   }
 }

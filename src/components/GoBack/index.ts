@@ -1,4 +1,5 @@
 import { Block } from '@/core/Block';
+import router from '@/core/Router';
 
 import { tmpl } from './index.tmpl';
 
@@ -18,6 +19,11 @@ export class GoBack extends Block {
 
   init() {
     this.children.icon = new Icon({ name: 'arrow' });
+    this.setProps({
+      events: {
+        click: () => router.back(),
+      },
+    });
   }
 
   render() {

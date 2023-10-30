@@ -20,7 +20,7 @@ class Router {
     Router.__instance = this;
   }
 
-  use(pathname: string, block: typeof Block) {
+  use(pathname: string, block: typeof Block | Block) {
     const route = new Route(pathname, block, this.#rootQuery);
 
     this.#routes.push(route);
@@ -49,6 +49,8 @@ class Router {
     if (this.#currentRoute && this.#currentRoute !== route) {
       this.#currentRoute.leave();
     }
+
+    this.#currentRoute = route;
 
     route.render();
   }

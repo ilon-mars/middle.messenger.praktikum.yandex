@@ -1,4 +1,5 @@
 import { Block } from '@/core/Block';
+import router from '@/core/Router';
 
 import { tmpl } from './index.tmpl';
 
@@ -12,6 +13,14 @@ export class Link extends Block {
       ...props,
       classes: [$style[className]],
       $style,
+    });
+  }
+
+  init() {
+    this.setProps({
+      events: {
+        click: () => router.go(this.props.to),
+      },
     });
   }
 

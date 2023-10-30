@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Block } from '@/core/Block';
-import { createApp } from '@/core/createApp';
+import router from '@/core/Router';
 
 import { AuthPage } from '@/pages/AuthPage';
 import { ProfilePage } from '@/pages/ProfilePage';
@@ -8,7 +9,7 @@ import { EditPage } from '@/pages/EditPage';
 import { MainLayout } from '@/layout/MainLayout';
 import { ChatLayout } from '@/layout/ChatLayout';
 
-import { LayoutEnum, LinkEnum } from '@/enums';
+import { LayoutEnum, RouterLinkEnum } from '@/enums';
 import { RoutesList } from '@/types';
 import {
   EDIT_PAGE,
@@ -23,50 +24,55 @@ import {
 import '@/assets/styles/index.sass';
 
 const ROUTES: RoutesList = Object.freeze({
-  [`/${LinkEnum.CHAT}`]: {
+  [RouterLinkEnum.CHAT]: {
     component: new ChatLayout({ isChatSelected: true }),
     layout: LayoutEnum.CHAT,
   },
-  [`/${LinkEnum.LOGIN}`]: {
+  [RouterLinkEnum.LOGIN]: {
     component: new AuthPage({ title: 'Вход', hasAccount: true }),
     layout: LayoutEnum.MAIN,
   },
-  [`/${LinkEnum.NOT_FOUND}`]: {
+  [RouterLinkEnum.NOT_FOUND]: {
     component: new ErrorPage({ linkProps: NOT_FOUND_LINK, pageText: NOT_FOUND_PAGE }),
     layout: LayoutEnum.MAIN,
   },
-  [`/${LinkEnum.PROFILE}`]: {
+  [RouterLinkEnum.PROFILE]: {
     component: new ProfilePage(PROFILE_PAGE),
     layout: LayoutEnum.MAIN,
   },
-  [`/${LinkEnum.REGISTER}`]: {
+  [RouterLinkEnum.REGISTER]: {
     component: new AuthPage({ title: 'Регистрация', hasAccount: false }),
     layout: LayoutEnum.MAIN,
   },
-  [`/${LinkEnum.SERVER_ERROR}`]: {
+  [RouterLinkEnum.SERVER_ERROR]: {
     component: new ErrorPage({ linkProps: SERVER_ERROR_LINK, pageText: SERVER_ERROR_PAGE }),
     layout: LayoutEnum.MAIN,
   },
-  [`/${LinkEnum.EDIT_PROFILE}`]: {
+  [RouterLinkEnum.EDIT_PROFILE]: {
     component: new EditPage({ ...EDIT_PAGE, isPasswordEditing: false }),
     layout: LayoutEnum.MAIN,
   },
-  [`/${LinkEnum.EDIT_PASSWORD}`]: {
+  [RouterLinkEnum.EDIT_PASSWORD]: {
     component: new EditPage({ ...EDIT_PAGE, isPasswordEditing: true }),
     layout: LayoutEnum.MAIN,
   },
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  let component: Block;
+  Object.entries(ROUTES).forEach(entry => {
+    let component: Block;
 
-  const route = ROUTES[getRouteFromLocation(ROUTES) as keyof typeof ROUTES];
+    const [path, route] = entry;
 
-  if (route.layout === LayoutEnum.CHAT) {
-    component = route.component;
-  } else {
-    component = new MainLayout({ content: route.component });
-  }
+    if (route.layout === LayoutEnum.CHAT) {
+      component = route.component;
+    } else {
+      component = new MainLayout({ content: route.component });
+    }
 
-  createApp('#app', component);
+    router.use(path, component);
+  });
+
+  router.start();
+  router.go(getRouteFromLocation(ROUTES));
 });
