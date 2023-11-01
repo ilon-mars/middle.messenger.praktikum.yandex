@@ -1,5 +1,5 @@
 export enum LinkEnum {
-  LOGIN = 'login',
+  LOGIN = '',
   REGISTER = 'registration',
   PROFILE = 'profile',
   CHAT = 'chat',
