@@ -1,5 +1,5 @@
-import { Block } from './Block';
-import { createApp as render } from './createApp';
+import { Block } from '../Block';
+import { createApp as render } from '../createApp';
 
 const isEqual = (lhs: string, rhs: string) => {
   return lhs === rhs;

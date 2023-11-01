@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Block } from '@/core/Block';
 import router from '@/core/Router';
 
