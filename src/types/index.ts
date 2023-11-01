@@ -6,5 +6,6 @@ export * from './ErrorPageContent';
 export * from './FetchOptions';
 export * from './Optional';
 export * from './InputField';
-export * from './ApiServiceMethod';
+export * from './HTTPServiceMethod';
 export * from './props';
+export * from './requestData';
