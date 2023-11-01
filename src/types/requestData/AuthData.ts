@@ -1,5 +1,10 @@
 import { ID } from './ID';
 
+export type SignInRequest = {
+  login: string;
+  password: string;
+};
+
 export type SignUpRequest = {
   first_name: string;
   second_name: string;

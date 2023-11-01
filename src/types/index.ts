@@ -7,5 +7,6 @@ export * from './FetchOptions';
 export * from './Optional';
 export * from './InputField';
 export * from './HTTPServiceMethod';
+export * from './User';
 export * from './props';
 export * from './requestData';

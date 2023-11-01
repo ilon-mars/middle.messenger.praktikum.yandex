@@ -1,12 +1,12 @@
 import { API } from './api.service';
-import { SignInData, SignUpRequest, SignUpResponse, User } from '@/types';
+import { SignInRequest, SignUpRequest, SignUpResponse, User } from '@/types';
 
 export class AuthAPI extends API {
   constructor() {
     super('/auth');
   }
 
-  async signIn(data: SignInData): Promise<unknown> {
+  async signIn(data: SignInRequest): Promise<unknown> {
     return this.http.post('/signin', { data });
   }
 

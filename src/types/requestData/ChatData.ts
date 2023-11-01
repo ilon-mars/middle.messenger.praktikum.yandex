@@ -1,5 +1,5 @@
 import { ID } from './ID';
-import { Role, User } from './User';
+import { Role, User } from '../User';
 
 export type GetChatsRequest = {
   offset?: number;
