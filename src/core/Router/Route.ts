@@ -1,6 +1,11 @@
 import { Block } from '../Block';
 import { createApp as render } from '../createApp';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type BlockWithStore<T extends Record<string, any> = any> = {
+  new (props: T): Block<T>;
+};
+
 const isEqual = (lhs: string, rhs: string) => {
   return lhs === rhs;
 };
@@ -8,10 +13,10 @@ const isEqual = (lhs: string, rhs: string) => {
 export default class Route {
   #pathname: string;
   #block: Block | null = null;
-  readonly #blockClass: typeof Block | Block;
+  readonly #blockClass: BlockWithStore | Block;
   readonly #query: string;
 
-  constructor(pathname: string, view: typeof Block | Block, query: string) {
+  constructor(pathname: string, view: BlockWithStore | Block, query: string) {
     this.#pathname = pathname;
     this.#blockClass = view;
     this.#query = query;

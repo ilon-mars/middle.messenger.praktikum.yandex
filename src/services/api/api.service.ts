@@ -1,4 +1,4 @@
-import { HTTPService } from '../http.service';
+import { HTTPService } from '@/services/http.service';
 
 export abstract class API {
   protected http: HTTPService;

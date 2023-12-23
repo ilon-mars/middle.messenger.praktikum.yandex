@@ -16,7 +16,7 @@ export class Block<T extends Record<string, any> = any> {
   public id = uuid();
   public children: Record<string, Block | Block[]>;
 
-  protected props: T;
+  props: T;
 
   #eventBus: () => EventBus;
   #element: HTMLElement | null = null;
@@ -82,13 +82,13 @@ export class Block<T extends Record<string, any> = any> {
     this.#eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  protected init() {}
+  init() {}
 
   #componentDidMount() {
     this.componentDidMount();
   }
 
-  protected componentDidMount() {}
+  componentDidMount() {}
 
   public dispatchComponentDidMount() {
     this.#eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -102,7 +102,7 @@ export class Block<T extends Record<string, any> = any> {
     });
   }
 
-  #componentShouldUpdate(oldProps: T, newProps: T) {
+  #componentShouldUpdate(oldProps: unknown, newProps: unknown) {
     if (this.componentShouldUpdate(oldProps, newProps)) {
       this.#eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
@@ -110,7 +110,7 @@ export class Block<T extends Record<string, any> = any> {
 
   // метод будет перезаписан
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected componentShouldUpdate(_oldProps: T, _newProps: T) {
+  componentShouldUpdate(_oldProps: unknown, _newProps: unknown) {
     return true;
   }
 
@@ -155,7 +155,7 @@ export class Block<T extends Record<string, any> = any> {
 
   // может быть любая структура
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  protected compile(template: string, context: any) {
+  compile(template: string, context: any) {
     const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
@@ -197,7 +197,7 @@ export class Block<T extends Record<string, any> = any> {
     return temp.content;
   }
 
-  protected render(): DocumentFragment {
+  render(): DocumentFragment {
     return new DocumentFragment();
   }
 

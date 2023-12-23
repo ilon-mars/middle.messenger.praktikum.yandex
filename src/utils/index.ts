@@ -1,4 +1,3 @@
-export * from './getRouteFromLocation';
 export * from './constants';
 export * from './normalizeChatMessage';
 export * from './queryStringify';
@@ -7,6 +6,8 @@ export * from './getRawSvg';
 export * from './createIconsMap';
 export * from './inRange';
 export * from './inUpperCase';
+export * from './merge';
+export * from './set';
 export * from './errorClassHandler';
 export * from './handlers/onBlurHandler';
 export * from './handlers/onInputHandler';

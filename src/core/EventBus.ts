@@ -1,40 +1,31 @@
-// может быть любая структура
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Handler<A extends any[] = unknown[]> = (...args: A) => void;
-type MapInterface<T> = T[keyof T];
+// eslint-disable-next-line no-unused-vars
+type Handler = (...args: unknown[]) => void;
 
-export class EventBus<
-  E extends Record<string, string> = Record<string, string>,
-  // может быть любая структура
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  Args extends Record<MapInterface<E>, any[]> = Record<string, any[]>,
-> {
-  private readonly listeners: {
-    [K in MapInterface<E>]?: Handler<Args[K]>[];
-  } = {};
+export class EventBus {
+  private listeners: Record<string, Handler[]> = {};
 
-  on<Event extends MapInterface<E>>(event: Event, callback: Handler<Args[Event]>) {
+  on(event: string, callback: Handler): void {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
 
-    this.listeners[event]?.push(callback);
+    this.listeners[event].push(callback);
   }
 
-  off<Event extends MapInterface<E>>(event: Event, callback: Handler<Args[Event]>) {
+  off(event: string, callback: Handler): void {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event] = this.listeners[event]!.filter(listener => listener !== callback);
+    this.listeners[event] = this.listeners[event].filter(listener => listener !== callback);
   }
 
-  emit<Event extends MapInterface<E>>(event: Event, ...args: Args[Event]) {
+  emit(event: string, ...args: unknown[]): void {
     if (!this.listeners[event]) {
-      throw new Event(`Нет события: ${event}`);
+      throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event]!.forEach(listener => {
+    this.listeners[event].forEach(function (listener) {
       listener(...args);
     });
   }

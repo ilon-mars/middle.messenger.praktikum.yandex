@@ -1,5 +1,5 @@
 import { ChatParticipantEnum, LinkEnum, MessageStatusEnum } from '@/enums';
-import { AvatarProps, EditPageProps, ErrorPageContent, ProfilePageProps, RouteLink } from '@/types';
+import { AvatarProps, EditPageProps, ErrorPageContent, RouteLink } from '@/types';
 import { ReceiverMessage, SenderMessage } from '@/types/ChatMessage';
 
 export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager: true });
@@ -148,8 +148,6 @@ export const PROFILE_INFO_CARDS = [
   },
 ];
 
-export const MAIN_PAGE_ROUTE = '/';
-
 export const CHATS = [
   {
     name: 'Андрей',
@@ -275,13 +273,6 @@ export const MESSAGES: Array<SenderMessage | ReceiverMessage> = [
 export const PROFILE_AVATAR: AvatarProps = {
   name: 'Иван',
   to: `/${LinkEnum.EDIT_PROFILE}`,
-};
-
-export const PROFILE_PAGE: ProfilePageProps = {
-  goBack: `/${LinkEnum.CHAT}`,
-  editProfile: `/${LinkEnum.EDIT_PROFILE}`,
-  editPassword: `/${LinkEnum.EDIT_PASSWORD}`,
-  logout: `/${LinkEnum.LOGIN}`,
 };
 
 export const EDIT_PAGE: EditPageProps = {

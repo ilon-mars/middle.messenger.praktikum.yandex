@@ -1,6 +1,7 @@
 import { Block } from '@/core/Block';
+import { BlockWithStore } from '@/core/Router';
 
 export type MainLayoutProps = {
-  content: Block;
+  content: Block | BlockWithStore;
   classes?: string[];
 };

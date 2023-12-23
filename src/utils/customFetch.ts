@@ -22,7 +22,9 @@ export const customFetch = (url: string, options: FetchOptions) => {
     xhr.onerror = () => reject({ reason: 'Ошибка сети' });
     xhr.ontimeout = () => reject({ reason: 'Превышено время запроса' });
 
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    if (!(data instanceof FormData)) {
+      xhr.setRequestHeader('Content-Type', 'application/json');
+    }
 
     if (headers) {
       headers.forEach(({ key, value }) => {
@@ -33,10 +35,20 @@ export const customFetch = (url: string, options: FetchOptions) => {
     xhr.withCredentials = true;
     xhr.responseType = 'json';
 
+    xhr.onload = () => {
+      const { status, response } = xhr;
+
+      if (status >= 200 && status <= 300) {
+        resolve(response);
+      } else {
+        reject(response);
+      }
+    };
+
     if (method === HTTPMethodEnum.GET || !data) {
       xhr.send();
     } else {
-      xhr.send(JSON.stringify(data));
+      xhr.send(data instanceof FormData ? data : JSON.stringify(data));
     }
   });
 };

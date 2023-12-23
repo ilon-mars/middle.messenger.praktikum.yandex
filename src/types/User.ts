@@ -6,7 +6,6 @@ export type User = {
   login: string;
   email: string;
   phone: string;
-  avatar: string;
 };
 
 export type Role = 'admin';

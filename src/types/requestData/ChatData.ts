@@ -7,25 +7,12 @@ export type GetChatsRequest = {
   title?: string;
 };
 
-export type GetChatsResponse = {
-  id: ID;
-  title: string;
-  avatar: string;
-  unread_count: number;
-  created_by: number;
-  last_message: {
-    user: Omit<User, 'id' | 'display_name'>;
-    time: Date;
-    content: string;
-  };
-};
-
 export type CreateChatRequest = {
   title: string;
 };
 
 export type DeleteChatRequest = {
-  chatId: number;
+  chatId: ID;
 };
 
 export type DeleteChatResponse = {

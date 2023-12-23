@@ -1,77 +1,42 @@
-import { Block } from '@/core/Block';
-import router from '@/core/Router';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import router, { prepareRouter } from '@/core/Router';
 
-import { AuthPage } from '@/pages/AuthPage';
-import { ProfilePage } from '@/pages/ProfilePage';
-import { ErrorPage } from '@/pages/ErrorPage';
-import { EditPage } from '@/pages/EditPage';
-import { MainLayout } from '@/layout/MainLayout';
-import { ChatLayout } from '@/layout/ChatLayout';
+import AuthController from '@/controllers/AuthController';
 
-import { LayoutEnum, RouterLinkEnum } from '@/enums';
-import { RoutesList } from '@/types';
-import {
-  EDIT_PAGE,
-  NOT_FOUND_LINK,
-  NOT_FOUND_PAGE,
-  PROFILE_PAGE,
-  SERVER_ERROR_LINK,
-  SERVER_ERROR_PAGE,
-  getRouteFromLocation,
-} from '@/utils';
+import { RouterLinkEnum } from '@/enums';
 
 import '@/assets/styles/index.sass';
 
-const ROUTES: RoutesList = Object.freeze({
-  [RouterLinkEnum.CHAT]: {
-    component: new ChatLayout({ isChatSelected: true }),
-    layout: LayoutEnum.CHAT,
-  },
-  [RouterLinkEnum.LOGIN]: {
-    component: new AuthPage({ title: 'Вход', hasAccount: true }),
-    layout: LayoutEnum.MAIN,
-  },
-  [RouterLinkEnum.NOT_FOUND]: {
-    component: new ErrorPage({ linkProps: NOT_FOUND_LINK, pageText: NOT_FOUND_PAGE }),
-    layout: LayoutEnum.MAIN,
-  },
-  [RouterLinkEnum.PROFILE]: {
-    component: new ProfilePage(PROFILE_PAGE),
-    layout: LayoutEnum.MAIN,
-  },
-  [RouterLinkEnum.REGISTER]: {
-    component: new AuthPage({ title: 'Регистрация', hasAccount: false }),
-    layout: LayoutEnum.MAIN,
-  },
-  [RouterLinkEnum.SERVER_ERROR]: {
-    component: new ErrorPage({ linkProps: SERVER_ERROR_LINK, pageText: SERVER_ERROR_PAGE }),
-    layout: LayoutEnum.MAIN,
-  },
-  [RouterLinkEnum.EDIT_PROFILE]: {
-    component: new EditPage({ ...EDIT_PAGE, isPasswordEditing: false }),
-    layout: LayoutEnum.MAIN,
-  },
-  [RouterLinkEnum.EDIT_PASSWORD]: {
-    component: new EditPage({ ...EDIT_PAGE, isPasswordEditing: true }),
-    layout: LayoutEnum.MAIN,
-  },
-});
+document.addEventListener('DOMContentLoaded', async () => {
+  prepareRouter();
 
-document.addEventListener('DOMContentLoaded', () => {
-  Object.entries(ROUTES).forEach(entry => {
-    let component: Block;
+  let isProtectedRoute = true;
 
-    const [path, route] = entry;
+  switch (window.location.pathname) {
+    case RouterLinkEnum.NOT_FOUND:
+    case RouterLinkEnum.LOGIN:
+    case RouterLinkEnum.REGISTER:
+    case RouterLinkEnum.SERVER_ERROR:
+      isProtectedRoute = false;
+      break;
+    default:
+      isProtectedRoute = true;
+      break;
+  }
 
-    if (route.layout === LayoutEnum.CHAT) {
-      component = route.component;
-    } else {
-      component = new MainLayout({ content: route.component });
+  try {
+    await AuthController.fetchUser();
+
+    router.start();
+
+    if (isProtectedRoute) {
+      router.go(RouterLinkEnum.CHAT);
     }
+  } catch (e) {
+    router.start();
 
-    router.use(path, component);
-  });
-
-  router.start();
-  router.go(getRouteFromLocation(ROUTES));
+    if (!isProtectedRoute) {
+      router.go(RouterLinkEnum.LOGIN);
+    }
+  }
 });

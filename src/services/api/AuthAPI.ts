@@ -1,4 +1,5 @@
-import { API } from './api.service';
+import { API } from '@/services/api';
+
 import { SignInRequest, SignUpRequest, SignUpResponse, User } from '@/types';
 
 export class AuthAPI extends API {

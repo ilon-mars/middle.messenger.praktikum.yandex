@@ -1,5 +1,5 @@
 import { Block } from '../Block';
-import Route from './Route';
+import Route, { BlockWithStore } from './Route';
 
 class Router {
   private static __instance: Router;
@@ -20,7 +20,7 @@ class Router {
     Router.__instance = this;
   }
 
-  use(pathname: string, block: typeof Block | Block) {
+  use(pathname: string, block: BlockWithStore | Block) {
     const route = new Route(pathname, block, this.#rootQuery);
 
     this.#routes.push(route);
