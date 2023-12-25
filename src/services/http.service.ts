@@ -3,11 +3,10 @@ import { HTTPServiceMethod } from '@/types';
 import { customFetch, queryStringify } from '@/utils';
 
 export class HTTPService {
-  static API_URL = import.meta.env.VITE_API_URL;
   protected endpoint: string;
 
   constructor(endpoint: string) {
-    this.endpoint = `${HTTPService.API_URL}${endpoint}`;
+    this.endpoint = `${import.meta.env.VITE_API_URL}${endpoint}`;
   }
 
   get: HTTPServiceMethod = (url = '/', options = {}) => {

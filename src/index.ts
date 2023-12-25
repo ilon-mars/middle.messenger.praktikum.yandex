@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   switch (window.location.pathname) {
     case RouterLinkEnum.NOT_FOUND:
-    case RouterLinkEnum.LOGIN:
     case RouterLinkEnum.REGISTER:
     case RouterLinkEnum.SERVER_ERROR:
       isProtectedRoute = false;
@@ -24,18 +23,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       break;
   }
 
+  router.start();
+
   try {
     await AuthController.fetchUser();
 
-    router.start();
-
-    if (isProtectedRoute) {
+    if (!isProtectedRoute) {
       router.go(RouterLinkEnum.CHAT);
     }
   } catch (e) {
-    router.start();
-
-    if (!isProtectedRoute) {
+    if (isProtectedRoute) {
       router.go(RouterLinkEnum.LOGIN);
     }
   }

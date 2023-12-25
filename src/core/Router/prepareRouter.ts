@@ -62,4 +62,8 @@ export const prepareRouter = () => {
 
     router.use(path, component);
   });
+
+  if (!Object.keys(ROUTES).includes(window.location.pathname)) {
+    router.go(RouterLinkEnum.NOT_FOUND);
+  }
 };

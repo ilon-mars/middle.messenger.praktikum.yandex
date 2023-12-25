@@ -1,22 +1,39 @@
 import { API } from '@/services/api';
 
-import { SignInRequest, SignUpRequest, SignUpResponse, User } from '@/types';
+import { SignInRequest, SignUpRequest, User, ServerError } from '@/types';
 
 export class AuthAPI extends API {
   constructor() {
     super('/auth');
   }
 
-  async signIn(data: SignInRequest): Promise<unknown> {
-    return this.http.post('/signin', { data });
+  async signIn(data: SignInRequest) {
+    try {
+      await this.http.post('/signin', { data });
+      return true;
+    } catch (e: unknown) {
+      const { reason } = e as ServerError;
+      throw new Error(reason);
+    }
   }
 
-  async signUp(data: SignUpRequest): Promise<SignUpResponse> {
-    return this.http.post('/signup', { data }) as Promise<SignUpResponse>;
+  async signUp(data: SignUpRequest) {
+    try {
+      await this.http.post('/signup', { data });
+      return true;
+    } catch (e: unknown) {
+      const { reason } = e as ServerError;
+      throw new Error(reason);
+    }
   }
 
-  async logout(): Promise<unknown> {
-    return this.http.post('/logout');
+  async logout() {
+    try {
+      await this.http.post('/logout');
+      return true;
+    } catch (e: unknown) {
+      throw new Error(e as string);
+    }
   }
 
   async getUser(): Promise<User> {

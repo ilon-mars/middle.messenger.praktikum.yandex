@@ -8,7 +8,7 @@ export type State = {
   user?: {
     data: User;
     error?: string | undefined;
-  };
+  } | null;
 
   chats?: {
     data: Chat[];

@@ -18,7 +18,12 @@ const normalizeData = (data: Record<string, InputField>): Record<string, string>
   );
 };
 
-export const onSubmitHandler = async (e: SubmitEvent | undefined, form: Form) => {
+export const onSubmitHandler = async (
+  e: SubmitEvent | undefined,
+  form: Form,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  callback: (data?: any) => void | Promise<void>,
+) => {
   if (e) {
     e.preventDefault();
 
@@ -43,6 +48,7 @@ export const onSubmitHandler = async (e: SubmitEvent | undefined, form: Form) =>
 
     if (isValid) {
       console.log('%cSend', 'background: #242424; color: #FE5F05; padding: 4px 1px', normalizeData(data));
+      await callback(normalizeData(data));
 
       inputs.forEach(input => {
         const inputEl = input as Input;

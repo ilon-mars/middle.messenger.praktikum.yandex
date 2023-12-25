@@ -1,9 +1,11 @@
 import { Block } from '@/core/Block';
 import { State, withStore } from '@/core/Store';
+import router from '@/core/Router';
 
 import { tmpl } from './index.tmpl';
 
 import { Avatar } from '@/components/Avatar';
+import { DefaultButton } from '@/components/Button';
 import { GoBack } from '@/components/GoBack';
 import { Link } from '@/components/Link';
 
@@ -30,7 +32,21 @@ class Profile extends Block {
     this.children.goBack = new GoBack({ to: `/${LinkEnum.CHAT}` });
     this.children.editProfileLink = new Link(EDIT_PROFILE);
     this.children.editPasswordLink = new Link(EDIT_PASSWORD);
-    this.children.logout = new Link(LOGOUT, 'logout');
+    this.children.logout = new DefaultButton(
+      {
+        hasText: true,
+        text: LOGOUT.text,
+        events: {
+          click: e => {
+            e?.preventDefault();
+
+            AuthController.logout();
+            router.go(LOGOUT.to);
+          },
+        },
+      },
+      $style.logout,
+    );
   }
 
   componentDidMount(): void {

@@ -57,15 +57,9 @@ class AuthController {
   }
 
   async fetchUser() {
-    // eslint-disable-next-line no-useless-catch
-    try {
-      const user = await this.api.getUser();
+    const user = await this.api.getUser();
 
-      store.set('user.data', user);
-      return user;
-    } catch (error) {
-      throw error;
-    }
+    store.set('user.data', user);
   }
 }
 
