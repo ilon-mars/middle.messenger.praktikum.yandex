@@ -1,6 +1,16 @@
+@import '@/assets/styles/utils/_vars.sass'
 @import '@/assets/styles/utils/_mixins.sass'
 
 .wrapper
   width: 100%
   height: 100%
+  +centering
+
+.notification
+  position: fixed
+  bottom: $space-l
+  font-size: 14px
+  padding: $space-xs $space-s
+  background-color: rgba($fg-role-warning, $opacity-m)
+  border-radius: $border-radius-s
   +centering

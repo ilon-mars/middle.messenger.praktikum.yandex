@@ -3,5 +3,9 @@ export const tmpl = `
     {{{goBack}}}
 
     {{{form}}}
+
+    {{#if notification}}
+      <span class="{{ $style.notification }}">{{notification}}</span>
+    {{/if}}
   </section>
 `;

@@ -11,7 +11,7 @@ import { ChatLayout } from '@/layout/ChatLayout';
 
 import { LayoutEnum, RouterLinkEnum } from '@/enums';
 import { RoutesList } from '@/types';
-import { EDIT_PAGE, NOT_FOUND_LINK, NOT_FOUND_PAGE, SERVER_ERROR_LINK, SERVER_ERROR_PAGE } from '@/utils';
+import { NOT_FOUND_LINK, NOT_FOUND_PAGE, SERVER_ERROR_LINK, SERVER_ERROR_PAGE } from '@/utils';
 
 const ROUTES: RoutesList = Object.freeze({
   [RouterLinkEnum.CHAT]: {
@@ -27,7 +27,7 @@ const ROUTES: RoutesList = Object.freeze({
     layout: LayoutEnum.MAIN,
   },
   [RouterLinkEnum.PROFILE]: {
-    component: new ProfilePage(),
+    component: new ProfilePage({}),
     layout: LayoutEnum.MAIN,
   },
   [RouterLinkEnum.REGISTER]: {
@@ -39,11 +39,11 @@ const ROUTES: RoutesList = Object.freeze({
     layout: LayoutEnum.MAIN,
   },
   [RouterLinkEnum.EDIT_PROFILE]: {
-    component: new EditPage({ ...EDIT_PAGE, isPasswordEditing: false }),
+    component: new EditPage({ isPasswordEditing: false }),
     layout: LayoutEnum.MAIN,
   },
   [RouterLinkEnum.EDIT_PASSWORD]: {
-    component: new EditPage({ ...EDIT_PAGE, isPasswordEditing: true }),
+    component: new EditPage({ isPasswordEditing: true }),
     layout: LayoutEnum.MAIN,
   },
 });

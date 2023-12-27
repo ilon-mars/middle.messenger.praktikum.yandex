@@ -1,5 +1,6 @@
 import store from '@/core/Store';
 import { ResourceAPI } from '@/services/api/ResourceAPI';
+import { ServerError } from '@/types';
 
 class ResourceController {
   private readonly api = new ResourceAPI();
@@ -10,8 +11,9 @@ class ResourceController {
 
       store.set('resources.error', undefined);
     } catch (error: unknown) {
-      store.set('resources.error', (error as Error).message);
-      console.error((error as Error).message);
+      store.set('resources.error', (error as ServerError).reason);
+
+      console.error((error as ServerError).reason);
     }
   };
 }

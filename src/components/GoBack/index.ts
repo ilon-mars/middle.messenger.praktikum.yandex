@@ -5,16 +5,11 @@ import { tmpl } from './index.tmpl';
 
 import { Icon } from '@/components/Icon';
 
-import { RedirectTo } from '@/types';
-
 import $style from './index.module.sass';
 
 export class GoBack extends Block {
-  constructor(props: { to: RedirectTo }) {
-    super({
-      ...props,
-      $style,
-    });
+  constructor() {
+    super({ $style });
   }
 
   init() {

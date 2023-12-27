@@ -18,38 +18,45 @@ const normalizeData = (data: Record<string, InputField>): Record<string, string>
   );
 };
 
-export const onSubmitHandler = async (
-  e: SubmitEvent | undefined,
-  form: Form,
+type SubmitHandlerArgs = {
+  e: Event | undefined;
+  form: Form;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  callback: (data?: any) => void | Promise<void>,
-) => {
-  if (e) {
-    e.preventDefault();
+  callback: (data?: any) => void | Promise<void>;
+  shouldResetForm?: boolean;
+};
 
-    const data = form.formData as Record<string, InputField>;
-    const isValid = !Object.values(data).filter(item => !item.isValid).length;
+export const onSubmitHandler = async ({ e, form, callback, shouldResetForm = true }: SubmitHandlerArgs) => {
+  if (!e) {
+    return;
+  }
 
-    const inputs = Object.values(form.children)
-      .map(child => child instanceof InputWithLabel && child.children.input)
-      .filter(value => value);
+  e.preventDefault();
 
-    inputs.forEach(input => {
-      const inputEl = input as Input;
-      const $el = inputEl.element as HTMLInputElement | HTMLTextAreaElement;
+  const data = form.formData as Record<string, InputField>;
+  const isValid = !Object.values(data).filter(item => !item.isValid).length;
 
-      const value = $el.value;
-      const field = data[$el.name];
+  const inputs = Object.values(form.children)
+    .map(child => child instanceof InputWithLabel && child.children.input)
+    .filter(value => value);
 
-      inputEl.checkField(value, field);
+  inputs.forEach(input => {
+    const inputEl = input as Input;
+    const $el = inputEl.element as HTMLInputElement | HTMLTextAreaElement;
 
-      errorClassHandler(field, inputEl.element!.parentElement!, $wrapperStyle.error);
-    });
+    const value = $el.value;
+    const field = data[$el.name];
 
-    if (isValid) {
-      console.log('%cSend', 'background: #242424; color: #FE5F05; padding: 4px 1px', normalizeData(data));
-      await callback(normalizeData(data));
+    inputEl.checkField(value, field);
 
+    errorClassHandler(field, inputEl.element!.parentElement!, $wrapperStyle.error);
+  });
+
+  if (isValid) {
+    console.log('%cSend', 'background: #242424; color: #FE5F05; padding: 4px 1px', normalizeData(data));
+    await callback(normalizeData(data));
+
+    if (shouldResetForm) {
       inputs.forEach(input => {
         const inputEl = input as Input;
         const $el = inputEl.element as HTMLInputElement | HTMLTextAreaElement;

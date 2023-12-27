@@ -9,6 +9,7 @@ export * from './inUpperCase';
 export * from './merge';
 export * from './set';
 export * from './errorClassHandler';
+export * from './showNotification';
 export * from './handlers/onBlurHandler';
 export * from './handlers/onInputHandler';
 export * from './handlers/onSubmitHandler';

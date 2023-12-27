@@ -1,6 +1,5 @@
 export * from './RoutesList';
 export * from './LayoutsList';
-export * from './props/ChatItemProps';
 export * from './RouteLink';
 export * from './ErrorPageContent';
 export * from './FetchOptions';
@@ -8,6 +7,7 @@ export * from './Optional';
 export * from './InputField';
 export * from './HTTPServiceMethod';
 export * from './ServerError';
+export * from './ProfileCardTemplate';
 export * from './Indexed';
 export * from './User';
 export * from './Chat';

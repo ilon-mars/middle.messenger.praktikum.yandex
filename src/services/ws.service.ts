@@ -2,7 +2,7 @@ import { EventBus } from '@/core/EventBus';
 
 import { SocketEventEnum } from '@/enums';
 
-export default class WebSocketService extends EventBus<{ [Ev: string]: unknown[] }> {
+export default class WebSocketService extends EventBus {
   private socket: WebSocket | null = null;
 
   private pingInterval: unknown = 0;
@@ -50,19 +50,19 @@ export default class WebSocketService extends EventBus<{ [Ev: string]: unknown[]
   }
 
   private subscribe(socket: WebSocket) {
-    socket.addEventListener('open', () => {
+    socket.addEventListener(SocketEventEnum.OPEN, () => {
       this.emit(SocketEventEnum.CONNECTED);
     });
 
-    socket.addEventListener('close', () => {
+    socket.addEventListener(SocketEventEnum.CLOSE, () => {
       this.emit(SocketEventEnum.CLOSE);
     });
 
-    socket.addEventListener('error', e => {
+    socket.addEventListener(SocketEventEnum.ERROR, e => {
       this.emit(SocketEventEnum.ERROR, e);
     });
 
-    socket.addEventListener('message', message => {
+    socket.addEventListener(SocketEventEnum.MESSAGE, message => {
       const data = JSON.parse(message.data);
 
       if (data.type && data.type === 'pong') {

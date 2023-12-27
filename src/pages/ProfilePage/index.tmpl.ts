@@ -19,5 +19,7 @@ export const tmpl = `
         {{/each}}
       </ul>
     </div>
+
+    {{{ uploadAvatarModal }}}
   </section>
 `;

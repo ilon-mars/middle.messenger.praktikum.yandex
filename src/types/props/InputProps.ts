@@ -1,4 +1,5 @@
 import { Attributes } from '../Attributes';
+import { Events } from '../Events';
 
 type InputName =
   | 'first_name'
@@ -13,16 +14,19 @@ type InputName =
   | 'oldPassword'
   | 'newPassword'
   | 'display_name';
+
 type InputType = 'text' | 'email' | 'password' | 'tel' | 'search';
 
 export type InputProps = {
   attrs?: Attributes & { name?: InputName };
   type?: InputType;
   value?: string;
-  events?: Record<string, (e?: Event) => void>;
+  events?: Events;
   classes?: string[];
 };
 
 export type SearchInputProps = Omit<InputProps, 'labelText' | 'errorText'>;
 
 export type MessageInputProps = Omit<InputProps, 'labelText' | 'errorText' | 'type'>;
+
+export type FileInputProps = Pick<InputProps, 'events'>;

@@ -1,5 +1,5 @@
 export const tmpl = `
   <section class="container">
-    {{{ modal }}}
+    {{{ content }}}
   </section>
 `;

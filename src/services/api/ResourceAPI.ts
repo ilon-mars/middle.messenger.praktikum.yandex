@@ -8,8 +8,4 @@ export class ResourceAPI extends API {
   public async send(data: FormData) {
     return await this.http.post('/', { data });
   }
-
-  public async get(path: string) {
-    return await this.http.get(`/${path}`);
-  }
 }

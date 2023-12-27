@@ -1,5 +1,5 @@
-import { ChatParticipantEnum, LinkEnum, MessageStatusEnum } from '@/enums';
-import { AvatarProps, EditPageProps, ErrorPageContent, RouteLink } from '@/types';
+import { ChatParticipantEnum, LinkEnum, MessageStatusEnum, UploadAvatarStateEnum } from '@/enums';
+import { ErrorPageContent, RouteLink, ProfileCardTemplate, ButtonProps } from '@/types';
 import { ReceiverMessage, SenderMessage } from '@/types/ChatMessage';
 
 export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager: true });
@@ -79,10 +79,9 @@ export const DISPLAY_NAME_INPUT = Object.freeze({
   errorText: 'Должно начинаться с большой буквы',
 });
 
-export const LOGIN_BUTTON: RouteLink & { hasText: boolean } = Object.freeze({
+export const LOGIN_BUTTON: ButtonProps = Object.freeze({
   hasText: true,
   text: 'Авторизоваться',
-  to: `/${LinkEnum.CHAT}`,
 });
 
 export const LOGIN_LINK: RouteLink = Object.freeze({
@@ -90,10 +89,9 @@ export const LOGIN_LINK: RouteLink = Object.freeze({
   to: `/${LinkEnum.REGISTER}`,
 });
 
-export const REGISTER_BUTTON: RouteLink & { hasText: boolean } = Object.freeze({
+export const REGISTER_BUTTON: ButtonProps = Object.freeze({
   hasText: true,
   text: 'Зарегистрироваться',
-  to: `/${LinkEnum.CHAT}`,
 });
 
 export const REGISTER_LINK: RouteLink = Object.freeze({
@@ -121,30 +119,36 @@ export const SERVER_ERROR_LINK: RouteLink = Object.freeze({
   to: `/${LinkEnum.CHAT}`,
 });
 
-export const PROFILE_INFO_CARDS = [
+export const PROFILE_INFO_CARDS: ProfileCardTemplate[] = [
   {
     caption: 'Логин',
     text: 'ivanivanov',
+    slug: 'login',
   },
   {
     caption: 'Имя в чате',
     text: 'Иван',
+    slug: 'display_name',
   },
   {
     caption: 'Имя',
     text: 'Иван',
+    slug: 'first_name',
   },
   {
     caption: 'Фамилия',
     text: 'Иванов',
+    slug: 'second_name',
   },
   {
     caption: 'Почта',
     text: 'pochta@yandex.ru',
+    slug: 'email',
   },
   {
     caption: 'Телефон',
     text: '+7 (909) 967 30 30',
+    slug: 'phone',
   },
 ];
 
@@ -223,10 +227,9 @@ export const CHATS = [
   },
 ];
 
-export const SAVE_PROFILE_BUTTON: RouteLink & { hasText: boolean } = Object.freeze({
+export const SAVE_PROFILE_BUTTON = Object.freeze({
   hasText: true,
   text: 'Сохранить',
-  to: `/${LinkEnum.PROFILE}`,
 });
 
 export const MESSAGES: Array<SenderMessage | ReceiverMessage> = [
@@ -270,16 +273,6 @@ export const MESSAGES: Array<SenderMessage | ReceiverMessage> = [
   },
 ];
 
-export const PROFILE_AVATAR: AvatarProps = {
-  name: 'Иван',
-  to: `/${LinkEnum.EDIT_PROFILE}`,
-};
-
-export const EDIT_PAGE: EditPageProps = {
-  goBack: `/${LinkEnum.CHAT}`,
-  isPasswordEditing: false,
-};
-
 export const GO_TO_PROFILE: RouteLink = Object.freeze({
   text: 'Профиль',
   to: `/${LinkEnum.PROFILE}`,
@@ -298,4 +291,15 @@ export const EDIT_PASSWORD: RouteLink = Object.freeze({
 export const LOGOUT: RouteLink = Object.freeze({
   text: 'Выйти',
   to: `/${LinkEnum.LOGIN}`,
+});
+
+export const UPLOAD_AVATAR = Object.freeze({
+  hasText: true,
+  text: 'Поменять',
+});
+
+export const UPLOAD_AVATAR_STATE_TITLES = Object.freeze({
+  [UploadAvatarStateEnum.START]: 'Загрузите файл',
+  [UploadAvatarStateEnum.UPLOADED]: 'Файл загружен',
+  [UploadAvatarStateEnum.ERROR]: 'Ошибка, попробуйте еще раз',
 });

@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { tmpl } from './index.tmpl';
 
 import { Form } from '@/components/Form/Form';
 import { MainButton } from '@/components/Button';
 import { Input, InputWithLabel, PasswordInput } from '@/components/Input';
+import { Icon } from '@/components/Icon';
 
 import { FormProps, InputField } from '@/types';
 import {
@@ -99,7 +101,10 @@ export class EditPasswordForm extends Form {
       'profile-card',
     );
 
-    this.children.saveButton = new MainButton(SAVE_PROFILE_BUTTON);
+    this.children.saveButton = new MainButton({
+      ...SAVE_PROFILE_BUTTON,
+      icon: new Icon({ name: 'arrow-tail' }),
+    });
   }
 
   render() {

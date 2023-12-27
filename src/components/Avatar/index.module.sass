@@ -25,38 +25,38 @@
       font-weight: $font-weight-m
       color: $base-neutral
 
-.imageWrapper
-  width: 100%
-  aspect-ratio: 1/1
+.wrapper
   padding: $space-s
   margin-bottom: $space-s
-  position: relative
-  cursor: pointer
   +centering
   +dashed-border
 
-  &:hover
-    & ~ .overlay
-      opacity: 1
-      pointer-events: auto
-      +centering
-
-.overlay
-  position: absolute
+.imageWrapper
   width: 100px
   height: 100px
-  top: $space-s
-  font-size: 10px
-  text-align: center
-  padding: $space-m
-  background-color: rgba($bg-base-dark, 0.8)
-  opacity: 0
-  transition: all $transition-duration-s ease-in-out
-  pointer-events: none
-  color: inherit
-  display: none
-  transition-property: opacity
-  +transition
+  position: relative
+
+  &::before
+    content: 'Поменять аватар'
+    position: absolute
+    width: 100%
+    height: 100%
+    font-size: 10px
+    text-align: center
+    padding: $space-m
+    background-color: rgba($bg-base-dark, 0.8)
+    opacity: 0
+    color: inherit
+    transition-property: opacity
+    +centering
+    +transition
+
+  &.hoverable
+    cursor: pointer
+
+    &:hover
+      &::before
+        opacity: 1
 
 .image
   width: 100%

@@ -2,12 +2,12 @@ import { Block } from '@/core/Block';
 
 import { tmpl } from './index.tmpl';
 
-import { ModalProps } from '@/types';
+import { FileInputProps } from '@/types';
 
 import $style from './index.module.sass';
 
-export abstract class Modal extends Block {
-  constructor(props: ModalProps) {
+export class FileInput extends Block {
+  constructor(props: FileInputProps) {
     super({
       ...props,
       $style,

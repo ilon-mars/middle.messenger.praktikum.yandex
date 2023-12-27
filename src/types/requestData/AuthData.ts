@@ -1,5 +1,3 @@
-import { ID } from './ID';
-
 export type SignInRequest = {
   login: string;
   password: string;
@@ -12,8 +10,4 @@ export type SignUpRequest = {
   email: string;
   password: string;
   phone: string;
-};
-
-export type SignUpResponse = {
-  id: ID;
 };

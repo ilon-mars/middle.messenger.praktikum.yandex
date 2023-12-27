@@ -4,7 +4,7 @@ import Router from '@/core/Router';
 import AuthController from './AuthController.ts';
 
 import { RouterLinkEnum } from '@/enums';
-import { User, UserPasswordData } from '@/types';
+import { ServerError, User, UserPasswordData } from '@/types';
 
 class UserController {
   private api = new UserAPI();
@@ -18,12 +18,13 @@ class UserController {
 
       Router.go(RouterLinkEnum.PROFILE);
     } catch (error: unknown) {
-      store.set('user.error', (error as Error).message);
-      console.error((error as Error).message);
+      store.set('user.error', (error as ServerError).reason);
+
+      console.error((error as ServerError).reason);
     }
   }
 
-  async changeUserAvatar(data: FormData) {
+  async changeAvatar(data: FormData) {
     try {
       await this.api.changeUserAvatar(data);
       await AuthController.fetchUser();
@@ -32,12 +33,13 @@ class UserController {
 
       Router.go(RouterLinkEnum.PROFILE);
     } catch (error: unknown) {
-      store.set('user.error', (error as Error).message);
-      console.error((error as Error).message);
+      store.set('user.error', (error as ServerError).reason);
+
+      console.error((error as ServerError).reason);
     }
   }
 
-  async changeUserPassword(password: UserPasswordData) {
+  async changePassword(password: UserPasswordData) {
     try {
       await this.api.changeUserPassword(password);
       await AuthController.fetchUser();
@@ -46,8 +48,9 @@ class UserController {
 
       Router.go(RouterLinkEnum.PROFILE);
     } catch (error: unknown) {
-      store.set('user.error', (error as Error).message);
-      console.error((error as Error).message);
+      store.set('user.error', (error as ServerError).reason);
+
+      console.error((error as ServerError).reason);
     }
   }
 }

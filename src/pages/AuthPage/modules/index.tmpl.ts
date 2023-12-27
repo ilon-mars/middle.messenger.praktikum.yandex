@@ -3,13 +3,12 @@ export const tmpl = `
     <h2 class="h2 {{ $style.title }}">{{ title }}</h2>
     {{{form}}}
 
-
     <footer class="{{ $style.controls }}">
-    {{{ link }}}
+      {{{ link }}}
 
-    {{#if notification}}
-      <span class="{{ $style.notification }}">{{notification}}</span>
-    {{/if}}
+      {{#if notification}}
+        <span class="{{ $style.notification }}">{{notification}}</span>
+      {{/if}}
     </footer>
   </div>
 `;

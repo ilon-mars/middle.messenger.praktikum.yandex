@@ -4,8 +4,6 @@ import { tmpl } from './index.tmpl';
 
 import { Avatar } from '@/components/Avatar';
 
-import { PROFILE_AVATAR } from '@/utils';
-
 import $style from './index.module.sass';
 
 export class Header extends Block {
@@ -14,7 +12,7 @@ export class Header extends Block {
   }
 
   init() {
-    this.children.avatar = new Avatar({ name: PROFILE_AVATAR.name }, 'small');
+    this.children.avatar = new Avatar({ name: 'Иван' }, 'small');
   }
 
   render() {

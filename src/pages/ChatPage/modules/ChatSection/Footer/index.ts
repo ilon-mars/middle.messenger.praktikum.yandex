@@ -22,7 +22,7 @@ export class Footer extends Block {
         submit: e => {
           const form = this.children.form as MessageForm;
 
-          onSubmitHandler(e, form);
+          onSubmitHandler({ e, form });
 
           ((form.children.messageInput as MessageInput).element! as HTMLTextAreaElement).value = '';
         },

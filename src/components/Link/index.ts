@@ -3,12 +3,12 @@ import router from '@/core/Router';
 
 import { tmpl } from './index.tmpl';
 
-import { LinkProps } from '@/types';
+import { RouteLink } from '@/types';
 
 import $style from './index.module.sass';
 
 export class Link extends Block {
-  constructor(props: LinkProps, className: string = '') {
+  constructor(props: RouteLink, className: string = '') {
     super({
       ...props,
       classes: [$style[className]],
