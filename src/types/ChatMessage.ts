@@ -10,5 +10,5 @@ type BaseMessage = {
   imageLink?: string;
 };
 
-export type SenderMessage = BaseMessage;
-export type ReceiverMessage = { status: MessageStatus } & BaseMessage;
+export type MyMessage = BaseMessage;
+export type OtherMessage = { status: MessageStatus } & BaseMessage;

@@ -1,4 +1,4 @@
 export enum ChatParticipantEnum {
-  SENDER = 'sender',
-  RECEIVER = 'receiver',
+  ME = 'me',
+  OTHER = 'other',
 }

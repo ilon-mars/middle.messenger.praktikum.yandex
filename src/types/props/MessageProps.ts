@@ -1,5 +1,6 @@
-import { ReceiverMessage, SenderMessage } from '../ChatMessage';
+// import { ReceiverMessage, SenderMessage } from '../ChatMessage';
+import { Message } from '../Message';
 
-export type MessageProps = (SenderMessage | ReceiverMessage) & {
-  isSender: boolean;
+export type MessageProps = Message & {
+  isMe: boolean;
 };

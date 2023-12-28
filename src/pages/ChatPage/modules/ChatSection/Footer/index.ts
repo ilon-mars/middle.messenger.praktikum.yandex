@@ -13,7 +13,7 @@ import $style from './index.module.sass';
 
 export class Footer extends Block {
   constructor() {
-    super($style);
+    super({ $style });
   }
 
   init() {
@@ -22,7 +22,7 @@ export class Footer extends Block {
         submit: e => {
           const form = this.children.form as MessageForm;
 
-          onSubmitHandler({ e, form });
+          onSubmitHandler({ e, form, callback: () => {} });
 
           ((form.children.messageInput as MessageInput).element! as HTMLTextAreaElement).value = '';
         },

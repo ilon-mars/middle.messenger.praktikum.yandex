@@ -1,16 +1,4 @@
 @import '@/assets/styles/utils/_vars.sass'
-@import '@/assets/styles/utils/_mixins.sass'
-
-.header
-  width: 290px
-  height: 98px
-  padding: $space-s 0
-  margin: 0 auto
-  display: flex
-  flex-direction: column
-  align-items: flex-end
-  gap: $space-s
-  border-bottom: 1px solid $border-base-light
 
 .chats
   width: 100%
@@ -19,15 +7,3 @@
   display: flex
   flex-direction: column
   overflow-y: scroll
-
-.wrapper
-  width: 100%
-  max-height: 63px
-  padding: $space-xs
-  border-radius: $border-radius-s
-  background-color: $base-dark
-  display: grid
-  gap: $space-xxs $space-xs
-  grid-template-columns: 47px repeat(2, 1fr) 25px
-  grid-template-rows: repeat(2, 1fr)
-  grid-template-areas: "avatar name time time" "avatar text text counter"

@@ -21,7 +21,7 @@ $hover-offset: 20px
 
 .button
   width: 100%
-  color: $base-dark
+  color: inherit
   display: flex
   align-items: center
   gap: $space-l
@@ -40,6 +40,7 @@ $hover-offset: 20px
 
 .main
   height: 40px
+  color: $base-dark
 
   .text
     @extend %button-common
@@ -68,7 +69,7 @@ $hover-offset: 20px
       @extend %pseudo-common
       transform: translateX(-50%)
       left: $space-xs
-      z-index: -1
+      z-index: $ui-index-hide
 
     svg
       transition-property: fill
@@ -98,7 +99,7 @@ $hover-offset: 20px
       transform: rotate(90deg)
 
     svg
-      fill: $base-light
+      fill: currentColor
       transition-property: fill
       +transition
 

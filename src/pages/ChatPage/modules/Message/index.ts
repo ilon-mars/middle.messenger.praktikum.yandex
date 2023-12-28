@@ -6,11 +6,13 @@ import { MessageProps } from '@/types';
 
 import $style from './index.module.sass';
 
+// props.imageLink && $style.imageWrapper
+// $style.status
 export class Message extends Block {
   constructor(props: MessageProps) {
     super({
       ...props,
-      classes: [props.isSender ? $style.sender : $style.receiver, props.imageLink && $style.imageWrapper],
+      classes: [props.isMe ? $style.me : $style.other],
       $style,
     });
   }

@@ -3,13 +3,15 @@ import { Block } from '@/core/Block';
 
 import { tmpl } from './index.tmpl';
 
+import { MainButton } from '@/components/Button';
+import { FileInput } from '@/components/Input/FileInput';
+
+import UserController from '@/controllers/UserController';
+
 import { ModalProps } from '@/types';
 import { UPLOAD_AVATAR, UPLOAD_AVATAR_STATE_TITLES } from '@/utils';
 
 import $style from './index.module.sass';
-import { MainButton } from '@/components/Button';
-import UserController from '@/controllers/UserController';
-import { FileInput } from '@/components/Input/FileInput';
 
 const updateModal = (_this: Block, notificationError: string | boolean, title?: string) => {
   _this.setProps({ notification: notificationError, ...(title && { title }) });

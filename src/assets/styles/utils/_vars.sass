@@ -7,8 +7,8 @@ $bg-base-dark: #333
 
 $bg-role-modal: #242424
 $bg-role-active: #FFB97A
-$bg-role-sender: #F8F8F8
-$bg-role-receiver: #FFEDDC
+$bg-role-me: #F8F8F8
+$bg-role-other: #FFEDDC
 
 $fg-role-warning: #F93131
 $fg-role-active: #FE5F05
@@ -46,3 +46,10 @@ $space-l: $ui-step * 4
 $space-xl: $ui-step * 5
 
 $blob-width: 44px
+
+/* z-indexes */
+$ui-index-hide: -1 // element without interaction
+$ui-index-1: 1 // default elements
+$ui-index-2: 2 // default elements
+$ui-index-3: 3 // modals
+$ui-index-4: 4 // element overlaps all

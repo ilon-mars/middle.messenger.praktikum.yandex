@@ -12,20 +12,16 @@ import { UploadAvatarModal } from '@/components/Modal/UploadAvatar';
 
 import AuthController from '@/controllers/AuthController';
 
-import { EDIT_PASSWORD, EDIT_PROFILE, LOGOUT, PROFILE_INFO_CARDS, UPLOAD_AVATAR_STATE_TITLES } from '@/utils';
-import { User, ProfileCardTemplate } from '@/types';
+import {
+  EDIT_PASSWORD,
+  EDIT_PROFILE,
+  LOGOUT,
+  PROFILE_INFO_CARDS,
+  UPLOAD_AVATAR_STATE_TITLES,
+  normalizeCardsData,
+} from '@/utils';
 
 import $style from './index.module.sass';
-
-const normalizeCardsData = (
-  userData: Omit<User, 'id'>,
-  cardsTemplate: ProfileCardTemplate[],
-): ProfileCardTemplate[] => {
-  return cardsTemplate.reduce((acc, current) => {
-    acc.push({ ...current, text: userData[current.slug as keyof Omit<User, 'id' | 'avatar'>] });
-    return acc;
-  }, [] as ProfileCardTemplate[]);
-};
 
 class Profile extends Block {
   constructor() {
@@ -89,7 +85,7 @@ class Profile extends Block {
   }
 
   componentShouldUpdate(): boolean {
-    if (store.state.user?.data.avatar) {
+    if (store.state.user?.data?.avatar) {
       (this.children.avatar as Block).setProps({
         src: `${import.meta.env.VITE_API_URL}/resources/${store.state.user.data.avatar}`,
       });

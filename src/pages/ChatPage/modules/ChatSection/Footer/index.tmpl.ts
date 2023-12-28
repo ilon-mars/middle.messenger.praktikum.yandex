@@ -1,5 +1,5 @@
 export const tmpl = `
-  <footer class="{{ footer }}">
+  <footer class="{{ $style.footer }}">
     {{{ attachButton }}}
     {{{form}}}
   </footer>

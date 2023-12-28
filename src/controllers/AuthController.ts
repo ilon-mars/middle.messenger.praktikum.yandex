@@ -16,7 +16,7 @@ class AuthController {
 
       store.set('user.error', undefined);
 
-      await ChatController.fetchChats().catch(err => console.log(err));
+      await ChatController.fetchChats();
 
       Router.go(RouterLinkEnum.CHAT);
     } catch (error) {
@@ -60,6 +60,7 @@ class AuthController {
     const user = await this.api.getUser();
 
     store.set('user.data', user);
+    return user;
   }
 }
 

@@ -1,8 +1,9 @@
-import { ChatParticipantEnum } from '@/enums';
-import { ReceiverMessage, SenderMessage } from '@/types/ChatMessage';
+import store from '@/core/Store';
+import { Message, MessageProps } from '@/types';
+import { convertDateToTime } from './convertDateToTime';
 
-export const normalizeChatMessage = (message: SenderMessage | ReceiverMessage) => {
-  const isSender = message.type === ChatParticipantEnum.SENDER;
+export const normalizeChatMessage = (message: Message): MessageProps => {
+  const isMe = message.user_id === store.state.user?.data.id;
 
-  return { ...message, isSender };
+  return { ...message, isMe, time: convertDateToTime(message.time, false) };
 };

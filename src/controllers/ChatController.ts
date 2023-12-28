@@ -33,7 +33,7 @@ class ChatController {
     const chats: Chat[] = (await this.api.getChats()) as Chat[];
 
     chats.map(async chat => {
-      const token = await this.getToken(chat.id);
+      const { token } = await this.getToken(chat.id);
       await MessageController.connect(chat.id, token);
     });
 
@@ -56,11 +56,10 @@ class ChatController {
   getToken = (id: ID) => this.api.getChatToken({ id });
 
   selectChat = async (id: ID) => {
-    const token = await this.getToken(id);
-
+    const { token } = await this.getToken(id);
     MessageController.connect(id, token);
 
-    store.set('selectedChat', id);
+    store.set('selectedChatId', id);
   };
 }
 

@@ -1,6 +1,6 @@
 import { ChatParticipantEnum, LinkEnum, MessageStatusEnum, UploadAvatarStateEnum } from '@/enums';
 import { ErrorPageContent, RouteLink, ProfileCardTemplate, ButtonProps } from '@/types';
-import { ReceiverMessage, SenderMessage } from '@/types/ChatMessage';
+import { OtherMessage, MyMessage } from '@/types/ChatMessage';
 
 export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager: true });
 
@@ -152,121 +152,46 @@ export const PROFILE_INFO_CARDS: ProfileCardTemplate[] = [
   },
 ];
 
-export const CHATS = [
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: '10:49',
-    counter: '2',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: 'Пн',
-    counter: '2333',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: '1 мая 2022',
-    counter: '2',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: '3 мая 2022',
-    counter: '',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: '10:49',
-    counter: '2',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: 'Пн',
-    counter: '2333',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: '1 мая 2022',
-    counter: '2',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: '3 мая 2022',
-    counter: '',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: '10:49',
-    counter: '2',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: 'Пн',
-    counter: '2333',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: '1 мая 2022',
-    counter: '2',
-  },
-  {
-    name: 'Андрей',
-    text: 'Изображение',
-    time: '3 мая 2022',
-    counter: '',
-  },
-];
-
 export const SAVE_PROFILE_BUTTON = Object.freeze({
   hasText: true,
   text: 'Сохранить',
 });
 
-export const MESSAGES: Array<SenderMessage | ReceiverMessage> = [
+export const MESSAGES: Array<MyMessage | OtherMessage> = [
   {
-    type: ChatParticipantEnum.SENDER,
+    type: ChatParticipantEnum.ME,
     text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой. Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
     time: '15:00',
   },
   {
-    type: ChatParticipantEnum.SENDER,
+    type: ChatParticipantEnum.ME,
     imageLink: 'http',
     time: '15:20',
   },
   {
-    type: ChatParticipantEnum.RECEIVER,
+    type: ChatParticipantEnum.OTHER,
     text: 'Круто!',
     status: MessageStatusEnum.DELIVERED,
     time: '15:40',
   },
   {
-    type: ChatParticipantEnum.SENDER,
+    type: ChatParticipantEnum.ME,
     text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой. Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
     time: '15:00',
   },
   {
-    type: ChatParticipantEnum.RECEIVER,
+    type: ChatParticipantEnum.OTHER,
     text: 'Круто!',
     status: MessageStatusEnum.DELIVERED,
     time: '15:40',
   },
   {
-    type: ChatParticipantEnum.SENDER,
+    type: ChatParticipantEnum.ME,
     text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой. Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
     time: '15:00',
   },
   {
-    type: ChatParticipantEnum.RECEIVER,
+    type: ChatParticipantEnum.OTHER,
     text: 'Круто!',
     status: MessageStatusEnum.DELIVERED,
     time: '15:40',
@@ -302,4 +227,9 @@ export const UPLOAD_AVATAR_STATE_TITLES = Object.freeze({
   [UploadAvatarStateEnum.START]: 'Загрузите файл',
   [UploadAvatarStateEnum.UPLOADED]: 'Файл загружен',
   [UploadAvatarStateEnum.ERROR]: 'Ошибка, попробуйте еще раз',
+});
+
+export const ADD_CHAT = Object.freeze({
+  hasText: true,
+  text: 'Создать чат',
 });

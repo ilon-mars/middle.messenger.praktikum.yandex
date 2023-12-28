@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Block } from '@/core/Block';
 import router, { BlockWithStore } from '@/core/Router';
 
@@ -15,7 +14,7 @@ import { NOT_FOUND_LINK, NOT_FOUND_PAGE, SERVER_ERROR_LINK, SERVER_ERROR_PAGE } 
 
 const ROUTES: RoutesList = Object.freeze({
   [RouterLinkEnum.CHAT]: {
-    component: new ChatLayout({ isChatSelected: true }),
+    component: new ChatLayout(),
     layout: LayoutEnum.CHAT,
   },
   [RouterLinkEnum.LOGIN]: {

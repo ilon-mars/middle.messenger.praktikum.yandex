@@ -5,7 +5,7 @@
   grid-template-columns: 310px 1fr
   grid-template-areas: "list window"
 
-.chat-list
+.chat-sidebar
   grid-area: list
   border-right: 1px solid $border-base-light
   background-color: $bg-base-dark
@@ -13,6 +13,7 @@
   overflow: hidden
   display: flex
   flex-direction: column
+  position: relative
 
 .chat-window
   grid-area: window

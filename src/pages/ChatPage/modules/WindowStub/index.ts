@@ -6,7 +6,7 @@ import $style from './index.module.sass';
 
 export class WindowStub extends Block {
   constructor() {
-    super($style);
+    super({ $style });
   }
 
   render() {

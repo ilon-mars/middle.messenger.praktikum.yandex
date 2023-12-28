@@ -1,9 +1,11 @@
 export const tmpl = `
-  <div class="{{ container }}">
-    {{{header}}}
-    <section class="{{ chat }}">
+  <div class="{{ $style.container }}">
+    {{{ header }}}
+
+    <section class="{{ $style.chat }}">
       {{{ messages }}}
     </section>
-    {{{footer}}}
+
+    {{{ footer }}}
   </div>
 `;

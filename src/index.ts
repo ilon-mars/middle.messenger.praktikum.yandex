@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import router, { prepareRouter } from '@/core/Router';
 
 import AuthController from '@/controllers/AuthController';
@@ -26,9 +25,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   router.start();
 
   try {
-    await AuthController.fetchUser();
+    const user = await AuthController.fetchUser();
 
-    if (!isProtectedRoute) {
+    if (!isProtectedRoute || user.id) {
       router.go(RouterLinkEnum.CHAT);
     }
   } catch (e) {

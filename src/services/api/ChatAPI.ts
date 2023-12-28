@@ -4,6 +4,7 @@ import {
   AddUsersRequest,
   Chat,
   ChatTokenRequest,
+  ChatTokenResponse,
   CreateChatRequest,
   DeleteChatRequest,
   DeleteChatResponse,
@@ -11,8 +12,6 @@ import {
   GetChatUsersRequest,
   GetChatUsersResponse,
   GetChatsRequest,
-  // GetMessagesCountRequest,
-  // GetMessagesCountResponse,
 } from '@/types';
 
 export class ChatAPI extends API {
@@ -36,10 +35,6 @@ export class ChatAPI extends API {
     return this.http.get(`/${data.id}/users`, { data }) as Promise<GetChatUsersResponse[]>;
   }
 
-  // async getMessagesCount(data: GetMessagesCountRequest): Promise<GetMessagesCountResponse> {
-  //   return this.http.get(`/new/${data.id}`, { data }) as Promise<GetMessagesCountResponse>;
-  // }
-
   async addUsers(data: AddUsersRequest): Promise<unknown> {
     return this.http.put(`/users`, { data });
   }
@@ -48,7 +43,7 @@ export class ChatAPI extends API {
     return this.http.delete(`/users`, { data });
   }
 
-  async getChatToken(data: ChatTokenRequest): Promise<string> {
-    return this.http.post(`/token/${data.id}`, { data }) as Promise<string>;
+  async getChatToken(data: ChatTokenRequest): Promise<ChatTokenResponse> {
+    return this.http.post(`/token/${data.id}`, { data }) as Promise<ChatTokenResponse>;
   }
 }

@@ -3,19 +3,19 @@ import WebSocketService from '@/services/ws.service.ts';
 import ChatController from './ChatController';
 
 import { SocketEventEnum } from '@/enums';
-import { Message } from '@/types';
+import { ID, Message } from '@/types';
 
 class MessageController {
   private readonly sockets: Map<number, WebSocketService> = new Map();
 
-  async connect(id: number, token: string) {
+  async connect(id: ID, token: string) {
     if (this.sockets.has(id)) {
       return;
     }
 
     const userId = store.state.user?.data.id;
 
-    const socket = new WebSocketService(`${process.env.VITE_SOCKET_URL}${userId}/${id}/${token}`);
+    const socket = new WebSocketService(`${import.meta.env.VITE_SOCKET_URL}${userId}/${id}/${token}`);
 
     this.sockets.set(id, socket);
 
@@ -25,7 +25,7 @@ class MessageController {
     this.fetchOldMessages(id);
   }
 
-  sendMessage(id: number, message: string) {
+  sendMessage(id: ID, message: string) {
     const socket = this.sockets.get(id);
 
     if (!socket) {
@@ -38,7 +38,7 @@ class MessageController {
     });
   }
 
-  fetchOldMessages(id: number) {
+  fetchOldMessages(id: ID) {
     const socket = this.sockets.get(id);
 
     if (!socket) {
@@ -49,7 +49,7 @@ class MessageController {
     socket.send({ type: 'get old', content: '0' });
   }
 
-  private onMessage(id: number, messages: Message | Message[]) {
+  private onMessage(id: ID, messages: Message | Message[]) {
     let messagesToAdd: Message[] = [];
 
     if (Array.isArray(messages)) {
@@ -71,11 +71,11 @@ class MessageController {
     ChatController.updateChats().catch(() => false);
   }
 
-  private onClose(id: number) {
+  private onClose(id: ID) {
     this.sockets.delete(id);
   }
 
-  private subscribe(transport: WebSocketService, id: number) {
+  private subscribe(transport: WebSocketService, id: ID) {
     transport.on(SocketEventEnum.MESSAGE, message => this.onMessage(id, message as Message | Message[]));
     transport.on(SocketEventEnum.CLOSE, () => this.onClose(id));
   }

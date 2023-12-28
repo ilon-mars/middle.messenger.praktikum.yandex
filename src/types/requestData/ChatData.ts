@@ -18,10 +18,10 @@ export type DeleteChatRequest = {
 export type DeleteChatResponse = {
   userId: ID;
   result: {
-    id: number;
+    id: ID;
     title: string;
     avatar: string;
-    created_by: number;
+    created_by: ID;
   };
 };
 
@@ -37,14 +37,6 @@ export type GetChatUsersResponse = {
   id: ID;
   role: Role;
 } & Omit<User, 'id' | 'email' | 'phone'>;
-
-export type GetMessagesCountRequest = {
-  id: ID;
-};
-
-export type GetMessagesCountResponse = {
-  unread_count: number;
-};
 
 export type AddUsersRequest = {
   users: ID[];
