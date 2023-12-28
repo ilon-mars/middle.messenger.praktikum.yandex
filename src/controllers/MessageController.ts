@@ -45,7 +45,6 @@ class MessageController {
       throw new Error(`Chat is not connected`);
     }
 
-    // todo: что за тип?
     socket.send({ type: 'get old', content: '0' });
   }
 
@@ -54,14 +53,12 @@ class MessageController {
 
     if (Array.isArray(messages)) {
       messagesToAdd = messages.reverse();
-      // todo: тип сообщений
     } else if (messages.type === 'user connected') {
       return;
     } else {
       messagesToAdd.push(messages);
     }
 
-    // todo: что это?
     const currentMessages = (store.state?.messages || {})[id] || [];
 
     messagesToAdd = [...currentMessages, ...messagesToAdd];

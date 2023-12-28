@@ -26,7 +26,7 @@ export class Header extends Block {
         icon: new Icon({ name: 'close' }),
         events: {
           click: () => {
-            store.set('selectedChat.id', null);
+            store.set('selectedChat', null);
           },
         },
       },
@@ -38,6 +38,14 @@ export class Header extends Block {
         isClickable: false,
       },
       'small',
+    );
+
+    this.children.menuButton = new DefaultButton(
+      {
+        hasText: false,
+        icon: new Icon({ name: 'dots' }),
+      },
+      $style.menuButton,
     );
   }
 

@@ -1,4 +1,5 @@
 import { Block } from '@/core/Block';
+import store from '@/core/Store';
 
 import { tmpl } from './index.tmpl';
 
@@ -7,9 +8,16 @@ import { MessageInput } from '@/components/Input';
 import { DefaultButton } from '@/components/Button';
 import { Icon } from '@/components/Icon';
 
+import MessageController from '@/controllers/MessageController';
+
 import { onSubmitHandler } from '@/utils';
+import { ID } from '@/types';
 
 import $style from './index.module.sass';
+
+const sendMessage = (chatId: ID, message: string) => {
+  MessageController.sendMessage(chatId, message);
+};
 
 export class Footer extends Block {
   constructor() {
@@ -22,7 +30,13 @@ export class Footer extends Block {
         submit: e => {
           const form = this.children.form as MessageForm;
 
-          onSubmitHandler({ e, form, callback: () => {} });
+          onSubmitHandler({
+            e,
+            form,
+            callback: ({ message }) => {
+              sendMessage(store.state.selectedChat!.id, message);
+            },
+          });
 
           ((form.children.messageInput as MessageInput).element! as HTMLTextAreaElement).value = '';
         },
