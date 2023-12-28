@@ -2,6 +2,7 @@ import Router from '@/core/Router';
 import store from '@/core/Store';
 import { AuthAPI } from '@/services/api';
 import ChatController from './ChatController';
+import UserController from './UserController';
 
 import { RouterLinkEnum } from '@/enums';
 import { SignInRequest, SignUpRequest } from '@/types';
@@ -58,6 +59,10 @@ class AuthController {
 
   async fetchUser() {
     const user = await this.api.getUser();
+
+    if (!user.display_name) {
+      await UserController.changeUserData({ ...user, display_name: user.first_name });
+    }
 
     store.set('user.data', user);
     return user;
