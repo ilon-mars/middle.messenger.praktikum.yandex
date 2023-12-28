@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { tmpl } from './index.tmpl';
 
 import { Form } from '@/components/Form/Form';

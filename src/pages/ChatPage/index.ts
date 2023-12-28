@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Block } from '@/core/Block';
 import store, { State, withStore } from '@/core/Store';
 
@@ -23,17 +22,17 @@ export class Chat extends Block {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   componentShouldUpdate(oldProps: any, newProps: any): boolean {
-    if (store.state.selectedChatId) {
+    if (store.state.selectedChat?.id) {
       const messages =
-        store.state.messages && store.state.messages[store.state.selectedChatId].length > 0
-          ? store.state.messages[store.state.selectedChatId].map(message => new Message(normalizeChatMessage(message)))
+        store.state.messages && store.state.messages[store.state.selectedChat.id].length > 0
+          ? store.state.messages[store.state.selectedChat.id].map(message => new Message(normalizeChatMessage(message)))
           : '<span>Пока нет сообщений</span>';
 
       this.children.content = new ChatSection({ messages });
 
-      // ((this.children.content.children.header as Block).children.avatar as Block).setProps({
-      //   name: store.state.selectedChat.title,
-      // });
+      ((this.children.content.children.header as Block).children.avatar as Block).setProps({
+        name: store.state.selectedChat.title,
+      });
     } else {
       this.children.content = windowStub;
     }
@@ -53,7 +52,7 @@ function mapStateToProps(state: State) {
 
   return {
     chats: [...(state.chats?.data || [])],
-    selectedChatId: state.selectedChatId || null,
+    selectedChatId: state.selectedChat?.id || null,
     messages: state.messages,
   };
 }

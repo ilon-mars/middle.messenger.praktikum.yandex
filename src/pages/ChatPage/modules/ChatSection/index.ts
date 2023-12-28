@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Block } from '@/core/Block';
-import store, { State, withStore } from '@/core/Store';
 
 import { tmpl } from './index.tmpl';
 

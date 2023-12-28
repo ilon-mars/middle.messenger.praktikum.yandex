@@ -15,7 +15,10 @@ export type State = {
     error?: string | undefined;
   };
 
-  selectedChatId?: ID;
+  selectedChat?: {
+    id: ID;
+    title: string;
+  };
 
   messages?: Record<ID, Message[]>;
 

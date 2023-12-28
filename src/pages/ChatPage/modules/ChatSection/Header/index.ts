@@ -26,7 +26,7 @@ export class Header extends Block {
         icon: new Icon({ name: 'close' }),
         events: {
           click: () => {
-            store.set('selectedChatId', null);
+            store.set('selectedChat.id', null);
           },
         },
       },

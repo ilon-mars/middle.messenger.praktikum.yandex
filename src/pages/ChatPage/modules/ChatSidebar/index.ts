@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Block } from '@/core/Block';
 import store, { State, withStore } from '@/core/Store';
 
@@ -86,6 +85,7 @@ export class Sidebar extends Block {
               events: {
                 click: () => {
                   ChatController.selectChat(chat.id);
+                  store.set('selectedChat.title', chat.name);
                 },
               },
             }),

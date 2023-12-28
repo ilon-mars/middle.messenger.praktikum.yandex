@@ -59,7 +59,7 @@ class ChatController {
     const { token } = await this.getToken(id);
     MessageController.connect(id, token);
 
-    store.set('selectedChatId', id);
+    store.set('selectedChat.id', id);
   };
 }
 
