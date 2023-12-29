@@ -31,7 +31,6 @@ enum StorageEvent {
   UPDATE_STATE = 'update',
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 class Store extends EventBus {
   #state: State = {};
 
@@ -60,8 +59,7 @@ class Store extends EventBus {
 
 const store = new Store();
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function withStore<T>(Component: new (props: T) => Block, mapStateToProps: any) {
+export function withStore<T>(Component: new (props: T) => Block, mapStateToProps: (state: State) => T) {
   return class WithStore extends Component {
     constructor(props: T) {
       const store = new Store();
