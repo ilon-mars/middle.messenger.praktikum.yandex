@@ -105,7 +105,7 @@ export class Sidebar extends Block {
 
 function mapStateToProps(state: State) {
   if (!state || !state.chats) {
-    return;
+    return {};
   }
 
   return { ...state.chats };

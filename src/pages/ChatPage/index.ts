@@ -47,7 +47,7 @@ export class Chat extends Block {
 
 function mapStateToProps(state: State) {
   if (!state) {
-    return;
+    return {};
   }
 
   return {

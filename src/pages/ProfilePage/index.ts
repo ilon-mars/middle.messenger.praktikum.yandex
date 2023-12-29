@@ -103,7 +103,7 @@ class Profile extends Block {
 
 function mapStateToProps(state: State) {
   if (!state || !state.user) {
-    return;
+    return {};
   }
 
   return { ...state.user };
