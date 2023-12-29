@@ -11,6 +11,9 @@ import { ChatMenu } from '@/components/Modal/ChatMenu';
 import { ChatHeaderProps } from '@/types';
 
 import $style from './index.module.sass';
+import { UploadAvatarModal } from '@/components/Modal';
+import { UPLOAD_AVATAR_STATE_TITLES } from '@/utils';
+import ChatController from '@/controllers/ChatController';
 
 export class Header extends Block {
   constructor(props?: ChatHeaderProps) {
@@ -36,10 +39,33 @@ export class Header extends Block {
 
     this.children.avatar = new Avatar(
       {
-        isClickable: false,
+        isClickable: true,
+        events: {
+          click: () => {
+            (this.children.updateChatAvatarModal as Block).show();
+          },
+        },
       },
       'small',
     );
+
+    this.children.updateChatAvatarModal = new UploadAvatarModal({
+      title: UPLOAD_AVATAR_STATE_TITLES.start,
+      callback: data => ChatController.changeChatAvatar(store.state.selectedChat!.id, data),
+      events: {
+        click: e => {
+          const target = e?.target as HTMLElement;
+
+          if (!target) {
+            return;
+          }
+
+          if (target.matches('#avatar-modal')) {
+            (this.children.updateChatAvatarModal as Block).hide();
+          }
+        },
+      },
+    });
 
     this.children.menuButton = new DefaultButton(
       {

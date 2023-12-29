@@ -4,5 +4,7 @@ export const tmpl = `
     {{{ avatar }}}
     {{{ menuButton }}}
     {{{ chatMenu }}}
+
+    {{{ updateChatAvatarModal }}}
   </header>
 `;

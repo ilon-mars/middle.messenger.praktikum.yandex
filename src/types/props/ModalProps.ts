@@ -11,3 +11,7 @@ export type ManageChatModalProps = ModalProps & {
   formName: string;
   modalId: string;
 };
+
+export type UploadAvatarModalProps = ModalProps & {
+  callback: (data: FormData) => Promise<void>;
+};

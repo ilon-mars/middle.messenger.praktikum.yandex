@@ -31,6 +31,7 @@ export class Chat extends Block {
 
       ((this.children.content.children.header as Block).children.avatar as Block).setProps({
         name: store.state.selectedChat.title,
+        ...(store.state.selectedChat.avatarUrl && { src: store.state.selectedChat.avatarUrl }),
       });
     } else {
       this.children.content = windowStub;

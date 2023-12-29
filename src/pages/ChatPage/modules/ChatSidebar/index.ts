@@ -86,8 +86,14 @@ export class Sidebar extends Block {
               ...chat,
               events: {
                 click: () => {
+                  store.set('selectedChat.avatarUrl', null);
+
                   ChatController.selectChat(chat.id);
                   store.set('selectedChat.title', chat.name);
+
+                  if (chat.avatarUrl.startsWith('http')) {
+                    store.set('selectedChat.avatarUrl', chat.avatarUrl);
+                  }
                 },
               },
             }),

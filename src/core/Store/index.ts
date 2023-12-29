@@ -18,6 +18,7 @@ export type State = {
   selectedChat?: {
     id: ID;
     title: string;
+    avatarUrl?: string;
   };
 
   messages?: Record<ID, Message[]>;

@@ -2,7 +2,8 @@ import store from '@/core/Store';
 import { ChatAPI } from '@/services/api';
 import MessageController from './MessageController';
 
-import { Chat, ID } from '@/types';
+import { Chat, ID, ServerError } from '@/types';
+import { mergeFormData } from '@/utils';
 
 class ChatController {
   private readonly api: ChatAPI;
@@ -56,6 +57,21 @@ class ChatController {
 
     store.set('selectedChat.id', id);
   };
+
+  async changeChatAvatar(chatId: ID, avatar: FormData) {
+    try {
+      const data = mergeFormData(chatId, avatar);
+
+      await this.api.changeChatAvatar(data);
+      await this.updateChats();
+
+      store.set('chats.error', undefined);
+    } catch (error: unknown) {
+      store.set('chats.error', (error as ServerError).reason);
+
+      console.error((error as ServerError).reason);
+    }
+  }
 }
 
 export default new ChatController();

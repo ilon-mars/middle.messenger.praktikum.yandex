@@ -21,6 +21,7 @@ import {
   PHONE_INPUT,
   SAVE_PROFILE_BUTTON,
   SECOND_NAME_INPUT,
+  getAvatarSrc,
   onBlurHandler,
   onInputHandler,
 } from '@/utils';
@@ -193,7 +194,7 @@ export class EditProfileForm extends Form {
 
     const userData = store.state.user.data;
     (this.children.avatar as Block).setProps({
-      src: userData.avatar ? `${import.meta.env.VITE_API_URL}/resources/${store.state.user.data.avatar}` : avatarSrc,
+      src: userData.avatar ? getAvatarSrc(store.state.user.data.avatar!) : avatarSrc,
     });
 
     (((this.children.loginInput as Block).children.input as Block).element! as HTMLInputElement).value = userData.login;

@@ -46,4 +46,8 @@ export class ChatAPI extends API {
   async getChatToken(data: ChatTokenRequest): Promise<ChatTokenResponse> {
     return this.http.post(`/token/${data.id}`, { data }) as Promise<ChatTokenResponse>;
   }
+
+  async changeChatAvatar(data: FormData) {
+    return await this.http.put('/avatar', { data });
+  }
 }
