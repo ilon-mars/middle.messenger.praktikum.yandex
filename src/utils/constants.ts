@@ -199,5 +199,10 @@ export const ADD_USER_TO_CHAT = Object.freeze({
 
 export const REMOVE_USER_FROM_CHAT = Object.freeze({
   hasText: true,
-  text: 'Удалить пользователя',
+  text: 'Удалить чат',
+});
+
+export const DELETE_CHAT = Object.freeze({
+  hasText: true,
+  text: 'Удалить чат',
 });

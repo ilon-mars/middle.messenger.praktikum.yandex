@@ -72,6 +72,19 @@ class ChatController {
       console.error((error as ServerError).reason);
     }
   }
+
+  deleteChat = async (chatId: ID) => {
+    try {
+      await this.api.deleteChat({ chatId });
+      await this.updateChats();
+
+      store.set('chats.error', undefined);
+    } catch (error) {
+      store.set('chats.error', (error as ServerError).reason);
+
+      console.error((error as ServerError).reason);
+    }
+  };
 }
 
 export default new ChatController();

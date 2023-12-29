@@ -1,4 +1,5 @@
 import { Block } from '@/core/Block';
+import store from '@/core/Store';
 
 import { tmpl } from './index.tmpl';
 
@@ -6,7 +7,9 @@ import { DefaultButton } from '@/components/Button';
 import { Icon } from '@/components/Icon';
 import { AddUserModal, RemoveUserModal } from '@/components/Modal';
 
-import { ADD_USER_TO_CHAT, REMOVE_USER_FROM_CHAT } from '@/utils';
+import ChatController from '@/controllers/ChatController';
+
+import { ADD_USER_TO_CHAT, DELETE_CHAT, REMOVE_USER_FROM_CHAT } from '@/utils';
 import { Events } from '@/types';
 
 import $style from './index.module.sass';
@@ -48,6 +51,22 @@ export class ChatMenu extends Block {
         },
       },
       $style.menuButton,
+    );
+
+    this.children.deleteChat = new DefaultButton(
+      {
+        ...DELETE_CHAT,
+        events: {
+          click: async e => {
+            e?.preventDefault();
+
+            await ChatController.deleteChat(store.state.selectedChat!.id);
+            store.set('selectedChat', null);
+            this.hide();
+          },
+        },
+      },
+      $style.deleteChatButton,
     );
 
     this.children.addUserModal = new AddUserModal({
