@@ -6,9 +6,7 @@ import { tmpl } from './index.tmpl';
 import { MainButton } from '@/components/Button';
 import { FileInput } from '@/components/Input/FileInput';
 
-import UserController from '@/controllers/UserController';
-
-import { ModalProps } from '@/types';
+import { UploadAvatarModalProps } from '@/types';
 import { UPLOAD_AVATAR, UPLOAD_AVATAR_STATE_TITLES } from '@/utils';
 
 import $style from './index.module.sass';
@@ -19,7 +17,7 @@ const updateModal = (_this: Block, notificationError: string | boolean, title?: 
 };
 
 export class UploadAvatarModal extends Block {
-  constructor(props: ModalProps) {
+  constructor(props: UploadAvatarModalProps) {
     super({
       ...props,
       $style,
@@ -43,7 +41,7 @@ export class UploadAvatarModal extends Block {
             return;
           }
 
-          await UserController.changeAvatar(formData);
+          await this.props.callback(formData);
 
           if (store.state.user?.error) {
             updateModal(this, store.state.user.error, UPLOAD_AVATAR_STATE_TITLES.error);

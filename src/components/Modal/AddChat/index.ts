@@ -11,7 +11,7 @@ export class AddChatModal extends ManageChatModal {
     });
   }
 
-  action(value: string): Promise<void> {
+  action(value: string) {
     return ChatController.createChat(value);
   }
 }

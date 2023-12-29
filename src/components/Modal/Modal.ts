@@ -28,6 +28,7 @@ export class ManageChatModal extends Block {
 
           await this.action(inputElement.value);
           this.hide();
+          this.props.overlayBind();
 
           inputElement.value = '';
         },

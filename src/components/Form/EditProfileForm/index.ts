@@ -21,10 +21,11 @@ import {
   PHONE_INPUT,
   SAVE_PROFILE_BUTTON,
   SECOND_NAME_INPUT,
+  getAvatarSrc,
   onBlurHandler,
   onInputHandler,
 } from '@/utils';
-import { RouterLinkEnum } from '@/enums';
+import { Routes } from '@/enums';
 
 import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
@@ -183,17 +184,17 @@ export class EditProfileForm extends Form {
     });
   }
 
-  async componentDidMount(): Promise<void> {
+  async componentDidMount() {
     await AuthController.fetchUser();
 
     if (!store.state.user || !store.state.user.data) {
-      router.go(RouterLinkEnum.SERVER_ERROR);
+      router.go(Routes.SERVER_ERROR);
       return;
     }
 
     const userData = store.state.user.data;
     (this.children.avatar as Block).setProps({
-      src: userData.avatar ? `${import.meta.env.VITE_API_URL}/resources/${store.state.user.data.avatar}` : avatarSrc,
+      src: userData.avatar ? getAvatarSrc(store.state.user.data.avatar!) : avatarSrc,
     });
 
     (((this.children.loginInput as Block).children.input as Block).element! as HTMLInputElement).value = userData.login;

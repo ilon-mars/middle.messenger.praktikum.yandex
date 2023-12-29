@@ -14,6 +14,9 @@ export * from './convertDateToTime';
 export * from './normalizeCardsData';
 export * from './normalizeChats';
 export * from './isEqual';
+export * from './getAvatarSrc';
+export * from './mergeFormData';
+
 export * from './handlers/onBlurHandler';
 export * from './handlers/onInputHandler';
 export * from './handlers/onSubmitHandler';

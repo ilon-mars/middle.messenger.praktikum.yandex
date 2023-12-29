@@ -19,9 +19,8 @@ export class ChatList extends Block {
     this.children.chats = this.props.chats;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  componentShouldUpdate(oldProps: any, newProps: any): boolean {
-    this.children.chats = (newProps as ChatListProps).chats;
+  componentShouldUpdate(oldProps: ChatListProps, newProps: ChatListProps) {
+    this.children.chats = newProps.chats;
     return !isEqual(oldProps, newProps);
   }
 

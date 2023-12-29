@@ -1,4 +1,4 @@
-import { LinkEnum, UploadAvatarStateEnum } from '@/enums';
+import { Routes, UploadAvatarStateEnum } from '@/enums';
 import { ErrorPageContent, RouteLink, ProfileCardTemplate, ButtonProps } from '@/types';
 
 export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager: true });
@@ -85,7 +85,7 @@ export const LOGIN_BUTTON: ButtonProps = Object.freeze({
 
 export const LOGIN_LINK: RouteLink = Object.freeze({
   text: 'Нет аккаунта?',
-  to: `/${LinkEnum.REGISTER}`,
+  to: Routes.SIGN_UP,
 });
 
 export const REGISTER_BUTTON: ButtonProps = Object.freeze({
@@ -95,7 +95,7 @@ export const REGISTER_BUTTON: ButtonProps = Object.freeze({
 
 export const REGISTER_LINK: RouteLink = Object.freeze({
   text: 'Есть аккаунт?',
-  to: `/${LinkEnum.LOGIN}`,
+  to: Routes.MAIN,
 });
 
 export const NOT_FOUND_PAGE: ErrorPageContent = Object.freeze({
@@ -105,7 +105,7 @@ export const NOT_FOUND_PAGE: ErrorPageContent = Object.freeze({
 
 export const NOT_FOUND_LINK: RouteLink = Object.freeze({
   text: 'Назад к чатам',
-  to: `/${LinkEnum.CHAT}`,
+  to: Routes.MESSENGER,
 });
 
 export const SERVER_ERROR_PAGE: ErrorPageContent = Object.freeze({
@@ -115,7 +115,7 @@ export const SERVER_ERROR_PAGE: ErrorPageContent = Object.freeze({
 
 export const SERVER_ERROR_LINK: RouteLink = Object.freeze({
   text: 'Назад к чатам',
-  to: `/${LinkEnum.CHAT}`,
+  to: Routes.MESSENGER,
 });
 
 export const PROFILE_INFO_CARDS: ProfileCardTemplate[] = [
@@ -158,22 +158,22 @@ export const SAVE_PROFILE_BUTTON = Object.freeze({
 
 export const GO_TO_PROFILE: RouteLink = Object.freeze({
   text: 'Профиль',
-  to: `/${LinkEnum.PROFILE}`,
+  to: Routes.SETTINGS,
 });
 
 export const EDIT_PROFILE: RouteLink = Object.freeze({
   text: 'Изменить данные',
-  to: `/${LinkEnum.EDIT_PROFILE}`,
+  to: Routes.EDIT_PROFILE,
 });
 
 export const EDIT_PASSWORD: RouteLink = Object.freeze({
   text: 'Изменить пароль',
-  to: `/${LinkEnum.EDIT_PASSWORD}`,
+  to: Routes.EDIT_PASSWORD,
 });
 
 export const LOGOUT: RouteLink = Object.freeze({
   text: 'Выйти',
-  to: `/${LinkEnum.LOGIN}`,
+  to: Routes.MAIN,
 });
 
 export const UPLOAD_AVATAR = Object.freeze({
@@ -199,5 +199,10 @@ export const ADD_USER_TO_CHAT = Object.freeze({
 
 export const REMOVE_USER_FROM_CHAT = Object.freeze({
   hasText: true,
-  text: 'Удалить пользователя',
+  text: 'Удалить чат',
+});
+
+export const DELETE_CHAT = Object.freeze({
+  hasText: true,
+  text: 'Удалить чат',
 });

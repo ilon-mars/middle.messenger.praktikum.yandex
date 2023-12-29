@@ -33,7 +33,7 @@ export class Footer extends Block {
           onSubmitHandler({
             e,
             form,
-            callback: ({ message }) => {
+            callback: ({ message }: { message: string }) => {
               sendMessage(store.state.selectedChat!.id, message);
             },
           });

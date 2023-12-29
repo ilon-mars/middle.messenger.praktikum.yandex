@@ -1,3 +1,3 @@
 export type EditPageProps = {
-  isPasswordEditing: boolean;
+  isPasswordEditing?: boolean;
 };

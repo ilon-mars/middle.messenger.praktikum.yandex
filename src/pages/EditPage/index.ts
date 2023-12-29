@@ -64,10 +64,10 @@ class Edit extends Block {
 
 function mapStateToProps(state: State) {
   if (!state || !state.user) {
-    return;
+    return {};
   }
 
-  return { ...state.user };
+  return { ...state.user } as EditPageProps;
 }
 
 export const EditPage = withStore(Edit, mapStateToProps);

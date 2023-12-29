@@ -61,14 +61,13 @@ export class Sidebar extends Block {
     this.children.chatList = new ChatList({ chats: [] });
   }
 
-  async componentDidMount(): Promise<void> {
+  async componentDidMount() {
     await ChatController.fetchChats();
 
     this.#updateChats();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  componentShouldUpdate(oldProps: any, newProps: any): boolean {
+  componentShouldUpdate(oldProps: State, newProps: State) {
     this.#updateChats();
 
     return !isEqual(oldProps, newProps);
@@ -87,8 +86,14 @@ export class Sidebar extends Block {
               ...chat,
               events: {
                 click: () => {
+                  store.set('selectedChat.avatarUrl', null);
+
                   ChatController.selectChat(chat.id);
                   store.set('selectedChat.title', chat.name);
+
+                  if (chat.avatarUrl.startsWith('http')) {
+                    store.set('selectedChat.avatarUrl', chat.avatarUrl);
+                  }
                 },
               },
             }),
@@ -100,7 +105,7 @@ export class Sidebar extends Block {
 
 function mapStateToProps(state: State) {
   if (!state || !state.chats) {
-    return;
+    return {};
   }
 
   return { ...state.chats };

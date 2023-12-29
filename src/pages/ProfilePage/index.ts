@@ -11,6 +11,7 @@ import { Link } from '@/components/Link';
 import { UploadAvatarModal } from '@/components/Modal/UploadAvatar';
 
 import AuthController from '@/controllers/AuthController';
+import UserController from '@/controllers/UserController';
 
 import {
   EDIT_PASSWORD,
@@ -18,6 +19,7 @@ import {
   LOGOUT,
   PROFILE_INFO_CARDS,
   UPLOAD_AVATAR_STATE_TITLES,
+  getAvatarSrc,
   normalizeCardsData,
 } from '@/utils';
 
@@ -50,6 +52,7 @@ class Profile extends Block {
 
     this.children.uploadAvatarModal = new UploadAvatarModal({
       title: UPLOAD_AVATAR_STATE_TITLES.start,
+      callback: data => UserController.changeAvatar(data),
       events: {
         click: e => {
           const target = e?.target as HTMLElement;
@@ -75,7 +78,7 @@ class Profile extends Block {
     });
   }
 
-  async componentDidMount(): Promise<void> {
+  async componentDidMount() {
     await AuthController.fetchUser();
 
     if (store.state.user && store.state.user.data) {
@@ -84,10 +87,10 @@ class Profile extends Block {
     }
   }
 
-  componentShouldUpdate(): boolean {
+  componentShouldUpdate() {
     if (store.state.user?.data?.avatar) {
       (this.children.avatar as Block).setProps({
-        src: `${import.meta.env.VITE_API_URL}/resources/${store.state.user.data.avatar}`,
+        src: getAvatarSrc(store.state.user.data.avatar),
       });
     }
     return true;
@@ -100,7 +103,7 @@ class Profile extends Block {
 
 function mapStateToProps(state: State) {
   if (!state || !state.user) {
-    return;
+    return {};
   }
 
   return { ...state.user };

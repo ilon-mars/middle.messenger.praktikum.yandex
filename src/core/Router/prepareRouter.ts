@@ -8,40 +8,40 @@ import { EditPage } from '@/pages/EditPage';
 import { MainLayout } from '@/layout/MainLayout';
 import { ChatLayout } from '@/layout/ChatLayout';
 
-import { LayoutEnum, RouterLinkEnum } from '@/enums';
+import { LayoutEnum, Routes } from '@/enums';
 import { RoutesList } from '@/types';
 import { NOT_FOUND_LINK, NOT_FOUND_PAGE, SERVER_ERROR_LINK, SERVER_ERROR_PAGE } from '@/utils';
 
 const ROUTES: RoutesList = Object.freeze({
-  [RouterLinkEnum.CHAT]: {
+  [Routes.MESSENGER]: {
     component: new ChatLayout(),
     layout: LayoutEnum.CHAT,
   },
-  [RouterLinkEnum.LOGIN]: {
+  [Routes.MAIN]: {
     component: new AuthPage({ title: 'Вход', hasAccount: true }),
     layout: LayoutEnum.MAIN,
   },
-  [RouterLinkEnum.NOT_FOUND]: {
+  [Routes.NOT_FOUND]: {
     component: new ErrorPage({ linkProps: NOT_FOUND_LINK, pageText: NOT_FOUND_PAGE }),
     layout: LayoutEnum.MAIN,
   },
-  [RouterLinkEnum.PROFILE]: {
+  [Routes.SETTINGS]: {
     component: new ProfilePage({}),
     layout: LayoutEnum.MAIN,
   },
-  [RouterLinkEnum.REGISTER]: {
+  [Routes.SIGN_UP]: {
     component: new AuthPage({ title: 'Регистрация', hasAccount: false }),
     layout: LayoutEnum.MAIN,
   },
-  [RouterLinkEnum.SERVER_ERROR]: {
+  [Routes.SERVER_ERROR]: {
     component: new ErrorPage({ linkProps: SERVER_ERROR_LINK, pageText: SERVER_ERROR_PAGE }),
     layout: LayoutEnum.MAIN,
   },
-  [RouterLinkEnum.EDIT_PROFILE]: {
+  [Routes.EDIT_PROFILE]: {
     component: new EditPage({ isPasswordEditing: false }),
     layout: LayoutEnum.MAIN,
   },
-  [RouterLinkEnum.EDIT_PASSWORD]: {
+  [Routes.EDIT_PASSWORD]: {
     component: new EditPage({ isPasswordEditing: true }),
     layout: LayoutEnum.MAIN,
   },
@@ -63,6 +63,6 @@ export const prepareRouter = () => {
   });
 
   if (!Object.keys(ROUTES).includes(window.location.pathname)) {
-    router.go(RouterLinkEnum.NOT_FOUND);
+    router.go(Routes.NOT_FOUND);
   }
 };

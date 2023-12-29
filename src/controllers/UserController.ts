@@ -3,7 +3,7 @@ import store from '@/core/Store';
 import Router from '@/core/Router';
 import AuthController from './AuthController.ts';
 
-import { RouterLinkEnum } from '@/enums';
+import { Routes } from '@/enums';
 import { ServerError, User, UserPasswordData } from '@/types';
 
 class UserController {
@@ -16,7 +16,7 @@ class UserController {
 
       store.set('user.error', undefined);
 
-      Router.go(RouterLinkEnum.PROFILE);
+      Router.go(Routes.SETTINGS);
     } catch (error: unknown) {
       store.set('user.error', (error as ServerError).reason);
 
@@ -31,7 +31,7 @@ class UserController {
 
       store.set('user.error', undefined);
 
-      Router.go(RouterLinkEnum.PROFILE);
+      Router.go(Routes.SETTINGS);
     } catch (error: unknown) {
       store.set('user.error', (error as ServerError).reason);
 
@@ -46,7 +46,7 @@ class UserController {
 
       store.set('user.error', undefined);
 
-      Router.go(RouterLinkEnum.PROFILE);
+      Router.go(Routes.SETTINGS);
     } catch (error: unknown) {
       store.set('user.error', (error as ServerError).reason);
 

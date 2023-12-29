@@ -6,27 +6,23 @@ import { errorClassHandler } from '@/utils';
 
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
 
-const normalizeData = (data: Record<string, InputField>): Record<string, string> => {
-  return Object.keys(data).reduce(
-    (acc, current) => {
-      return {
-        ...acc,
-        [current]: data[current].value,
-      };
-    },
-    {} as Record<string, string>,
-  );
+const normalizeData = <T>(data: Record<string, InputField>): T => {
+  return Object.keys(data).reduce((acc, current) => {
+    return {
+      ...acc,
+      [current]: data[current].value,
+    };
+  }, {} as T);
 };
 
-type SubmitHandlerArgs = {
+type SubmitHandlerArgs<T> = {
   e: Event | undefined;
   form: Form;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  callback: (data?: any) => void | Promise<void>;
+  callback: (data: T) => void | Promise<void>;
   shouldResetForm?: boolean;
 };
 
-export const onSubmitHandler = async ({ e, form, callback, shouldResetForm = true }: SubmitHandlerArgs) => {
+export const onSubmitHandler = async <T>({ e, form, callback, shouldResetForm = true }: SubmitHandlerArgs<T>) => {
   if (!e) {
     return;
   }
