@@ -10,6 +10,7 @@ export type ManageChatModalProps = ModalProps & {
   buttonProps: ButtonProps;
   formName: string;
   modalId: string;
+  overlayBind?: () => void;
 };
 
 export type UploadAvatarModalProps = ModalProps & {

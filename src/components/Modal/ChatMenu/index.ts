@@ -74,6 +74,7 @@ export class ChatMenu extends Block {
       buttonProps: ADD_USER_TO_CHAT,
       formName: 'add-user-form',
       modalId: 'add-user-modal',
+      overlayBind: () => this.hide(),
       events: {
         click: e => {
           const target = e?.target as HTMLElement;
@@ -95,6 +96,7 @@ export class ChatMenu extends Block {
       buttonProps: REMOVE_USER_FROM_CHAT,
       formName: 'remove-user-form',
       modalId: 'remove-user-modal',
+      overlayBind: () => this.hide(),
       events: {
         click: e => {
           const target = e?.target as HTMLElement;
