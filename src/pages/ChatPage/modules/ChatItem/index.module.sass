@@ -1,6 +1,11 @@
 @import '@/assets/styles/utils/_vars.sass'
 @import '@/assets/styles/utils/_mixins.sass'
 
+%text-ellipsis
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
 .wrapper
   width: 100%
   max-height: 63px
@@ -12,6 +17,7 @@
   grid-template-columns: 47px repeat(2, 1fr) 25px
   grid-template-rows: repeat(2, 1fr)
   grid-template-areas: "avatar name time time" "avatar text text counter"
+  cursor: pointer
 
 .avatar
   width: 47px
@@ -22,17 +28,16 @@
   grid-area: avatar
 
 .name
+  @extend %text-ellipsis
   font-size: 14px
   font-weight: $font-weight-m
   grid-area: name
 
 .text
+  @extend %text-ellipsis
   color: $base-neutral
   font-size: 12px
   line-height: 130%
-  text-overflow: ellipsis
-  white-space: nowrap
-  overflow: hidden
   grid-area: text
 
 .time

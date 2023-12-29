@@ -1,5 +1,11 @@
 export const tmpl = `
-  {{{goBack}}}
+  <section class="{{ $style.wrapper }}">
+    {{{goBack}}}
 
-  {{{form}}}
+    {{{form}}}
+
+    {{#if notification}}
+      <span class="{{ $style.notification }}">{{notification}}</span>
+    {{/if}}
+  </section>
 `;

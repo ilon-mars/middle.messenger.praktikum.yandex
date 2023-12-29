@@ -1,1 +1,4 @@
-export const tmpl = `{{{ searchInput }}}`;
+export const tmpl = `
+  <form class="{{ $style.form }}">
+    {{{ searchInput }}}
+  </form>`;

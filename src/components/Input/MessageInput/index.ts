@@ -1,22 +1,19 @@
 import { Block } from '@/core/Block';
 
+import { tmpl } from './index.tmpl';
+
 import { MessageInputProps, InputField } from '@/types';
 
 export class MessageInput extends Block {
   constructor(props: MessageInputProps, $style: CSSModuleClasses) {
-    super('textarea', {
+    super({
       ...props,
-      classes: [$style.messageInput],
-      attrs: {
-        name: 'message',
-        placeholder: 'Сообщение',
-      },
       $style,
     });
   }
 
   render() {
-    return this.compile('{{value}}', this.props);
+    return this.compile(tmpl, this.props);
   }
 
   checkField(value: string, field: InputField) {

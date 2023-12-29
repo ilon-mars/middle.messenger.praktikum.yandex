@@ -14,6 +14,8 @@
   grid-template-rows: 170px 1fr
   grid-template-areas: "avatar cards" "controls cards"
   gap: $space-l
+  margin-left: calc(65px + $space-m)
+  margin-right: $space-m
 
 .avatarWrapper
   grid-area: avatar
@@ -29,7 +31,7 @@
 .cards
   grid-area: cards
   display: grid
-  grid-template-columns: repeat(2, 332px)
+  grid-template-columns: repeat(auto-fill, minmax(332px, 1fr))
   gap: $space-xs
 
 .card
@@ -39,3 +41,9 @@
 
 .caption
   color: $base-neutral
+
+.logout
+  span
+    color: $fg-role-warning !important
+    font-size: 12px !important
+    font-weight: 500

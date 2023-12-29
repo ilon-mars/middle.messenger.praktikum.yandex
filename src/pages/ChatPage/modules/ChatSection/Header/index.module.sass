@@ -4,15 +4,27 @@
 .header
   display: flex
   align-items: center
-  justify-content: space-between
   padding: $space-xs 0
   border-bottom: 1px solid $border-base-light
   width: 100%
   height: 52px
 
+.closeButton
+  margin-right: $space-s
+  width: auto
+  width: 20px
+  height: 20px
+
 .menuButton
   color: $base-light
   cursor: pointer
+  margin-left: auto
+  width: 25px
+  height: 25px
+  border-radius: 50%
+  padding: $space-xxs
+  transition-property: background-color
+  +transition
 
-  svg
-    fill: currentColor
+  &:active
+    background-color: $bg-role-active

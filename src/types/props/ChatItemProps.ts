@@ -1,7 +1,12 @@
+import { Events } from '../Events';
+import { ID } from '../requestData';
+
 export type ChatItemProps = {
+  id: ID;
   name: string;
-  text: string;
-  time: string;
-  avatarUrl?: string;
-  counter?: string;
+  counter: number;
+  avatarUrl: string;
+  text: string | null;
+  time: string | null;
+  events?: Events;
 };

@@ -1,0 +1,42 @@
+@import '@/assets/styles/utils/_vars.sass'
+@import '@/assets/styles/utils/_mixins.sass'
+
+.chatMenu
+  padding: $space-m
+  min-width: 200px
+  min-height: 90px
+  height: fit-content
+  background-color: $base-dark
+  flex-direction: column
+  gap: $space-s
+  border-radius: $border-radius-m
+  top: 60px
+  right: $space-m
+  align-items: center
+  justify-content: center
+  display: none
+  +dashed-border($border-radius-m)
+  position: absolute
+
+  &::before, &::after
+    width: calc(100% + 2 * $border-radius-s)
+
+  &::before
+    top: -1px
+
+  &::after
+    bottom: -1px
+
+.menuButton
+  width: 170px
+  gap: $space-xxs
+  flex-direction: row-reverse
+  justify-content: flex-end
+
+  span
+    font-size: 12px !important
+    line-height: 130% !important
+
+  svg
+    width: 20px
+    height: 20px

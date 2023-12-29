@@ -1,11 +1,12 @@
 import { Block } from '@/core/Block';
 
-import { RouteLink } from '../RouteLink';
-import { Optional } from '../Optional';
 import { Attributes } from '../Attributes';
+import { Events } from '../Events';
 
 export type ButtonProps = {
+  hasText: boolean;
   icon?: Block;
   attrs?: Attributes & { type?: 'submit' | 'button' };
-  events?: Record<string, () => void>;
-} & Optional<RouteLink, 'to'>;
+  events?: Events;
+  text?: string;
+};

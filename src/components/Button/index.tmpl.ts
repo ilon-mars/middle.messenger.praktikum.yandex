@@ -1,7 +1,11 @@
 export const tmpl = `
-  <span class="{{ $style.text }}">{{ text }}</span>
+  <button class="{{ $style.button }}">
+    {{#if hasText}}
+      <span class="{{ $style.text }}">{{ text }}</span>
+    {{/if}}
 
-  {{#if icon}}
-    <span class="{{ $style.icon }}">{{{ icon }}}</span>
-  {{/if}}
+    {{#if icon}}
+      <span class="{{ $style.icon }}">{{{ icon }}}</span>
+    {{/if}}
+  </button>
 `;

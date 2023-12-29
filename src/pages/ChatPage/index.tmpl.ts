@@ -1,1 +1,5 @@
-export const tmpl = `{{{content}}}`;
+export const tmpl = `
+  <section class="chat-window">
+    {{{content}}}
+  </section>
+`;

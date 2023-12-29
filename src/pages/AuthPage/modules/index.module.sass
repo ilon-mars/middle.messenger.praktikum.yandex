@@ -1,0 +1,40 @@
+@import '@/assets/styles/utils/_vars.sass'
+@import '@/assets/styles/utils/_mixins.sass'
+
+.modal
+  width: 340px
+  min-height: 250px
+  padding: $space-xl
+  display: flex
+  align-items: center
+  flex-direction: column
+  background-color: $base-dark
+  top: 50%
+  transform: translateY(-50%)
+  color: inherit
+  border: none
+  outline: none
+  margin: 0 auto
+  +dashed-border($border-radius-m)
+
+  &::backdrop
+    width: 100%
+    height: 100vh
+    background-color: $bg-role-modal
+    opacity: $opacity-m
+    +centering
+
+.title
+  margin-bottom: $space-xl
+
+.controls
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-top: $space-s
+
+.notification
+  color: $fg-role-warning
+  font-size: 12px
+  margin-top: $space-xs
