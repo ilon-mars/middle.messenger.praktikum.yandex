@@ -3,6 +3,7 @@ export const tmpl = `
     <div class="{{ $style.messageWrapper }}">
       {{{ messageInput }}}
     </div>
+
     {{{ sendButton }}}
   </form>
 `;

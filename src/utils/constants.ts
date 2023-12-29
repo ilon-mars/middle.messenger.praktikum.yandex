@@ -1,6 +1,5 @@
-import { ChatParticipantEnum, LinkEnum, MessageStatusEnum, UploadAvatarStateEnum } from '@/enums';
+import { LinkEnum, UploadAvatarStateEnum } from '@/enums';
 import { ErrorPageContent, RouteLink, ProfileCardTemplate, ButtonProps } from '@/types';
-import { OtherMessage, MyMessage } from '@/types/ChatMessage';
 
 export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager: true });
 
@@ -157,47 +156,6 @@ export const SAVE_PROFILE_BUTTON = Object.freeze({
   text: 'Сохранить',
 });
 
-export const MESSAGES: Array<MyMessage | OtherMessage> = [
-  {
-    type: ChatParticipantEnum.ME,
-    text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой. Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
-    time: '15:00',
-  },
-  {
-    type: ChatParticipantEnum.ME,
-    imageLink: 'http',
-    time: '15:20',
-  },
-  {
-    type: ChatParticipantEnum.OTHER,
-    text: 'Круто!',
-    status: MessageStatusEnum.DELIVERED,
-    time: '15:40',
-  },
-  {
-    type: ChatParticipantEnum.ME,
-    text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой. Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
-    time: '15:00',
-  },
-  {
-    type: ChatParticipantEnum.OTHER,
-    text: 'Круто!',
-    status: MessageStatusEnum.DELIVERED,
-    time: '15:40',
-  },
-  {
-    type: ChatParticipantEnum.ME,
-    text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой. Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
-    time: '15:00',
-  },
-  {
-    type: ChatParticipantEnum.OTHER,
-    text: 'Круто!',
-    status: MessageStatusEnum.DELIVERED,
-    time: '15:40',
-  },
-];
-
 export const GO_TO_PROFILE: RouteLink = Object.freeze({
   text: 'Профиль',
   to: `/${LinkEnum.PROFILE}`,
@@ -232,4 +190,14 @@ export const UPLOAD_AVATAR_STATE_TITLES = Object.freeze({
 export const ADD_CHAT = Object.freeze({
   hasText: true,
   text: 'Создать чат',
+});
+
+export const ADD_USER_TO_CHAT = Object.freeze({
+  hasText: true,
+  text: 'Добавить пользователя',
+});
+
+export const REMOVE_USER_FROM_CHAT = Object.freeze({
+  hasText: true,
+  text: 'Удалить пользователя',
 });

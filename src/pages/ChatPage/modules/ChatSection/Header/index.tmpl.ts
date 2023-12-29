@@ -3,5 +3,6 @@ export const tmpl = `
     {{{ closeButton }}}
     {{{ avatar }}}
     {{{ menuButton }}}
+    {{{ chatMenu }}}
   </header>
 `;

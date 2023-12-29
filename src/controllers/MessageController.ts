@@ -21,7 +21,7 @@ class MessageController {
 
     await socket.connect();
 
-    this.subscribe(socket, id);
+    this.#subscribe(socket, id);
     this.fetchOldMessages(id);
   }
 
@@ -33,7 +33,7 @@ class MessageController {
     }
 
     socket.send({
-      type: 'message',
+      type: SocketEventEnum.MESSAGE,
       content: message,
     });
   }
@@ -48,7 +48,7 @@ class MessageController {
     socket.send({ type: 'get old', content: '0' });
   }
 
-  private onMessage(id: ID, messages: Message | Message[]) {
+  #onMessage(id: ID, messages: Message | Message[]) {
     let messagesToAdd: Message[] = [];
 
     if (Array.isArray(messages)) {
@@ -65,16 +65,16 @@ class MessageController {
 
     store.set(`messages.${id}`, messagesToAdd);
 
-    ChatController.updateChats().catch(() => false);
+    ChatController.updateChats();
   }
 
-  private onClose(id: ID) {
+  #onClose(id: ID) {
     this.sockets.delete(id);
   }
 
-  private subscribe(transport: WebSocketService, id: ID) {
-    transport.on(SocketEventEnum.MESSAGE, message => this.onMessage(id, message as Message | Message[]));
-    transport.on(SocketEventEnum.CLOSE, () => this.onClose(id));
+  #subscribe(transport: WebSocketService, id: ID) {
+    transport.on(SocketEventEnum.MESSAGE, message => this.#onMessage(id, message as Message | Message[]));
+    transport.on(SocketEventEnum.CLOSE, () => this.#onClose(id));
   }
 }
 

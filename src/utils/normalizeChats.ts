@@ -1,5 +1,6 @@
-import { Chat, ChatItemProps } from '@/types';
 import { convertDateToTime } from './convertDateToTime';
+
+import { Chat, ChatItemProps } from '@/types';
 
 import avatarSrc from '@/assets/icons/avatar-stub.svg';
 

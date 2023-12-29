@@ -13,7 +13,7 @@ import { ChatList } from '@/pages/ChatPage/modules/ChatList';
 
 import ChatController from '@/controllers/ChatController';
 
-import { GO_TO_PROFILE, normalizeChats, isEqual } from '@/utils';
+import { GO_TO_PROFILE, normalizeChats, isEqual, ADD_CHAT } from '@/utils';
 
 import $style from './index.module.sass';
 
@@ -40,6 +40,9 @@ export class Sidebar extends Block {
 
     this.children.addChatModal = new AddChatModal({
       title: 'Создать новый чат',
+      buttonProps: ADD_CHAT,
+      formName: 'add-chat-form',
+      modalId: 'add-chat-modal',
       events: {
         click: e => {
           const target = e?.target as HTMLElement;

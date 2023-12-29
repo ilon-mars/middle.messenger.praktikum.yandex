@@ -11,7 +11,7 @@ export class ChatLayout extends Block {
   }
 
   init() {
-    this.children.list = new ChatSidebar();
+    this.children.list = new ChatSidebar({});
     this.children.window = new ChatPage({});
   }
 

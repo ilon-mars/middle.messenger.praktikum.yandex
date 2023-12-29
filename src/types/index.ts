@@ -12,5 +12,6 @@ export * from './Indexed';
 export * from './User';
 export * from './Chat';
 export * from './Message';
+export * from './Events';
 export * from './props';
 export * from './requestData';

@@ -40,17 +40,12 @@ class ChatController {
     store.set('chats.data', chats);
   };
 
-  addUserToChat = (id: ID, userId: ID) => {
-    this.api.addUsers({ chatId: id, users: [userId] }).then(response => response);
+  addUserToChat = async (id: ID, userId: ID) => {
+    await this.api.addUsers({ chatId: id, users: [userId] });
   };
 
-  removeUserFromChat = (id: ID, userId: ID) => {
-    this.api.deleteUsers({ chatId: id, users: [userId] }).then(response => response);
-  };
-
-  delete = async (chatId: ID) => {
-    await this.api.deleteChat({ chatId });
-    await this.fetchChats();
+  removeUserFromChat = async (id: ID, userId: ID) => {
+    await this.api.deleteUsers({ chatId: id, users: [userId] });
   };
 
   getToken = (id: ID) => this.api.getChatToken({ id });

@@ -6,6 +6,7 @@ import { tmpl } from './index.tmpl';
 import { Avatar } from '@/components/Avatar';
 import { DefaultButton } from '@/components/Button';
 import { Icon } from '@/components/Icon';
+import { ChatMenu } from '@/components/Modal/ChatMenu';
 
 import { ChatHeaderProps } from '@/types';
 
@@ -44,9 +45,19 @@ export class Header extends Block {
       {
         hasText: false,
         icon: new Icon({ name: 'dots' }),
+        attrs: {
+          type: 'button',
+        },
+        events: {
+          click: () => {
+            (this.children.chatMenu as Block).show();
+          },
+        },
       },
       $style.menuButton,
     );
+
+    this.children.chatMenu = new ChatMenu();
   }
 
   render() {

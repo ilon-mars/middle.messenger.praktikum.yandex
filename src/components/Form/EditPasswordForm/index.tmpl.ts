@@ -5,6 +5,7 @@ export const tmpl = `
       {{{ newPassword }}}
       {{{ repeatPassword }}}
     </div>
+
     <div class="{{ $style.controls }}">
       {{{ saveButton }}}
     </div>

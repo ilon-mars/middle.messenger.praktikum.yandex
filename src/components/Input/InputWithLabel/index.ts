@@ -1,7 +1,8 @@
 import { Block } from '@/core/Block';
 
-import { InputWithLabelProps } from '@/types';
 import { tmpl } from './index.tmpl';
+
+import { InputWithLabelProps } from '@/types';
 
 import $style from './index.module.sass';
 
