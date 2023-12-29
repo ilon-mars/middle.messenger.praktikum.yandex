@@ -75,7 +75,7 @@ class Profile extends Block {
     });
   }
 
-  async componentDidMount(): Promise<void> {
+  async componentDidMount() {
     await AuthController.fetchUser();
 
     if (store.state.user && store.state.user.data) {
@@ -84,7 +84,7 @@ class Profile extends Block {
     }
   }
 
-  componentShouldUpdate(): boolean {
+  componentShouldUpdate() {
     if (store.state.user?.data?.avatar) {
       (this.children.avatar as Block).setProps({
         src: `${import.meta.env.VITE_API_URL}/resources/${store.state.user.data.avatar}`,

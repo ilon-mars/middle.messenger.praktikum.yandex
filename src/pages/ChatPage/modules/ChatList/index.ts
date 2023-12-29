@@ -19,7 +19,7 @@ export class ChatList extends Block {
     this.children.chats = this.props.chats;
   }
 
-  componentShouldUpdate(oldProps: ChatListProps, newProps: ChatListProps): boolean {
+  componentShouldUpdate(oldProps: ChatListProps, newProps: ChatListProps) {
     this.children.chats = newProps.chats;
     return !isEqual(oldProps, newProps);
   }

@@ -183,7 +183,7 @@ export class EditProfileForm extends Form {
     });
   }
 
-  async componentDidMount(): Promise<void> {
+  async componentDidMount() {
     await AuthController.fetchUser();
 
     if (!store.state.user || !store.state.user.data) {

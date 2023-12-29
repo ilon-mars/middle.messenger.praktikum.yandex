@@ -20,8 +20,7 @@ export class Chat extends Block {
     this.children.content = windowStub;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  componentShouldUpdate(oldProps: any, newProps: any): boolean {
+  componentShouldUpdate(oldProps: State, newProps: State) {
     if (store.state.selectedChat?.id) {
       const messages =
         store.state.messages && store.state.messages[store.state.selectedChat.id].length > 0

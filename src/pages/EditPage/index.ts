@@ -62,7 +62,7 @@ class Edit extends Block {
   }
 }
 
-function mapStateToProps(state: State): EditPageProps {
+function mapStateToProps(state: State) {
   if (!state || !state.user) {
     return {};
   }

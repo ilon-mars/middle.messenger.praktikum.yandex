@@ -61,14 +61,13 @@ export class Sidebar extends Block {
     this.children.chatList = new ChatList({ chats: [] });
   }
 
-  async componentDidMount(): Promise<void> {
+  async componentDidMount() {
     await ChatController.fetchChats();
 
     this.#updateChats();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  componentShouldUpdate(oldProps: any, newProps: any): boolean {
+  componentShouldUpdate(oldProps: State, newProps: State) {
     this.#updateChats();
 
     return !isEqual(oldProps, newProps);
