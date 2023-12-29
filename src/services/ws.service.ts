@@ -63,13 +63,17 @@ export default class WebSocketService extends EventBus {
     });
 
     socket.addEventListener(SocketEventEnum.MESSAGE, message => {
-      const data = JSON.parse(message.data);
+      try {
+        const data = JSON.parse(message.data);
 
-      if (data.type && data.type === 'pong') {
-        return;
+        if (data.type && data.type === 'pong') {
+          return;
+        }
+
+        this.emit(SocketEventEnum.MESSAGE, data);
+      } catch (error) {
+        console.log(error);
       }
-
-      this.emit(SocketEventEnum.MESSAGE, data);
     });
   }
 }
