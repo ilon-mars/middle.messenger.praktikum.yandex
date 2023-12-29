@@ -24,7 +24,7 @@ import {
   onBlurHandler,
   onInputHandler,
 } from '@/utils';
-import { RouterLinkEnum } from '@/enums';
+import { Routes } from '@/enums';
 
 import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
@@ -187,7 +187,7 @@ export class EditProfileForm extends Form {
     await AuthController.fetchUser();
 
     if (!store.state.user || !store.state.user.data) {
-      router.go(RouterLinkEnum.SERVER_ERROR);
+      router.go(Routes.SERVER_ERROR);
       return;
     }
 

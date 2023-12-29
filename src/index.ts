@@ -2,7 +2,7 @@ import router, { prepareRouter } from '@/core/Router';
 
 import AuthController from '@/controllers/AuthController';
 
-import { RouterLinkEnum } from '@/enums';
+import { Routes } from '@/enums';
 
 import '@/assets/styles/index.sass';
 
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   let isProtectedRoute = true;
 
   switch (window.location.pathname) {
-    case RouterLinkEnum.NOT_FOUND:
-    case RouterLinkEnum.REGISTER:
-    case RouterLinkEnum.SERVER_ERROR:
+    case Routes.NOT_FOUND:
+    case Routes.SIGN_UP:
+    case Routes.SERVER_ERROR:
       isProtectedRoute = false;
       break;
     default:
@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const user = await AuthController.fetchUser();
 
     if (!isProtectedRoute || user.id) {
-      router.go(RouterLinkEnum.CHAT);
+      router.go(Routes.MESSENGER);
     }
   } catch (e) {
     if (isProtectedRoute) {
-      router.go(RouterLinkEnum.LOGIN);
+      router.go(Routes.MAIN);
     }
   }
 });

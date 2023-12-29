@@ -4,7 +4,7 @@ import { AuthAPI } from '@/services/api';
 import ChatController from './ChatController';
 import UserController from './UserController';
 
-import { RouterLinkEnum } from '@/enums';
+import { Routes } from '@/enums';
 import { SignInRequest, SignUpRequest } from '@/types';
 
 class AuthController {
@@ -19,10 +19,10 @@ class AuthController {
 
       await ChatController.fetchChats();
 
-      Router.go(RouterLinkEnum.CHAT);
+      Router.go(Routes.MESSENGER);
     } catch (error) {
       if ((error as Error)?.message === 'User already in system') {
-        Router.go(RouterLinkEnum.CHAT);
+        Router.go(Routes.MESSENGER);
       }
 
       store.set('user.error', (error as Error).message);
@@ -37,7 +37,7 @@ class AuthController {
 
       store.set('user.error', undefined);
 
-      Router.go(RouterLinkEnum.CHAT);
+      Router.go(Routes.MESSENGER);
     } catch (error) {
       store.set('user.error', (error as Error).message);
       console.error((error as Error).message);
@@ -50,7 +50,7 @@ class AuthController {
 
       store.set('user', null);
 
-      Router.go(RouterLinkEnum.LOGIN);
+      Router.go(Routes.MAIN);
     } catch (error) {
       store.set('user.error', error);
       console.error((error as Error).message);
