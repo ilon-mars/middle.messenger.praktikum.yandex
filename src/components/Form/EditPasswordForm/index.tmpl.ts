@@ -1,11 +1,13 @@
 export const tmpl = `
-  <div class="{{ $style.inputs }}">
-    {{{ oldPassword }}}
-    {{{ newPassword }}}
-    {{{ repeatPassword }}}
-  </div>
+  <form class="{{ $style.form }}">
+    <div class="{{ $style.inputs }}">
+      {{{ oldPassword }}}
+      {{{ newPassword }}}
+      {{{ repeatPassword }}}
+    </div>
 
-  <div class="{{ $style.controls }}">
-    {{{ saveButton }}}
-  </div>
+    <div class="{{ $style.controls }}">
+      {{{ saveButton }}}
+    </div>
+  </form>
 `;

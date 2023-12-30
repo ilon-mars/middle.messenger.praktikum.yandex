@@ -1,3 +1,5 @@
 export * from './Modal';
-export * from './LoginModal';
-export * from './RegisterModal';
+export * from './UploadAvatar';
+export * from './AddChat';
+export * from './AddUser';
+export * from './RemoveUser';

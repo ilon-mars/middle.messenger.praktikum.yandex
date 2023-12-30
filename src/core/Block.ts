@@ -5,7 +5,7 @@ import { EventBus } from './EventBus';
 
 // может быть любая структура
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export abstract class Block<T extends Record<string, any> = any> {
+export class Block<T extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -16,21 +16,15 @@ export abstract class Block<T extends Record<string, any> = any> {
   public id = uuid();
   public children: Record<string, Block | Block[]>;
 
-  protected props: T;
+  props: T;
 
   #eventBus: () => EventBus;
   #element: HTMLElement | null = null;
-  #meta: { tagName: string; props: T };
 
-  constructor(tagName = 'div', propsWithChildren: T) {
+  constructor(propsWithChildren: T) {
     const eventBus = new EventBus();
 
     const { props, children } = this.#getChildrenAndProps(propsWithChildren);
-
-    this.#meta = {
-      tagName,
-      props: props as T,
-    };
 
     this.children = children;
     this.props = this.#makePropsProxy(props);
@@ -82,26 +76,19 @@ export abstract class Block<T extends Record<string, any> = any> {
     eventBus.on(Block.EVENTS.FLOW_RENDER, this.#render.bind(this));
   }
 
-  #createResources() {
-    const { tagName } = this.#meta;
-    this.#element = this.#createDocumentElement(tagName);
-  }
-
   #init() {
-    this.#createResources();
-
     this.init();
 
     this.#eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  protected init() {}
+  init() {}
 
   #componentDidMount() {
     this.componentDidMount();
   }
 
-  protected componentDidMount() {}
+  componentDidMount() {}
 
   public dispatchComponentDidMount() {
     this.#eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -115,7 +102,7 @@ export abstract class Block<T extends Record<string, any> = any> {
     });
   }
 
-  #componentShouldUpdate(oldProps: T, newProps: T) {
+  #componentShouldUpdate(oldProps: unknown, newProps: unknown) {
     if (this.componentShouldUpdate(oldProps, newProps)) {
       this.#eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
@@ -123,7 +110,7 @@ export abstract class Block<T extends Record<string, any> = any> {
 
   // метод будет перезаписан
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected componentShouldUpdate(_oldProps: T, _newProps: T) {
+  componentShouldUpdate(_oldProps: unknown, _newProps: unknown) {
     return true;
   }
 
@@ -141,18 +128,34 @@ export abstract class Block<T extends Record<string, any> = any> {
 
   #render() {
     const fragment = this.render();
+
+    const newElement = fragment.firstElementChild as HTMLElement;
+
+    if (this.props.classes && this.props.classes.length) {
+      const classes: string = this.props.classes.filter((item: string) => item);
+      newElement.classList.add(...classes);
+    }
+
+    if (this.props.attrs && Object.keys(this.props.attrs).length) {
+      Object.entries(this.props.attrs).forEach(([name, value]) => {
+        newElement.setAttribute(name, value as string);
+      });
+    }
+
     this.#removeEvents();
 
-    this.#element!.innerHTML = '';
+    if (this.#element && newElement) {
+      this.#element.replaceWith(newElement);
+    }
 
-    this.#element!.append(fragment);
+    this.#element = newElement;
 
     this.#addEvents();
   }
 
   // может быть любая структура
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  protected compile(template: string, context: any) {
+  compile(template: string, context: any) {
     const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
@@ -194,7 +197,7 @@ export abstract class Block<T extends Record<string, any> = any> {
     return temp.content;
   }
 
-  protected render(): DocumentFragment {
+  render(): DocumentFragment {
     return new DocumentFragment();
   }
 
@@ -225,19 +228,17 @@ export abstract class Block<T extends Record<string, any> = any> {
     });
   }
 
-  #createDocumentElement(tagName: string) {
-    const element = document.createElement(tagName);
-    if (this.props.classes && this.props.classes.length) {
-      const classes: string = this.props.classes.filter((item: string) => item);
-      element.classList.add(...classes);
+  show() {
+    const $el = this.getContent();
+
+    if (!$el) {
+      return;
     }
 
-    if (this.props.attrs && Object.keys(this.props.attrs).length) {
-      Object.entries(this.props.attrs).forEach(([name, value]) => {
-        element.setAttribute(name, value as string);
-      });
-    }
+    $el.style.display = $el.dataset.layout!;
+  }
 
-    return element;
+  hide() {
+    this.getContent()!.style.display = 'none';
   }
 }

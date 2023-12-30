@@ -1,7 +1,7 @@
 import { tmpl } from './index.tmpl';
 
 import { Form } from '@/components/Form/Form';
-import { Button, MainButton } from '@/components/Button';
+import { DefaultButton, MainButton } from '@/components/Button';
 import {
   EmailInput,
   Input,
@@ -29,6 +29,25 @@ import {
 
 import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
+
+const toggleActiveClass = (e?: Event) => {
+  if (!e) {
+    return;
+  }
+
+  const target = e.target as HTMLElement;
+  const currentFieldset = target.closest(`.${$style.fieldset}`);
+  currentFieldset?.classList.toggle($style.active);
+
+  target
+    .closest(`.${$style.form}`)
+    ?.querySelectorAll(`.${$style.fieldset}`)
+    .forEach(fieldset => {
+      if (currentFieldset !== fieldset) {
+        fieldset.classList.remove($style.active);
+      }
+    });
+};
 
 export class RegisterForm extends Form {
   formData: Record<string, InputField> = {
@@ -65,7 +84,6 @@ export class RegisterForm extends Form {
   constructor(props: FormProps) {
     super({
       ...props,
-      classes: [$style.form],
       $style,
     });
   }
@@ -188,16 +206,22 @@ export class RegisterForm extends Form {
       errorText: REPEAT_PASSWORD_INPUT.errorText,
     });
 
-    this.children.personalButton = new Button({
+    this.children.personalButton = new DefaultButton({
+      hasText: true,
       text: 'Личные данные',
       icon: new Icon({ name: 'arrow' }),
-      events: { click: () => console.log('Click') },
+      events: {
+        click: toggleActiveClass,
+      },
     });
 
-    this.children.accountButton = new Button({
+    this.children.accountButton = new DefaultButton({
+      hasText: true,
       text: 'Данные профиля',
       icon: new Icon({ name: 'arrow' }),
-      events: { click: () => console.log('Click') },
+      events: {
+        click: toggleActiveClass,
+      },
     });
 
     this.children.submitButton = new MainButton({

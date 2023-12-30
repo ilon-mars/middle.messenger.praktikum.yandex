@@ -7,6 +7,8 @@ export const createApp = (rootSelector: string, rootComponent: Block) => {
     throw new Error(`Корневой элемент с селектором ${rootSelector} не найден 🕵🏼`);
   }
 
+  app.innerHTML = '';
+
   app.append(rootComponent.element!);
   rootComponent.dispatchComponentDidMount();
 

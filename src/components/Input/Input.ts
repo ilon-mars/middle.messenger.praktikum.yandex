@@ -1,20 +1,21 @@
 import { Block } from '@/core/Block';
 
+import { tmpl } from './index.tmpl';
+
 import { InputProps, InputField } from '@/types';
 
 import $style from './index.module.sass';
 
 export class Input extends Block {
   constructor(props: InputProps) {
-    super('input', {
+    super({
       ...props,
-      classes: [$style.input],
       $style,
     });
   }
 
   render() {
-    return this.compile('', this.props);
+    return this.compile(tmpl, this.props);
   }
 
   // метод будет перезаписан

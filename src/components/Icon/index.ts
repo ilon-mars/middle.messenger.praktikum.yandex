@@ -5,7 +5,7 @@ import { getRawSvg } from '@/utils';
 
 export class Icon extends Block {
   constructor(props: IconProps, $style?: CSSModuleClasses) {
-    super('div', {
+    super({
       ...props,
       ...($style && { classes: [$style.icon], $style }),
     });

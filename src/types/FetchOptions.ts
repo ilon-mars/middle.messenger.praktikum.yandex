@@ -1,10 +1,10 @@
-import { ApiMethodEnum } from '@/enums';
+import { HTTPMethodEnum } from '@/enums';
 
-type FetchMethod = `${ApiMethodEnum}`;
+type FetchMethod = `${HTTPMethodEnum}`;
 
 export type FetchOptions = {
   method: FetchMethod;
   timeout?: number;
   headers?: Record<string, string>[];
-  data?: XMLHttpRequestBodyInit;
+  data?: unknown;
 };

@@ -1,6 +1,6 @@
-import { LinkEnum } from '@/enums';
+import { Routes } from '@/enums';
 
-export type RedirectTo = `/${LinkEnum}`;
+export type RedirectTo = `${Routes}`;
 
 export type RouteLink = {
   text: string;

@@ -1,6 +1,8 @@
-import { RedirectTo } from '../RouteLink';
+import { Events } from '../Events';
 
 export type AvatarProps = {
-  name: string;
-  to?: RedirectTo;
+  src?: string;
+  name?: string;
+  events?: Events;
+  isClickable?: boolean;
 };

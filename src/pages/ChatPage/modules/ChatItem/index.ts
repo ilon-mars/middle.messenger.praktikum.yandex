@@ -8,9 +8,8 @@ import $style from './index.module.sass';
 
 export class ChatItem extends Block {
   constructor(props: ChatItemProps) {
-    super('li', {
+    super({
       ...props,
-      classes: [$style.wrapper],
       $style,
     });
   }

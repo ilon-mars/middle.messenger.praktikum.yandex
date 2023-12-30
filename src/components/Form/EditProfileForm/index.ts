@@ -1,9 +1,16 @@
+import store from '@/core/Store';
+import router from '@/core/Router';
+import { Block } from '@/core/Block';
+
 import { tmpl } from './index.tmpl';
 
 import { Form } from '@/components/Form/Form';
 import { Avatar } from '@/components/Avatar';
 import { MainButton } from '@/components/Button';
 import { EmailInput, Input, InputWithLabel, LoginInput, NameInput, PhoneInput } from '@/components/Input';
+import { Icon } from '@/components/Icon';
+
+import AuthController from '@/controllers/AuthController';
 
 import { FormProps, InputField } from '@/types';
 import {
@@ -12,15 +19,18 @@ import {
   LOGIN_INPUT,
   NAME_INPUT,
   PHONE_INPUT,
-  PROFILE_AVATAR,
   SAVE_PROFILE_BUTTON,
   SECOND_NAME_INPUT,
+  getAvatarSrc,
   onBlurHandler,
   onInputHandler,
 } from '@/utils';
+import { Routes } from '@/enums';
 
 import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
+
+import avatarSrc from '@/assets/icons/avatar-stub.svg';
 
 export class EditProfileForm extends Form {
   formData: Record<string, InputField> = {
@@ -53,7 +63,6 @@ export class EditProfileForm extends Form {
   constructor(props: FormProps) {
     super({
       ...props,
-      classes: [$style.form],
       $style,
     });
   }
@@ -168,8 +177,35 @@ export class EditProfileForm extends Form {
       'profile-card',
     );
 
-    this.children.avatar = new Avatar(PROFILE_AVATAR);
-    this.children.saveButton = new MainButton(SAVE_PROFILE_BUTTON);
+    this.children.avatar = new Avatar();
+    this.children.saveButton = new MainButton({
+      ...SAVE_PROFILE_BUTTON,
+      icon: new Icon({ name: 'arrow-tail' }),
+    });
+  }
+
+  async componentDidMount() {
+    await AuthController.fetchUser();
+
+    if (!store.state.user || !store.state.user.data) {
+      router.go(Routes.SERVER_ERROR);
+      return;
+    }
+
+    const userData = store.state.user.data;
+    (this.children.avatar as Block).setProps({
+      src: userData.avatar ? getAvatarSrc(store.state.user.data.avatar!) : avatarSrc,
+    });
+
+    (((this.children.loginInput as Block).children.input as Block).element! as HTMLInputElement).value = userData.login;
+    (((this.children.displayNameInput as Block).children.input as Block).element! as HTMLInputElement).value =
+      userData.display_name || userData.first_name;
+    (((this.children.nameInput as Block).children.input as Block).element! as HTMLInputElement).value =
+      userData.first_name;
+    (((this.children.secondNameInput as Block).children.input as Block).element! as HTMLInputElement).value =
+      userData.second_name;
+    (((this.children.emailInput as Block).children.input as Block).element! as HTMLInputElement).value = userData.email;
+    (((this.children.phoneInput as Block).children.input as Block).element! as HTMLInputElement).value = userData.phone;
   }
 
   render() {

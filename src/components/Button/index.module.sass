@@ -1,7 +1,6 @@
 @import '@/assets/styles/utils/_vars.sass'
 @import '@/assets/styles/utils/_mixins.sass'
 
-$blob-width: 44px
 $hover-offset: 20px
 
 %button-common
@@ -22,87 +21,95 @@ $hover-offset: 20px
 
 .button
   width: 100%
-  color: $base-dark
-  height: 40px
+  color: inherit
   display: flex
   align-items: center
   gap: $space-l
   cursor: pointer
 
+  .icon
+    +centering
+
   &:hover
     svg
       fill: $fg-role-active
 
-  &.main:hover
+  &.hover:hover
     .text
       width: calc(100% - $blob-width / 2 - $hover-offset)
 
     .icon
       width: calc(32px + $hover-offset)
 
-  &.main
-    .text
-      @extend %button-common
-      display: flex
-      align-items: center
-      font-size: 12px
-      text-transform: uppercase
-      text-align: left
-      width: calc(100% - $blob-width / 2)
-      padding-right: calc($blob-width / 2)
+.main
+  height: 40px
+  color: $base-dark
+
+  .text
+    @extend %button-common
+    display: flex
+    align-items: center
+    font-size: 12px
+    text-transform: uppercase
+    text-align: left
+    width: calc(100% - $blob-width / 2)
+    padding-right: calc($blob-width / 2)
+    +transition
+
+    &::after
+      @extend %pseudo-common
+      transform: translateX(50%) rotate(180deg)
+      right: $space-xs
+
+  .icon
+    @extend %button-common
+    width: 32px
+    flex-shrink: 0
+    +transition
+    +centering
+
+    &::before
+      @extend %pseudo-common
+      transform: translateX(-50%)
+      left: $space-xs
+      z-index: $ui-index-hide
+
+    svg
+      transition-property: fill
+      width: 12px
+      height: 12px
       +transition
 
-      &::after
-        @extend %pseudo-common
-        transform: translateX(50%) rotate(180deg)
-        right: $space-xs
+.default
+  justify-content: space-between
+  width: 100%
+  height: 24px
+
+  .text
+    color: $base-light
+    font-size: 18px
+    line-height: 120%
+    transition-property: color
+    flex-shrink: 0
+    +transition
+
+  .icon
+    width: auto
+    height: 100%
+    aspect-ratio: 1
+
+    &.active
+      transform: rotate(90deg)
+
+    svg
+      fill: currentColor
+      transition-property: fill
+      +transition
+
+  &:hover
+    .text
+      color: $fg-role-active
 
     .icon
-      @extend %button-common
-      width: 32px
-      flex-shrink: 0
-      +transition
-      +centering
-
-      &::before
-        @extend %pseudo-common
-        transform: translateX(-50%)
-        left: $space-xs
-        z-index: -1
-
       svg
-        transition-property: fill
-        width: 12px
-        height: 12px
-        +transition
-
-  &.small
-    justify-content: space-between
-    width: 100%
-
-    .text
-      color: $base-light
-      font-size: 18px
-      line-height: 120%
-      transition-property: color
-      +transition
-
-    .icon
-      width: 20px
-      height: 20px
-
-      &.active
-        transform: rotate(90deg)
-
-      svg
-        fill: $base-light
-        transition-property: fill
-        +transition
-
-    &:hover
-      .text
-        color: $fg-role-active
-
-      .icon
-        svg
-          fill: $fg-role-active
+        fill: $fg-role-active

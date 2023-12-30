@@ -1,9 +1,12 @@
 export const tmpl = `
-  <h2 class="h2 {{ $style.title }}">{{ title }}</h2>
+  <div class="{{ $style.modal }}" data-layout="flex" id="{{ modalId }}">
+    <form class="{{ $style.form }}" name="{{ formName }}">
+      <h3 class="h3 {{ $style.title }}">{{ title }}</h3>
+      {{{ input }}}
 
-  {{{form}}}
-
-  <footer class="{{ $style.controls }}">
-    {{{ link }}}
-  </footer>
+      <footer class="{{ $style.controls }}">
+        {{{ button }}}
+      </footer>
+    </form>
+  </div>
 `;

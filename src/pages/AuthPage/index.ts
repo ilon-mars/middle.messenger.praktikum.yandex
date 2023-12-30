@@ -2,22 +2,20 @@ import { Block } from '@/core/Block';
 
 import { tmpl } from './index.tmpl';
 
-import { LoginModal, RegisterModal } from '@/components/Modal';
+import { Login } from '@/pages/AuthPage/modules/Login';
+import { Register } from '@/pages/AuthPage/modules/Registration';
 
 import { AuthPageProps } from '@/types';
 
 export class AuthPage extends Block {
   constructor(props: AuthPageProps) {
-    super('section', {
-      ...props,
-      classes: ['container'],
-    });
+    super(props);
   }
 
   init() {
-    this.children.modal = this.props.hasAccount
-      ? new LoginModal({ title: this.props.title })
-      : new RegisterModal({ title: this.props.title });
+    this.children.content = this.props.hasAccount
+      ? new Login({ title: this.props.title })
+      : new Register({ title: this.props.title });
   }
 
   render() {

@@ -1,7 +1,10 @@
+import { Attributes } from '../Attributes';
+import { Events } from '../Events';
+
 export type FormProps = {
   name?: string;
   classes?: string[];
-  attrs?: Record<string, string>;
-  events?: Record<string, (e?: SubmitEvent) => void>;
+  attrs?: Attributes;
+  events?: Events;
   $style?: CSSModuleClasses;
 };
