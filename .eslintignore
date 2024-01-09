@@ -3,3 +3,4 @@ dist/
 .prettierrc
 .eslintrc
 env.d.ts
+mochaSetup.js

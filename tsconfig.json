@@ -11,7 +11,8 @@
     ],
     "skipLibCheck": true,
     "types": [
-      "node"
+      "node",
+      "mocha"
     ],
     "baseUrl": ".",
     "paths": {
@@ -38,5 +39,11 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true,
+    "files": true
+  }
 }

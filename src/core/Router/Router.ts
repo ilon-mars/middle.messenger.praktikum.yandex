@@ -1,7 +1,7 @@
 import { Block } from '../Block';
 import Route, { BlockWithStore } from './Route';
 
-class Router {
+export class Router {
   private static __instance: Router;
 
   #routes: Route[] = [];
@@ -73,6 +73,10 @@ class Router {
 
   #getRoute(pathname: string) {
     return this.#routes.find(route => route.match(pathname));
+  }
+
+  get routes() {
+    return this.#routes;
   }
 }
 

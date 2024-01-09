@@ -1,5 +1,4 @@
-import router from './Router';
-
 export * from './Route';
+export * from "./Router";
+export { default } from "./Router";
 export * from './prepareRouter';
-export default router;
