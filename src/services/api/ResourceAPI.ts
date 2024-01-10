@@ -1,4 +1,4 @@
-import { API } from '@/services/api';
+import { API } from './api.service.ts';
 
 export class ResourceAPI extends API {
   constructor() {

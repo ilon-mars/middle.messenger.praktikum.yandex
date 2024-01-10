@@ -1,7 +1,7 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { Attributes } from '../Attributes';
-import { Events } from '../Events';
+import { Attributes } from '../Attributes.ts';
+import { Events } from '../Events.ts';
 
 export type ButtonProps = {
   hasText: boolean;

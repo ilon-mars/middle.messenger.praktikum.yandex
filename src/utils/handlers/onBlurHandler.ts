@@ -1,7 +1,9 @@
-import { Input, InputWithLabel } from '@/components/Input';
+import { InputWithLabel } from '@/components/Input/index.ts';
+import { Input } from '@/components/Input/Input.ts';
 
-import { InputField } from '@/types';
-import { errorClassHandler } from '@/utils';
+
+import { InputField } from '@/types/index.ts';
+import { errorClassHandler } from '../errorClassHandler.ts';
 
 export const onBlurHandler = (
   e: Event | undefined,

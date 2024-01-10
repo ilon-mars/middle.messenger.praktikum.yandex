@@ -1,9 +1,9 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { ChatSidebar } from '@/pages/ChatPage/modules/ChatSidebar';
-import { ChatPage } from '@/pages/ChatPage';
+import { ChatPage } from '@/pages/ChatPage/index.ts';
+import { ChatSidebar } from '@/pages/ChatPage/modules/ChatSidebar/index.ts';
 
 export class ChatLayout extends Block {
   constructor() {

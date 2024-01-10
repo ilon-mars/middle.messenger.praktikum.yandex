@@ -1,17 +1,17 @@
-import { Block } from '@/core/Block';
-import store from '@/core/Store';
+import { Block } from '@/core/Block/index.ts';
+import store from '@/core/Store/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { MessageForm } from '@/components/Form';
-import { MessageInput } from '@/components/Input';
-import { DefaultButton } from '@/components/Button';
-import { Icon } from '@/components/Icon';
+import { DefaultButton } from '@/components/Button/index.ts';
+import { MessageForm } from '@/components/Form/index.ts';
+import { Icon } from '@/components/Icon/index.ts';
+import { MessageInput } from '@/components/Input/index.ts';
 
-import MessageController from '@/controllers/MessageController';
+import MessageController from '@/controllers/MessageController.ts';
 
-import { onSubmitHandler } from '@/utils';
-import { ID } from '@/types';
+import { ID } from '@/types/index.ts';
+import { onSubmitHandler } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
 

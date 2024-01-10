@@ -20,9 +20,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*",
-      ]
+      "@/*": ["src/*"],
     },
     "declaration": true,
     "moduleResolution": "nodenext",
@@ -41,7 +39,5 @@
     "useDefineForClassFields": true,
     "esModuleInterop": true,
   },
-  "include": [
-    "src/*"
-  ],
+  "include": ["src", "global.d.ts"]
 }

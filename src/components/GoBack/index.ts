@@ -1,9 +1,9 @@
-import { Block } from '@/core/Block';
-import router from '@/core/Router';
+import { Block } from '@/core/Block/index.ts';
+import router from '@/core/Router/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Icon } from '@/components/Icon';
+import { Icon } from '@/components/Icon/index.ts';
 
 import $style from './index.module.sass';
 

@@ -1,4 +1,4 @@
-import { API } from '@/services/api';
+import { API } from './api.service.ts';
 
 import {
   AddUsersRequest,
@@ -12,7 +12,7 @@ import {
   GetChatUsersRequest,
   GetChatUsersResponse,
   GetChatsRequest,
-} from '@/types';
+} from '@/types/index.ts';
 
 export class ChatAPI extends API {
   constructor() {

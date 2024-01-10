@@ -1,16 +1,16 @@
-import { Block } from '@/core/Block';
-import store from '@/core/Store';
+import { Block } from '@/core/Block/index.ts';
+import store from '@/core/Store/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { DefaultButton } from '@/components/Button';
-import { Icon } from '@/components/Icon';
-import { AddUserModal, RemoveUserModal } from '@/components/Modal';
+import { DefaultButton } from '@/components/Button/index.ts';
+import { Icon } from '@/components/Icon/index.ts';
+import { AddUserModal, RemoveUserModal } from '@/components/Modal/index.ts';
 
-import ChatController from '@/controllers/ChatController';
+import ChatController from '@/controllers/ChatController.ts';
 
-import { ADD_USER_TO_CHAT, DELETE_CHAT, REMOVE_USER_FROM_CHAT } from '@/utils';
-import { Events } from '@/types';
+import { Events } from '@/types/index.ts';
+import { ADD_USER_TO_CHAT, DELETE_CHAT, REMOVE_USER_FROM_CHAT } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
 

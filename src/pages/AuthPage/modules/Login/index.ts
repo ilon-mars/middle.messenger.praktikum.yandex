@@ -1,15 +1,15 @@
-import store from '@/core/Store';
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
+import store from '@/core/Store/index.ts';
 
-import { tmpl } from '../index.tmpl';
+import { tmpl } from '../index.tmpl.ts';
 
-import { LoginForm } from '@/components/Form';
-import { Link } from '@/components/Link';
+import { LoginForm } from '@/components/Form/index.ts';
+import { Link } from '@/components/Link/index.ts';
 
-import AuthController from '@/controllers/AuthController';
+import AuthController from '@/controllers/AuthController.ts';
 
-import { AuthProps, SignInRequest } from '@/types';
-import { onSubmitHandler, LOGIN_LINK, showNotification } from '@/utils';
+import { AuthProps, SignInRequest } from '@/types/index.ts';
+import { LOGIN_LINK, onSubmitHandler, showNotification } from '@/utils/index.ts';
 
 import $style from '../index.module.sass';
 

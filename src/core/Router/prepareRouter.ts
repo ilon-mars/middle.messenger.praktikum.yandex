@@ -1,16 +1,18 @@
-import { Block } from '@/core/Block';
-import router, { BlockWithStore } from '@/core/Router';
+import { Block } from '@/core/Block/index.ts';
 
-import { AuthPage } from '@/pages/AuthPage';
-import { ProfilePage } from '@/pages/ProfilePage';
-import { ErrorPage } from '@/pages/ErrorPage';
-import { EditPage } from '@/pages/EditPage';
-import { MainLayout } from '@/layout/MainLayout';
-import { ChatLayout } from '@/layout/ChatLayout';
+import { BlockWithStore } from './Route.ts';
+import router from './Router.ts';
 
-import { LayoutEnum, Routes } from '@/enums';
-import { RoutesList } from '@/types';
-import { NOT_FOUND_LINK, NOT_FOUND_PAGE, SERVER_ERROR_LINK, SERVER_ERROR_PAGE } from '@/utils';
+import { ChatLayout } from '@/layout/ChatLayout/index.ts';
+import { MainLayout } from '@/layout/MainLayout/index.ts';
+import { AuthPage } from '@/pages/AuthPage/index.ts';
+import { EditPage } from '@/pages/EditPage/index.ts';
+import { ErrorPage } from '@/pages/ErrorPage/index.ts';
+import { ProfilePage } from '@/pages/ProfilePage/index.ts';
+
+import { LayoutEnum, Routes } from '@/enums/index.ts';
+import { RoutesList } from '@/types/index.ts';
+import { NOT_FOUND_LINK, NOT_FOUND_PAGE, SERVER_ERROR_LINK, SERVER_ERROR_PAGE } from '@/utils/index.ts';
 
 const ROUTES: RoutesList = Object.freeze({
   [Routes.MESSENGER]: {

@@ -1,5 +1,5 @@
-import { ErrorPageContent } from '../ErrorPageContent';
-import { RouteLink } from '../RouteLink';
+import { ErrorPageContent } from '../ErrorPageContent.ts';
+import { RouteLink } from '../RouteLink.ts';
 
 export type ErrorPageProps = {
   linkProps: RouteLink;

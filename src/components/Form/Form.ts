@@ -1,6 +1,6 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { InputField, FormProps } from '@/types';
+import { FormProps, InputField } from '@/types/index.ts';
 
 export abstract class Form extends Block {
   formData: Record<string, InputField> | undefined;

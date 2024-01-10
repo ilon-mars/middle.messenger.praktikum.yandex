@@ -1,5 +1,5 @@
-import { Block } from '@/core/Block';
-import Store from '@/core/Store';
+import { Block } from '@/core/Block/index.ts';
+import Store from '@/core/Store/index.ts';
 
 export const showNotification = (_this: Block, store: typeof Store) => {
   if (store.state.user?.error) {

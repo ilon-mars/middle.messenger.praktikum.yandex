@@ -1,12 +1,14 @@
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Form } from '@/components/Form/Form';
-import { Input, MessageInput } from '@/components/Input';
-import { MainButton } from '@/components/Button';
-import { Icon } from '@/components/Icon';
+import { MainButton } from '@/components/Button/index.ts';
+import { Form } from '@/components/Form/Form.ts';
+import { Icon } from '@/components/Icon/index.ts';
+import { MessageInput } from '@/components/Input/index.ts';
+import { Input } from '@/components/Input/Input.ts';
 
-import { FormProps, InputField } from '@/types';
-import { onBlurHandler, onInputHandler } from '@/utils';
+
+import { FormProps, InputField } from '@/types/index.ts';
+import { onBlurHandler, onInputHandler } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
 

@@ -1,13 +1,13 @@
-import store from '@/core/Store';
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
+import store from '@/core/Store/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { MainButton } from '@/components/Button';
-import { FileInput } from '@/components/Input/FileInput';
+import { MainButton } from '@/components/Button/index.ts';
+import { FileInput } from '@/components/Input/FileInput/index.ts';
 
-import { UploadAvatarModalProps } from '@/types';
-import { UPLOAD_AVATAR, UPLOAD_AVATAR_STATE_TITLES } from '@/utils';
+import { UploadAvatarModalProps } from '@/types/index.ts';
+import { UPLOAD_AVATAR, UPLOAD_AVATAR_STATE_TITLES } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
 

@@ -1,4 +1,4 @@
-import { Block } from '../Block.ts';
+import { Block } from '@/core/Block/index.ts';
 import Route, { BlockWithStore } from './Route.ts';
 
 export class Router {

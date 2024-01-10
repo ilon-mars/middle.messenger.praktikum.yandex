@@ -1,10 +1,10 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Header } from '@/pages/ChatPage/modules/ChatSection/Header';
-import { Footer } from '@/pages/ChatPage/modules/ChatSection/Footer';
-import { Message } from '@/pages/ChatPage/modules/Message';
+import { Footer } from '@/pages/ChatPage/modules/ChatSection/Footer/index.ts';
+import { Header } from '@/pages/ChatPage/modules/ChatSection/Header/index.ts';
+import { Message } from '@/pages/ChatPage/modules/Message/index.ts';
 
 import $style from './index.module.sass';
 

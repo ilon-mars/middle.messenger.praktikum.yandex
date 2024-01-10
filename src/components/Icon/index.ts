@@ -1,7 +1,7 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { IconProps } from '@/types';
-import { getRawSvg } from '@/utils';
+import { IconProps } from '@/types/index.ts';
+import { getRawSvg } from '@/utils/index.ts';
 
 export class Icon extends Block {
   constructor(props: IconProps, $style?: CSSModuleClasses) {

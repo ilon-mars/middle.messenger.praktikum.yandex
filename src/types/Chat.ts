@@ -1,5 +1,5 @@
-import { User } from './User';
-import { ID } from './requestData/ID';
+import { User } from './User.ts';
+import { ID } from './requestData/index.ts';
 
 export type Chat = {
   id: ID;

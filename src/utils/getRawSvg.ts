@@ -1,4 +1,4 @@
-import { createIconsMap } from './createIconsMap';
+import { createIconsMap } from './createIconsMap.ts';
 
 export const getRawSvg = (name: string) => {
   const map = createIconsMap();

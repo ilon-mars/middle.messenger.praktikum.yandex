@@ -1,10 +1,12 @@
-import { UserAPI } from '@/services/api';
-import store from '@/core/Store';
-import Router from '@/core/Router';
+import Router from '@/core/Router/index.ts';
+import store from '@/core/Store/index.ts';
+
+import { UserAPI } from '@/services/api/index.ts';
+
 import AuthController from './AuthController.ts';
 
-import { Routes } from '@/enums';
-import { ServerError, User, UserPasswordData } from '@/types';
+import { Routes } from '@/enums/index.ts';
+import { ServerError, User, UserPasswordData } from '@/types/index.ts';
 
 class UserController {
   private api = new UserAPI();

@@ -1,34 +1,35 @@
-import store from '@/core/Store';
-import router from '@/core/Router';
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
+import router from '@/core/Router/index.ts';
+import store from '@/core/Store/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Form } from '@/components/Form/Form';
-import { Avatar } from '@/components/Avatar';
-import { MainButton } from '@/components/Button';
-import { EmailInput, Input, InputWithLabel, LoginInput, NameInput, PhoneInput } from '@/components/Input';
-import { Icon } from '@/components/Icon';
+import { Avatar } from '@/components/Avatar/index.ts';
+import { MainButton } from '@/components/Button/index.ts';
+import { Form } from '@/components/Form/Form.ts';
+import { Icon } from '@/components/Icon/index.ts';
+import { EmailInput, InputWithLabel, LoginInput, NameInput, PhoneInput } from '@/components/Input/index.ts';
+import { Input } from '@/components/Input/Input.ts';
 
-import AuthController from '@/controllers/AuthController';
+import AuthController from '@/controllers/AuthController.ts';
 
-import { FormProps, InputField } from '@/types';
+import { Routes } from '@/enums/index.ts';
+import { FormProps, InputField } from '@/types/index.ts';
 import {
   DISPLAY_NAME_INPUT,
   EMAIL_INPUT,
+  getAvatarSrc,
   LOGIN_INPUT,
   NAME_INPUT,
+  onBlurHandler,
+  onInputHandler,
   PHONE_INPUT,
   SAVE_PROFILE_BUTTON,
   SECOND_NAME_INPUT,
-  getAvatarSrc,
-  onBlurHandler,
-  onInputHandler,
-} from '@/utils';
-import { Routes } from '@/enums';
+} from '@/utils/index.ts';
 
-import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
+import $style from './index.module.sass';
 
 import avatarSrc from '@/assets/icons/avatar-stub.svg';
 

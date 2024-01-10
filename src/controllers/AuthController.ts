@@ -1,11 +1,13 @@
-import Router from '@/core/Router';
-import store from '@/core/Store';
-import { AuthAPI } from '@/services/api';
-import ChatController from './ChatController';
-import UserController from './UserController';
+import Router from '@/core/Router/index.ts';
+import store from '@/core/Store/index.ts';
 
-import { Routes } from '@/enums';
-import { SignInRequest, SignUpRequest } from '@/types';
+import { AuthAPI } from '@/services/api/index.ts';
+
+import ChatController from './ChatController.ts';
+import UserController from './UserController.ts';
+
+import { Routes } from '@/enums/index.ts';
+import { SignInRequest, SignUpRequest } from '@/types/index.ts';
 
 class AuthController {
   private readonly api = new AuthAPI();

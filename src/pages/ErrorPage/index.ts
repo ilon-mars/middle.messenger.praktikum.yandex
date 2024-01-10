@@ -1,10 +1,10 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Link } from '@/components/Link';
+import { Link } from '@/components/Link/index.ts';
 
-import { ErrorPageProps } from '@/types';
+import { ErrorPageProps } from '@/types/index.ts';
 
 import $style from './index.module.sass';
 

@@ -1,4 +1,4 @@
-import { ICONS } from './constants';
+import { ICONS } from './constants.ts';
 
 export const createIconsMap = () => {
   const iconsMap: Record<string, string> = {};

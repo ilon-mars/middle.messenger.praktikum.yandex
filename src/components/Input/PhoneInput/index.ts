@@ -1,7 +1,7 @@
-import { Input } from '@/components/Input/Input';
+import { Input } from '@/components/Input/Input.ts';
 
-import { InputProps, InputField } from '@/types';
-import { PHONE_INPUT, inRange } from '@/utils';
+import { InputField, InputProps } from '@/types/index.ts';
+import { PHONE_INPUT, inRange } from '@/utils/index.ts';
 
 export class PhoneInput extends Input {
   validations = {

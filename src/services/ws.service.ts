@@ -1,6 +1,6 @@
-import { EventBus } from '@/core/EventBus';
+import { EventBus } from '@/core/EventBus/index.ts';
 
-import { SocketEventEnum } from '@/enums';
+import { SocketEventEnum } from '@/enums/SocketEnum.ts';
 
 export default class WebSocketService extends EventBus {
   private socket: WebSocket | null = null;

@@ -1,19 +1,19 @@
-import { Block } from '@/core/Block';
-import store, { State, withStore } from '@/core/Store';
+import { Block } from '@/core/Block/index.ts';
+import store, { State, withStore } from '@/core/Store/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { SearchForm } from '@/components/Form';
-import { ChatItem } from '@/pages/ChatPage/modules/ChatItem';
-import { Link } from '@/components/Link';
-import { DefaultButton } from '@/components/Button';
-import { Icon } from '@/components/Icon';
-import { AddChatModal } from '@/components/Modal/AddChat';
-import { ChatList } from '@/pages/ChatPage/modules/ChatList';
+import { DefaultButton } from '@/components/Button/index.ts';
+import { SearchForm } from '@/components/Form/index.ts';
+import { Icon } from '@/components/Icon/index.ts';
+import { Link } from '@/components/Link/index.ts';
+import { AddChatModal } from '@/components/Modal/AddChat/index.ts';
+import { ChatItem } from '@/pages/ChatPage/modules/ChatItem/index.ts';
+import { ChatList } from '@/pages/ChatPage/modules/ChatList/index.ts';
 
-import ChatController from '@/controllers/ChatController';
+import ChatController from '@/controllers/ChatController.ts';
 
-import { GO_TO_PROFILE, normalizeChats, isEqual, ADD_CHAT } from '@/utils';
+import { ADD_CHAT, GO_TO_PROFILE, isEqual, normalizeChats } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
 

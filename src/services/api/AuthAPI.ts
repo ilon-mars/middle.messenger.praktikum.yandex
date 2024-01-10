@@ -1,6 +1,6 @@
-import { API } from '@/services/api';
+import { API } from './api.service.ts';
 
-import { SignInRequest, SignUpRequest, User, ServerError } from '@/types';
+import { ServerError, SignInRequest, SignUpRequest, User } from '@/types/index.ts';
 
 export class AuthAPI extends API {
   constructor() {

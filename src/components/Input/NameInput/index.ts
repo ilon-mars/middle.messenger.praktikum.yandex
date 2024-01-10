@@ -1,7 +1,7 @@
-import { Input } from '@/components/Input/Input';
+import { Input } from '@/components/Input/Input.ts';
 
-import { InputProps, InputField } from '@/types';
-import { startsWithUpperCase } from '@/utils';
+import { InputField, InputProps } from '@/types/index.ts';
+import { startsWithUpperCase } from '@/utils/index.ts';
 
 export class NameInput extends Input {
   validations = {

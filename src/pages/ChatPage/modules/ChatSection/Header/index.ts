@@ -1,19 +1,20 @@
-import { Block } from '@/core/Block';
-import store from '@/core/Store';
+import { Block } from '@/core/Block/index.ts';
+import store from '@/core/Store/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Avatar } from '@/components/Avatar';
-import { DefaultButton } from '@/components/Button';
-import { Icon } from '@/components/Icon';
-import { ChatMenu } from '@/components/Modal/ChatMenu';
+import { Avatar } from '@/components/Avatar/index.ts';
+import { DefaultButton } from '@/components/Button/index.ts';
+import { Icon } from '@/components/Icon/index.ts';
+import { ChatMenu } from '@/components/Modal/ChatMenu/index.ts';
+import { UploadAvatarModal } from '@/components/Modal/index.ts';
 
-import { ChatHeaderProps } from '@/types';
+import ChatController from '@/controllers/ChatController.ts';
+
+import { ChatHeaderProps } from '@/types/index.ts';
+import { UPLOAD_AVATAR_STATE_TITLES } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
-import { UploadAvatarModal } from '@/components/Modal';
-import { UPLOAD_AVATAR_STATE_TITLES } from '@/utils';
-import ChatController from '@/controllers/ChatController';
 
 export class Header extends Block {
   constructor(props?: ChatHeaderProps) {
