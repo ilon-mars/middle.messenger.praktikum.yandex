@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import { v4 as uuid } from 'uuid';
 
-import { EventBus } from './EventBus';
+import { EventBus } from './EventBus.ts';
 
 // может быть любая структура
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,5 +1,5 @@
-import { Block } from '../Block';
-import Route, { BlockWithStore } from './Route';
+import { Block } from '../Block.ts';
+import Route, { BlockWithStore } from './Route.ts';
 
 export class Router {
   private static __instance: Router;

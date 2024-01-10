@@ -1,9 +1,9 @@
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Form } from '@/components/Form/Form';
 import { MainButton } from '@/components/Button';
-import { Input, InputWithLabel, PasswordInput } from '@/components/Input';
+import { Form } from '@/components/Form/Form.ts';
 import { Icon } from '@/components/Icon';
+import { Input, InputWithLabel, PasswordInput } from '@/components/Input';
 
 import { FormProps, InputField } from '@/types';
 import {
@@ -15,8 +15,8 @@ import {
   onInputHandler,
 } from '@/utils';
 
-import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
+import $style from './index.module.sass';
 
 export class EditPasswordForm extends Form {
   formData: Record<string, InputField> = {

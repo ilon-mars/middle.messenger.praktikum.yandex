@@ -1,7 +1,11 @@
 {
+  "ts-node": {
+    "files": true,
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
   "compilerOptions": {
     "target": "ES2020",
-    "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": [
       "ES2020",
@@ -11,19 +15,17 @@
     ],
     "skipLibCheck": true,
     "types": [
-      "node",
-      "mocha"
+      "mocha",
+      "node"
     ],
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./src/*",
-        "./dist/*",
-        ""
+        "src/*",
       ]
     },
     "declaration": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -35,15 +37,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "useDefineForClassFields": true,
+    "esModuleInterop": true,
   },
   "include": [
-    "src"
+    "src/*"
   ],
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node",
-    "transpileOnly": true,
-    "files": true
-  }
 }

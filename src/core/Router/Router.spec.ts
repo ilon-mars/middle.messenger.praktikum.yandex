@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import { Block } from '../Block';
-import { Router as RouterClass } from './Router';
+import { Block } from '../Block.ts';
+import { Router as RouterClass } from './Router.ts';
 
 describe('Router', () => {
   let router: RouterClass;
