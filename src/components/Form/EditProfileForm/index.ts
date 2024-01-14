@@ -7,7 +7,6 @@ import { tmpl } from './index.tmpl.ts';
 import { Avatar } from '@/components/Avatar/index.ts';
 import { MainButton } from '@/components/Button/index.ts';
 import { Form } from '@/components/Form/Form.ts';
-import { Icon } from '@/components/Icon/index.ts';
 import { EmailInput, InputWithLabel, LoginInput, NameInput, PhoneInput } from '@/components/Input/index.ts';
 import { Input } from '@/components/Input/Input.ts';
 
@@ -31,7 +30,8 @@ import {
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
 import $style from './index.module.sass';
 
-import avatarSrc from '@/assets/icons/avatar-stub.svg';
+import arrowTailIcon from '@/assets/icons/arrow-tail.svg';
+// import avatarSrc from '@/assets/icons/avatar-stub.svg';
 
 export class EditProfileForm extends Form {
   formData: Record<string, InputField> = {
@@ -181,7 +181,7 @@ export class EditProfileForm extends Form {
     this.children.avatar = new Avatar();
     this.children.saveButton = new MainButton({
       ...SAVE_PROFILE_BUTTON,
-      icon: new Icon({ name: 'arrow-tail' }),
+      icon: arrowTailIcon(),
     });
   }
 
@@ -195,7 +195,7 @@ export class EditProfileForm extends Form {
 
     const userData = store.state.user.data;
     (this.children.avatar as Block).setProps({
-      src: userData.avatar ? getAvatarSrc(store.state.user.data.avatar!) : avatarSrc,
+      src: userData.avatar ? getAvatarSrc(store.state.user.data.avatar!) : 'avatarSrc',
     });
 
     (((this.children.loginInput as Block).children.input as Block).element! as HTMLInputElement).value = userData.login;

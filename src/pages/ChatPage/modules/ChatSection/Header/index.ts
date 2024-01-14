@@ -5,7 +5,6 @@ import { tmpl } from './index.tmpl.ts';
 
 import { Avatar } from '@/components/Avatar/index.ts';
 import { DefaultButton } from '@/components/Button/index.ts';
-import { Icon } from '@/components/Icon/index.ts';
 import { ChatMenu } from '@/components/Modal/ChatMenu/index.ts';
 import { UploadAvatarModal } from '@/components/Modal/index.ts';
 
@@ -15,6 +14,9 @@ import { ChatHeaderProps } from '@/types/index.ts';
 import { UPLOAD_AVATAR_STATE_TITLES } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
+
+import closeIcon from '@/assets/icons/close.svg';
+import dotsIcon from '@/assets/icons/dots.svg';
 
 export class Header extends Block {
   constructor(props?: ChatHeaderProps) {
@@ -28,7 +30,7 @@ export class Header extends Block {
     this.children.closeButton = new DefaultButton(
       {
         hasText: false,
-        icon: new Icon({ name: 'close' }),
+        icon: closeIcon(),
         events: {
           click: () => {
             store.set('selectedChat', null);
@@ -71,7 +73,7 @@ export class Header extends Block {
     this.children.menuButton = new DefaultButton(
       {
         hasText: false,
-        icon: new Icon({ name: 'dots' }),
+        icon: dotsIcon(),
         attrs: {
           type: 'button',
         },

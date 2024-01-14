@@ -2,7 +2,6 @@ import { tmpl } from './index.tmpl.ts';
 
 import { DefaultButton, MainButton } from '@/components/Button/index.ts';
 import { Form } from '@/components/Form/Form.ts';
-import { Icon } from '@/components/Icon/index.ts';
 import {
   EmailInput,
   InputWithLabel,
@@ -29,6 +28,9 @@ import {
 
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
 import $style from './index.module.sass';
+
+import arrowTailIcon from '@/assets/icons/arrow-tail.svg';
+import arrowIcon from '@/assets/icons/arrow.svg';
 
 const toggleActiveClass = (e?: Event) => {
   if (!e) {
@@ -209,7 +211,7 @@ export class RegisterForm extends Form {
     this.children.personalButton = new DefaultButton({
       hasText: true,
       text: 'Личные данные',
-      icon: new Icon({ name: 'arrow' }),
+      icon: arrowIcon(),
       events: {
         click: toggleActiveClass,
       },
@@ -218,7 +220,7 @@ export class RegisterForm extends Form {
     this.children.accountButton = new DefaultButton({
       hasText: true,
       text: 'Данные профиля',
-      icon: new Icon({ name: 'arrow' }),
+      icon: arrowIcon(),
       events: {
         click: toggleActiveClass,
       },
@@ -226,7 +228,7 @@ export class RegisterForm extends Form {
 
     this.children.submitButton = new MainButton({
       ...REGISTER_BUTTON,
-      icon: new Icon({ name: 'arrow-tail' }),
+      icon: arrowTailIcon(),
     });
   }
 

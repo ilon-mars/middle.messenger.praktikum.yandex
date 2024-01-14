@@ -5,7 +5,6 @@ import { tmpl } from './index.tmpl.ts';
 
 import { DefaultButton } from '@/components/Button/index.ts';
 import { SearchForm } from '@/components/Form/index.ts';
-import { Icon } from '@/components/Icon/index.ts';
 import { Link } from '@/components/Link/index.ts';
 import { AddChatModal } from '@/components/Modal/AddChat/index.ts';
 import { ChatItem } from '@/pages/ChatPage/modules/ChatItem/index.ts';
@@ -16,6 +15,8 @@ import ChatController from '@/controllers/ChatController.ts';
 import { ADD_CHAT, GO_TO_PROFILE, isEqual, normalizeChats } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
+
+import addIcon from '@/assets/icons/add.svg';
 
 export class Sidebar extends Block {
   constructor() {
@@ -28,7 +29,7 @@ export class Sidebar extends Block {
     this.children.addChatButton = new DefaultButton(
       {
         hasText: false,
-        icon: new Icon({ name: 'add' }),
+        icon: addIcon(),
         events: {
           click: () => {
             (this.children.addChatModal as Block).show();

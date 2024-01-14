@@ -3,8 +3,6 @@ import router from '@/core/Router/index.ts';
 
 import { tmpl } from './index.tmpl.ts';
 
-import { Icon } from '@/components/Icon/index.ts';
-
 import $style from './index.module.sass';
 
 export class GoBack extends Block {
@@ -13,7 +11,6 @@ export class GoBack extends Block {
   }
 
   init() {
-    this.children.icon = new Icon({ name: 'arrow' });
     this.setProps({
       events: {
         click: () => router.back(),

@@ -4,6 +4,6 @@ declare module '*.module.sass' {
 }
 
 declare module '*.svg' {
-  const content: string;
+  const content: () => void;
   export default content;
 }

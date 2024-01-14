@@ -7,7 +7,6 @@ export * from './ChatListProps.ts';
 export * from './EditPageProps.ts';
 export * from './ErrorPageProps.ts';
 export * from './FormProps.ts';
-export * from './IconProps.ts';
 export * from './InputProps.ts';
 export * from './InputWithLabelProps.ts';
 export * from './MainLayoutProps.ts';

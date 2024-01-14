@@ -4,7 +4,6 @@ import store from '@/core/Store/index.ts';
 import { tmpl } from './index.tmpl.ts';
 
 import { DefaultButton } from '@/components/Button/index.ts';
-import { Icon } from '@/components/Icon/index.ts';
 import { AddUserModal, RemoveUserModal } from '@/components/Modal/index.ts';
 
 import ChatController from '@/controllers/ChatController.ts';
@@ -13,6 +12,9 @@ import { Events } from '@/types/index.ts';
 import { ADD_USER_TO_CHAT, DELETE_CHAT, REMOVE_USER_FROM_CHAT } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
+
+import addIcon from '@/assets/icons/add.svg';
+import closeIcon from '@/assets/icons/close.svg';
 
 export class ChatMenu extends Block {
   constructor(props?: { events: Events }) {
@@ -26,7 +28,7 @@ export class ChatMenu extends Block {
     this.children.addUser = new DefaultButton(
       {
         ...ADD_USER_TO_CHAT,
-        icon: new Icon({ name: 'add' }),
+        icon: addIcon(),
         events: {
           click: async e => {
             e?.preventDefault();
@@ -41,7 +43,7 @@ export class ChatMenu extends Block {
     this.children.removeUser = new DefaultButton(
       {
         ...REMOVE_USER_FROM_CHAT,
-        icon: new Icon({ name: 'close' }),
+        icon: closeIcon(),
         events: {
           click: async e => {
             e?.preventDefault();
