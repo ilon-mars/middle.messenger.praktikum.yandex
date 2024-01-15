@@ -19,11 +19,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx lint-staged"
+      "pre-commit": "yarn test && yarn typecheck && lint-staged"
     }
   },
   "lint-staged": {
-    "*.spec.ts": "mocha",
     "*.ts": "eslint --ignore-path .eslintignore . --fix",
     "**/*.sass": "stylelint 'src/assets/**/*.sass' 'src/**/*.module.sass'"
   },
