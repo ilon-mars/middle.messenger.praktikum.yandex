@@ -2,8 +2,8 @@ import { tmpl } from './index.tmpl.ts';
 
 import { MainButton } from '@/components/Button/index.ts';
 import { Form } from '@/components/Form/Form.ts';
-import { MessageInput } from '@/components/Input/index.ts';
 import { Input } from '@/components/Input/Input.ts';
+import { MessageInput } from '@/components/Input/index.ts';
 
 import { FormProps, InputField } from '@/types/index.ts';
 import { onBlurHandler, onInputHandler } from '@/utils/index.ts';
@@ -42,7 +42,7 @@ export class MessageForm extends Form {
     this.children.sendButton = new MainButton(
       {
         hasText: false,
-        icon: arrowTailIcon(),
+        icon: arrowTailIcon,
       },
       $style.sendButton,
     );

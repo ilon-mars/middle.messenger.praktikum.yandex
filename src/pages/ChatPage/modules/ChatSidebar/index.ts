@@ -29,7 +29,7 @@ export class Sidebar extends Block {
     this.children.addChatButton = new DefaultButton(
       {
         hasText: false,
-        icon: addIcon(),
+        icon: addIcon,
         events: {
           click: () => {
             (this.children.addChatModal as Block).show();

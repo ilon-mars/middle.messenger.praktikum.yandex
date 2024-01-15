@@ -47,7 +47,7 @@ export class Footer extends Block {
     this.children.attachButton = new DefaultButton(
       {
         hasText: false,
-        icon: clipIcon(),
+        icon: clipIcon,
       },
       $style.attachButton,
     );

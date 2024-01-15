@@ -28,7 +28,7 @@ export class ChatMenu extends Block {
     this.children.addUser = new DefaultButton(
       {
         ...ADD_USER_TO_CHAT,
-        icon: addIcon(),
+        icon: addIcon,
         events: {
           click: async e => {
             e?.preventDefault();
@@ -43,7 +43,7 @@ export class ChatMenu extends Block {
     this.children.removeUser = new DefaultButton(
       {
         ...REMOVE_USER_FROM_CHAT,
-        icon: closeIcon(),
+        icon: closeIcon,
         events: {
           click: async e => {
             e?.preventDefault();

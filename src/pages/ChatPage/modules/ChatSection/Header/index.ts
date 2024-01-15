@@ -30,7 +30,7 @@ export class Header extends Block {
     this.children.closeButton = new DefaultButton(
       {
         hasText: false,
-        icon: closeIcon(),
+        icon: closeIcon,
         events: {
           click: () => {
             store.set('selectedChat', null);
@@ -73,7 +73,7 @@ export class Header extends Block {
     this.children.menuButton = new DefaultButton(
       {
         hasText: false,
-        icon: dotsIcon(),
+        icon: dotsIcon,
         attrs: {
           type: 'button',
         },

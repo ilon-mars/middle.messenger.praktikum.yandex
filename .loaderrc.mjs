@@ -4,7 +4,7 @@ export default {
   loaders: [
     'esm-loader-typescript',
     'esm-loader-css',
-    // 'esm-loader-images',
+    'esm-loader-images',
     {
       loader: 'esm-loader-import-meta-custom',
       options: {
@@ -12,7 +12,7 @@ export default {
           env: {
             VITE_API_URL: process.env.VITE_API_URL,
           },
-        },
+        }
       },
     },
     {
@@ -20,12 +20,6 @@ export default {
       options: {
         aliases: {
           '@': `${resolve('src/')}`
-          // '@/core/': `${resolve('src/core/')}/`,
-          // '@/types/': `${resolve('src/types/')}/`,
-          // '@/enums/': `${resolve('src/enums/')}/`,
-          // '@/utils/': `${resolve('src/utils/')}/`,
-          // '@/assets/': `${resolve('src/assets/')}/`,
-          // '@/components/': `${resolve('src/components/')}/`,
         },
       },
     },

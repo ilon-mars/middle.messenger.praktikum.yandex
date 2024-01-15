@@ -31,7 +31,6 @@ export class MainButton extends Block {
   }
 
   render() {
-    console.log(this.props.icon)
     return this.compile(tmpl, this.props);
   }
 }

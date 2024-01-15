@@ -2,7 +2,6 @@ import { Form } from '@/components/Form/Form.ts';
 import { InputWithLabel } from '@/components/Input/index.ts';
 import { Input } from '@/components/Input/Input.ts';
 
-
 import { InputField } from '@/types/index.ts';
 import { errorClassHandler } from '../errorClassHandler.ts';
 

@@ -6,14 +6,14 @@ import { AvatarProps } from '@/types/index.ts';
 
 import $style from './index.module.sass';
 
-// import avatarSrc from '@/assets/icons/avatar-stub.svg';
+import avatarSrc from '@/assets/icons/avatar-stub.svg?url';
 
 export class Avatar extends Block {
   constructor(props?: AvatarProps, className: string = '') {
     super({
       ...props,
       classes: [$style[className]],
-      ...(!props?.src && { src: 'avatarSrc' }),
+      ...(!props?.src && { src: avatarSrc }),
       $style,
     });
   }

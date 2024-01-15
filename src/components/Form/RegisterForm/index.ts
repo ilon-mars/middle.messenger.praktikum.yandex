@@ -2,6 +2,7 @@ import { tmpl } from './index.tmpl.ts';
 
 import { DefaultButton, MainButton } from '@/components/Button/index.ts';
 import { Form } from '@/components/Form/Form.ts';
+import { Input } from '@/components/Input/Input.ts';
 import {
   EmailInput,
   InputWithLabel,
@@ -10,20 +11,19 @@ import {
   PasswordInput,
   PhoneInput,
 } from '@/components/Input/index.ts';
-import { Input } from '@/components/Input/Input.ts';
 
 import { FormProps, InputField } from '@/types/index.ts';
 import {
   EMAIL_INPUT,
   LOGIN_INPUT,
   NAME_INPUT,
-  onBlurHandler,
-  onInputHandler,
   PASSWORD_INPUT,
   PHONE_INPUT,
   REGISTER_BUTTON,
   REPEAT_PASSWORD_INPUT,
   SECOND_NAME_INPUT,
+  onBlurHandler,
+  onInputHandler,
 } from '@/utils/index.ts';
 
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
@@ -211,7 +211,7 @@ export class RegisterForm extends Form {
     this.children.personalButton = new DefaultButton({
       hasText: true,
       text: 'Личные данные',
-      icon: arrowIcon(),
+      icon: arrowIcon,
       events: {
         click: toggleActiveClass,
       },
@@ -220,7 +220,7 @@ export class RegisterForm extends Form {
     this.children.accountButton = new DefaultButton({
       hasText: true,
       text: 'Данные профиля',
-      icon: arrowIcon(),
+      icon: arrowIcon,
       events: {
         click: toggleActiveClass,
       },
@@ -228,7 +228,7 @@ export class RegisterForm extends Form {
 
     this.children.submitButton = new MainButton({
       ...REGISTER_BUTTON,
-      icon: arrowTailIcon(),
+      icon: arrowTailIcon,
     });
   }
 

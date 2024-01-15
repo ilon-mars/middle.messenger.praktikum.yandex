@@ -1,10 +1,8 @@
 export * from './constants.ts';
 export * from './convertDateToTime.ts';
-// export * from './createIconsMap.ts';
 export * from './customFetch.ts';
 export * from './errorClassHandler.ts';
 export * from './getAvatarSrc.ts';
-// export * from './getRawSvg.ts';
 export * from './handlers/onBlurHandler.ts';
 export * from './handlers/onInputHandler.ts';
 export * from './handlers/onSubmitHandler.ts';

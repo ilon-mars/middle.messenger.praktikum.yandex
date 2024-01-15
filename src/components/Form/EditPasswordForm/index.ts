@@ -2,17 +2,17 @@ import { tmpl } from './index.tmpl.ts';
 
 import { MainButton } from '@/components/Button/index.ts';
 import { Form } from '@/components/Form/Form.ts';
-import { InputWithLabel, PasswordInput } from '@/components/Input/index.ts';
 import { Input } from '@/components/Input/Input.ts';
+import { InputWithLabel, PasswordInput } from '@/components/Input/index.ts';
 
 import { FormProps, InputField } from '@/types/index.ts';
 import {
   NEW_PASSWORD_INPUT,
   OLD_PASSWORD_INPUT,
-  onBlurHandler,
-  onInputHandler,
   REPEAT_NEW_PASSWORD_INPUT,
   SAVE_PROFILE_BUTTON,
+  onBlurHandler,
+  onInputHandler,
 } from '@/utils/index.ts';
 
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
@@ -104,7 +104,7 @@ export class EditPasswordForm extends Form {
 
     this.children.saveButton = new MainButton({
       ...SAVE_PROFILE_BUTTON,
-      icon: arrowTailIcon(),
+      icon: arrowTailIcon,
     });
   }
 
