@@ -25,7 +25,7 @@
   "lint-staged": {
     "*.spec.ts": "mocha",
     "*.ts": "eslint --ignore-path .eslintignore . --fix",
-    "**/*.scss": "stylelint 'src/assets/**/*.sass' 'src/**/*.module.sass'"
+    "**/*.sass": "stylelint 'src/assets/**/*.sass' 'src/**/*.module.sass'"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
