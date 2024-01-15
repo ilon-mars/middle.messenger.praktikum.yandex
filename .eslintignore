@@ -4,3 +4,4 @@ dist/
 .eslintrc
 env.d.ts
 mochaSetup.js
+*.d.ts

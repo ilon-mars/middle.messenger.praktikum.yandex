@@ -14,7 +14,18 @@
     "preview": "vite preview",
     "lint": "eslint --ignore-path .eslintignore . --ext .ts --fix",
     "stylelint": "stylelint 'src/assets/**/*.sass' 'src/**/*.module.sass'",
-    "test": "mocha"
+    "test": "mocha",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.spec.ts": "mocha",
+    "*.ts": "eslint --ignore-path .eslintignore . --fix",
+    "**/*.scss": "stylelint 'src/assets/**/*.sass' 'src/**/*.module.sass'"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
@@ -35,6 +46,7 @@
     "esm-module-alias": "^2.1.0",
     "esmock": "^2.5.1",
     "express": "^4.18.2",
+    "husky": "^8.0.3",
     "jsdom": "^20.0.1",
     "mocha": "^10.0.0",
     "node-esm-loader": "^0.2.5",
