@@ -1,4 +1,4 @@
-import { Indexed } from '@/types';
+import { Indexed } from '@/types/index.ts';
 
 export const merge = (lhs: Indexed, rhs: Indexed): Indexed => {
   for (const p in rhs) {

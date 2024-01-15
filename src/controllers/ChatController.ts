@@ -1,9 +1,10 @@
-import store from '@/core/Store';
-import { ChatAPI } from '@/services/api';
-import MessageController from './MessageController';
+import store from '@/core/Store/index.ts';
+import { ChatAPI } from '@/services/api/index.ts';
 
-import { Chat, ID, ServerError } from '@/types';
-import { mergeFormData } from '@/utils';
+import MessageController from './MessageController.ts';
+
+import { Chat, ID, ServerError } from '@/types/index.ts';
+import { mergeFormData } from '@/utils/index.ts';
 
 class ChatController {
   private readonly api: ChatAPI;

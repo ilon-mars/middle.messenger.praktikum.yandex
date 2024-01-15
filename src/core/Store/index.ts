@@ -1,8 +1,8 @@
-import { EventBus } from '@/core/EventBus';
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
+import { EventBus } from '@/core/EventBus/index.ts';
 
-import { User, Chat, ID, Message } from '@/types';
-import { set } from '@/utils';
+import { Chat, ID, Message, User } from '@/types/index.ts';
+import { set } from '@/utils/index.ts';
 
 export type State = {
   user?: {

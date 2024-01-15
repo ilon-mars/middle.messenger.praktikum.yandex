@@ -1,8 +1,8 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { MainLayoutProps } from '@/types';
+import { MainLayoutProps } from '@/types/index.ts';
 
 export class MainLayout extends Block {
   constructor(props: MainLayoutProps) {

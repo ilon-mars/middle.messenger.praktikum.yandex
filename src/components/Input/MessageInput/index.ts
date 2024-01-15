@@ -1,8 +1,8 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { MessageInputProps, InputField } from '@/types';
+import { InputField, MessageInputProps } from '@/types/index.ts';
 
 export class MessageInput extends Block {
   constructor(props: MessageInputProps, $style: CSSModuleClasses) {

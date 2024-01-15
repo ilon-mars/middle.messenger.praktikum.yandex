@@ -1,11 +1,11 @@
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Form } from '@/components/Form/Form';
-import { MainButton } from '@/components/Button';
-import { Input, InputWithLabel, PasswordInput } from '@/components/Input';
-import { Icon } from '@/components/Icon';
+import { MainButton } from '@/components/Button/index.ts';
+import { Form } from '@/components/Form/Form.ts';
+import { Input } from '@/components/Input/Input.ts';
+import { InputWithLabel, PasswordInput } from '@/components/Input/index.ts';
 
-import { FormProps, InputField } from '@/types';
+import { FormProps, InputField } from '@/types/index.ts';
 import {
   NEW_PASSWORD_INPUT,
   OLD_PASSWORD_INPUT,
@@ -13,10 +13,12 @@ import {
   SAVE_PROFILE_BUTTON,
   onBlurHandler,
   onInputHandler,
-} from '@/utils';
+} from '@/utils/index.ts';
 
-import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
+import $style from './index.module.sass';
+
+import arrowTailIcon from '@/assets/icons/arrow-tail.svg';
 
 export class EditPasswordForm extends Form {
   formData: Record<string, InputField> = {
@@ -102,7 +104,7 @@ export class EditPasswordForm extends Form {
 
     this.children.saveButton = new MainButton({
       ...SAVE_PROFILE_BUTTON,
-      icon: new Icon({ name: 'arrow-tail' }),
+      icon: arrowTailIcon,
     });
   }
 

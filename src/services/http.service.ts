@@ -1,6 +1,6 @@
-import { HTTPMethodEnum } from '@/enums';
-import { HTTPServiceMethod } from '@/types';
-import { customFetch, queryStringify } from '@/utils';
+import { HTTPMethodEnum } from '@/enums/index.ts';
+import { HTTPServiceMethod } from '@/types/index.ts';
+import { customFetch, queryStringify } from '@/utils/index.ts';
 
 export class HTTPService {
   protected endpoint: string;

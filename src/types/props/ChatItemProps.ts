@@ -1,5 +1,5 @@
-import { Events } from '../Events';
-import { ID } from '../requestData';
+import { Events } from '../Events.ts';
+import { ID } from '../requestData/index.ts';
 
 export type ChatItemProps = {
   id: ID;

@@ -1,6 +1,6 @@
-import { Indexed } from '@/types';
+import { Indexed } from '@/types/index.ts';
 
-import { merge } from './merge';
+import { merge } from './merge.ts';
 
 export const set = (object: Indexed | unknown, path: string, value: unknown): Indexed | unknown => {
   if (typeof object !== 'object' || object === null) {

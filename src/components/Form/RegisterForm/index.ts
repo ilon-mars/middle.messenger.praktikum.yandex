@@ -1,19 +1,18 @@
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Form } from '@/components/Form/Form';
-import { DefaultButton, MainButton } from '@/components/Button';
+import { DefaultButton, MainButton } from '@/components/Button/index.ts';
+import { Form } from '@/components/Form/Form.ts';
+import { Input } from '@/components/Input/Input.ts';
 import {
   EmailInput,
-  Input,
   InputWithLabel,
   LoginInput,
   NameInput,
   PasswordInput,
   PhoneInput,
-} from '@/components/Input';
-import { Icon } from '@/components/Icon';
+} from '@/components/Input/index.ts';
 
-import { FormProps, InputField } from '@/types';
+import { FormProps, InputField } from '@/types/index.ts';
 import {
   EMAIL_INPUT,
   LOGIN_INPUT,
@@ -25,10 +24,13 @@ import {
   SECOND_NAME_INPUT,
   onBlurHandler,
   onInputHandler,
-} from '@/utils';
+} from '@/utils/index.ts';
 
-import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
+import $style from './index.module.sass';
+
+import arrowTailIcon from '@/assets/icons/arrow-tail.svg';
+import arrowIcon from '@/assets/icons/arrow.svg';
 
 const toggleActiveClass = (e?: Event) => {
   if (!e) {
@@ -209,7 +211,7 @@ export class RegisterForm extends Form {
     this.children.personalButton = new DefaultButton({
       hasText: true,
       text: 'Личные данные',
-      icon: new Icon({ name: 'arrow' }),
+      icon: arrowIcon,
       events: {
         click: toggleActiveClass,
       },
@@ -218,7 +220,7 @@ export class RegisterForm extends Form {
     this.children.accountButton = new DefaultButton({
       hasText: true,
       text: 'Данные профиля',
-      icon: new Icon({ name: 'arrow' }),
+      icon: arrowIcon,
       events: {
         click: toggleActiveClass,
       },
@@ -226,7 +228,7 @@ export class RegisterForm extends Form {
 
     this.children.submitButton = new MainButton({
       ...REGISTER_BUTTON,
-      icon: new Icon({ name: 'arrow-tail' }),
+      icon: arrowTailIcon,
     });
   }
 

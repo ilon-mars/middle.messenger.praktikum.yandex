@@ -1,6 +1,6 @@
-import { API } from '@/services/api';
+import { API } from './api.service.ts';
 
-import { User, UserPasswordData } from '@/types';
+import { User, UserPasswordData } from '@/types/index.ts';
 
 export class UserAPI extends API {
   constructor() {

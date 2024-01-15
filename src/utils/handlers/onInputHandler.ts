@@ -1,5 +1,7 @@
-import { Input, InputWithLabel } from '@/components/Input';
-import { InputField } from '@/types';
+import { InputWithLabel } from '@/components/Input/index.ts';
+import { Input } from '@/components/Input/Input.ts';
+
+import { InputField } from '@/types/index.ts';
 
 export const onInputHandler = (
   e: Event | undefined,

@@ -1,6 +1,8 @@
-import store from '@/core/Store';
-import { ResourceAPI } from '@/services/api/ResourceAPI';
-import { ServerError } from '@/types';
+import store from '@/core/Store/index.ts';
+
+import { ResourceAPI } from '@/services/api/ResourceAPI.ts';
+
+import { ServerError } from '@/types/index.ts';
 
 class ResourceController {
   private readonly api = new ResourceAPI();
