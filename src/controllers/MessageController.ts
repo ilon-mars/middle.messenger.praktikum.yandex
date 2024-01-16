@@ -1,9 +1,11 @@
-import store from '@/core/Store';
-import WebSocketService from '@/services/ws.service.ts';
-import ChatController from './ChatController';
+import store from '@/core/Store/index.ts';
 
-import { SocketEventEnum } from '@/enums';
-import { ID, Message } from '@/types';
+import WebSocketService from '@/services/ws.service.ts';
+
+import ChatController from './ChatController.ts';
+
+import { SocketEventEnum } from '@/enums/index.ts';
+import { ID, Message } from '@/types/index.ts';
 
 class MessageController {
   private readonly sockets: Map<number, WebSocketService> = new Map();

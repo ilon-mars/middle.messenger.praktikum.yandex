@@ -1,4 +1,4 @@
-import { Input } from '@/components/Input';
+import { Input } from '@/components/Input/Input.ts';
 
 export type InputWithLabelProps = {
   labelText: string;

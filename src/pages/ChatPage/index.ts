@@ -1,13 +1,13 @@
-import { Block } from '@/core/Block';
-import store, { State, withStore } from '@/core/Store';
+import { Block } from '@/core/Block/index.ts';
+import store, { State, withStore } from '@/core/Store/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { WindowStub } from '@/pages/ChatPage/modules/WindowStub';
-import { ChatSection } from '@/pages/ChatPage/modules/ChatSection';
-import { Message } from '@/pages/ChatPage/modules/Message';
+import { ChatSection } from '@/pages/ChatPage/modules/ChatSection/index.ts';
+import { Message } from '@/pages/ChatPage/modules/Message/index.ts';
+import { WindowStub } from '@/pages/ChatPage/modules/WindowStub/index.ts';
 
-import { normalizeChatMessage, isEqual } from '@/utils';
+import { isEqual, normalizeChatMessage } from '@/utils/index.ts';
 
 const windowStub = new WindowStub();
 
@@ -51,8 +51,8 @@ function mapStateToProps(state: State) {
   }
 
   return {
-    chats: [...(state.chats?.data || [])],
-    selectedChatId: state.selectedChat?.id || null,
+    chats: [...(state.chats?.data ?? [])],
+    selectedChatId: state.selectedChat?.id ?? null,
     messages: state.messages,
   };
 }

@@ -1,7 +1,7 @@
-import { Input } from '@/components/Input/Input';
+import { Input } from '@/components/Input/Input.ts';
 
-import { InputProps, InputField } from '@/types';
-import { EMAIL_INPUT } from '@/utils';
+import { InputField, InputProps } from '@/types/index.ts';
+import { EMAIL_INPUT } from '@/utils/index.ts';
 
 export class EmailInput extends Input {
   validations = {

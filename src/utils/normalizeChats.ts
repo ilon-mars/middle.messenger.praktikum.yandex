@@ -1,9 +1,9 @@
-import { convertDateToTime } from './convertDateToTime';
-import { getAvatarSrc } from './getAvatarSrc';
+import { convertDateToTime } from './convertDateToTime.ts';
+import { getAvatarSrc } from './getAvatarSrc.ts';
 
-import { Chat, ChatItemProps } from '@/types';
+import { Chat, ChatItemProps } from '@/types/index.ts';
 
-import avatarSrc from '@/assets/icons/avatar-stub.svg';
+import avatarSrc from '@/assets/icons/avatar-stub.svg?url';
 
 export const normalizeChats = (chats: Chat[]): ChatItemProps[] =>
   chats.map(chat => {

@@ -1,4 +1,4 @@
-import { ProfileCardTemplate, User } from '@/types';
+import { ProfileCardTemplate, User } from '@/types/index.ts';
 
 export const normalizeCardsData = (
   userData: Omit<User, 'id'>,

@@ -1,5 +1,5 @@
-import { Attributes } from '../Attributes';
-import { Events } from '../Events';
+import { Attributes } from '../Attributes.ts';
+import { Events } from '../Events.ts';
 
 export type FormProps = {
   name?: string;

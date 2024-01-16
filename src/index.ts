@@ -1,8 +1,8 @@
-import router, { prepareRouter } from '@/core/Router';
+import router, { prepareRouter } from '@/core/Router/index.ts';
 
-import AuthController from '@/controllers/AuthController';
+import AuthController from '@/controllers/AuthController.ts';
 
-import { Routes } from '@/enums';
+import { Routes } from '@/enums/RoutesEnum.ts';
 
 import '@/assets/styles/index.sass';
 

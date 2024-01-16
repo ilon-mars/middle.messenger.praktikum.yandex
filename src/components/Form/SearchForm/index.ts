@@ -1,9 +1,9 @@
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Form } from '@/components/Form/Form';
-import { SearchInput } from '@/components/Input';
+import { Form } from '@/components/Form/Form.ts';
+import { SearchInput } from '@/components/Input/index.ts';
 
-import { FormProps } from '@/types';
+import { FormProps } from '@/types/index.ts';
 
 import $style from './index.module.sass';
 

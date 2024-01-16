@@ -1,8 +1,9 @@
-import { Form } from '@/components/Form';
-import { Input, InputWithLabel } from '@/components/Input';
+import { Form } from '@/components/Form/Form.ts';
+import { InputWithLabel } from '@/components/Input/index.ts';
+import { Input } from '@/components/Input/Input.ts';
 
-import { InputField } from '@/types';
-import { errorClassHandler } from '@/utils';
+import { InputField } from '@/types/index.ts';
+import { errorClassHandler } from '../errorClassHandler.ts';
 
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
 

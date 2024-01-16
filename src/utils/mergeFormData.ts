@@ -1,4 +1,4 @@
-import { ID } from '@/types';
+import { ID } from '@/types/index.ts';
 
 export const mergeFormData = (id: ID, avatar: FormData): FormData => {
   const mergedFormData = new FormData();

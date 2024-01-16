@@ -1,5 +1,5 @@
-import { Block } from '../Block';
-import { createApp as render } from '../createApp';
+import { Block } from '@/core/Block/index.ts';
+import { createApp as render } from '@/core/createApp.ts';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type BlockWithStore<T extends Record<string, any> = any> = {

@@ -1,11 +1,11 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { MainButton } from '@/components/Button';
-import { Input } from '@/components/Input';
+import { MainButton } from '@/components/Button/index.ts';
+import { Input } from '@/components/Input/Input.ts';
 
-import { ManageChatModalProps } from '@/types';
+import { ManageChatModalProps } from '@/types/index.ts';
 
 import $style from './index.module.sass';
 

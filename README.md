@@ -50,13 +50,26 @@ yarn typecheck
 yarn stylelint
 ```
 
+Запуск тестов:
+
+```bash
+yarn test
+```
+
 ### Ссылки на страницы:
 
-- Логин: https://yup-messenger.netlify.app/
-- Регистрация: https://yup-messenger.netlify.app/registration
-- Чат: https://yup-messenger.netlify.app/chat
-- Профиль: https://yup-messenger.netlify.app/profile
-- Изменить пароль: https://yup-messenger.netlify.app/edit-password
-- Изменить профиль: https://yup-messenger.netlify.app/edit-profile
-- 400: https://yup-messenger.netlify.app/400
-- 500: https://yup-messenger.netlify.app/500
+- [Логин](https://yup-messenger.netlify.app/)
+- [Регистрация](https://yup-messenger.netlify.app/sign-up)
+- [Чат](https://yup-messenger.netlify.app/messenger)
+- [Профиль](https://yup-messenger.netlify.app/settings)
+- [Изменить пароль](https://yup-messenger.netlify.app/settings/edit-password)
+- [Изменить профиль](https://yup-messenger.netlify.app/edit-profile)
+- [500](https://yup-messenger.netlify.app/500)
+- [Несуществующая страница(400)](https://yup-messenger.netlify.app/400)
+
+### Используемые технологии
+- Vite
+- Typescript
+- Sass modules
+- Handlebars
+- Mocha + chai + sinon

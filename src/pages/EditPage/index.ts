@@ -1,15 +1,17 @@
-import store, { State, withStore } from '@/core/Store';
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
+import store, { State, withStore } from '@/core/Store/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { GoBack } from '@/components/GoBack';
-import { EditPasswordForm, EditProfileForm, Form } from '@/components/Form';
+import { Form } from '@/components/Form/Form.ts';
+import { EditPasswordForm, EditProfileForm } from '@/components/Form/index.ts';
 
-import UserController from '@/controllers/UserController';
+import { GoBack } from '@/components/GoBack/index.ts';
 
-import { onSubmitHandler, showNotification } from '@/utils';
-import { EditPageProps, User, UserPasswordData } from '@/types';
+import UserController from '@/controllers/UserController.ts';
+
+import { EditPageProps, User, UserPasswordData } from '@/types/index.ts';
+import { onSubmitHandler, showNotification } from '@/utils/index.ts';
 
 import $style from './index.module.sass';
 

@@ -1,17 +1,17 @@
-import { Block } from '@/core/Block';
-import store, { State, withStore } from '@/core/Store';
-import router from '@/core/Router';
+import { Block } from '@/core/Block/index.ts';
+import router from '@/core/Router/index.ts';
+import store, { State, withStore } from '@/core/Store/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Avatar } from '@/components/Avatar';
-import { DefaultButton } from '@/components/Button';
-import { GoBack } from '@/components/GoBack';
-import { Link } from '@/components/Link';
-import { UploadAvatarModal } from '@/components/Modal/UploadAvatar';
+import { Avatar } from '@/components/Avatar/index.ts';
+import { DefaultButton } from '@/components/Button/index.ts';
+import { GoBack } from '@/components/GoBack/index.ts';
+import { Link } from '@/components/Link/index.ts';
+import { UploadAvatarModal } from '@/components/Modal/UploadAvatar/index.ts';
 
-import AuthController from '@/controllers/AuthController';
-import UserController from '@/controllers/UserController';
+import AuthController from '@/controllers/AuthController.ts';
+import UserController from '@/controllers/UserController.ts';
 
 import {
   EDIT_PASSWORD,
@@ -21,7 +21,7 @@ import {
   UPLOAD_AVATAR_STATE_TITLES,
   getAvatarSrc,
   normalizeCardsData,
-} from '@/utils';
+} from '@/utils/index.ts';
 
 import $style from './index.module.sass';
 

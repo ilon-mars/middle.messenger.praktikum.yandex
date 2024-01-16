@@ -1,8 +1,8 @@
-import { Block } from '@/core/Block';
+import { Block } from '@/core/Block/index.ts';
 
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { ButtonProps } from '@/types';
+import { ButtonProps } from '@/types/index.ts';
 
 import $style from './index.module.sass';
 

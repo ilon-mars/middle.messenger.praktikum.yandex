@@ -1,4 +1,4 @@
-import { HTTPMethodEnum } from '@/enums';
+import { HTTPMethodEnum } from '@/enums/ApiMethodEnum.ts';
 
 type FetchMethod = `${HTTPMethodEnum}`;
 

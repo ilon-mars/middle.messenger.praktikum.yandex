@@ -1,7 +1,5 @@
-import { Routes, UploadAvatarStateEnum } from '@/enums';
-import { ErrorPageContent, RouteLink, ProfileCardTemplate, ButtonProps } from '@/types';
-
-export const ICONS = import.meta.glob('@/assets/icons/*.svg', { as: 'raw', eager: true });
+import { Routes, UploadAvatarStateEnum } from '@/enums/index.ts';
+import { ButtonProps, ErrorPageContent, ProfileCardTemplate, RouteLink } from '@/types/index.ts';
 
 export const LOGIN_INPUT = Object.freeze({
   labelText: 'Логин',

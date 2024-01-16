@@ -1,15 +1,17 @@
-import { tmpl } from './index.tmpl';
+import { tmpl } from './index.tmpl.ts';
 
-import { Form } from '@/components/Form/Form';
-import { MainButton } from '@/components/Button';
-import { Icon } from '@/components/Icon';
-import { Input, InputWithLabel, LoginInput, PasswordInput } from '@/components/Input';
+import { MainButton } from '@/components/Button/index.ts';
+import { Form } from '@/components/Form/Form.ts';
+import { Input } from '@/components/Input/Input.ts';
+import { InputWithLabel, LoginInput, PasswordInput } from '@/components/Input/index.ts';
 
-import { FormProps, InputField } from '@/types';
-import { LOGIN_BUTTON, LOGIN_INPUT, PASSWORD_INPUT, onBlurHandler, onInputHandler } from '@/utils';
+import { FormProps, InputField } from '@/types/index.ts';
+import { LOGIN_BUTTON, LOGIN_INPUT, PASSWORD_INPUT, onBlurHandler, onInputHandler } from '@/utils/index.ts';
 
-import $style from './index.module.sass';
 import $wrapperStyle from '@/components/Input/InputWithLabel/index.module.sass';
+import $style from './index.module.sass';
+
+import arrowTailIcon from '@/assets/icons/arrow-tail.svg';
 
 export class LoginForm extends Form {
   formData: Record<string, InputField> = {
@@ -63,7 +65,7 @@ export class LoginForm extends Form {
 
     this.children.submitButton = new MainButton({
       ...LOGIN_BUTTON,
-      icon: new Icon({ name: 'arrow-tail' }),
+      icon: arrowTailIcon,
     });
   }
 

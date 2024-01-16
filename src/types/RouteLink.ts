@@ -1,4 +1,4 @@
-import { Routes } from '@/enums';
+import { Routes } from '@/enums/RoutesEnum.ts';
 
 export type RedirectTo = `${Routes}`;
 

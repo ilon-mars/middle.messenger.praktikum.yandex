@@ -1,4 +1,4 @@
-import { ID } from './requestData';
+import { ID } from './requestData/index.ts';
 
 export type Message = {
   id: ID;

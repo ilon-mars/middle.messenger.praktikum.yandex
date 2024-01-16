@@ -1,5 +1,5 @@
-import { Events } from '../Events';
-import { ButtonProps } from './ButtonProps';
+import { Events } from '../Events.ts';
+import { ButtonProps } from './ButtonProps.ts';
 
 export type ModalProps = {
   title: string;

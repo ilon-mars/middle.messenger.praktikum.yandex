@@ -1,5 +1,5 @@
-import { HTTPMethodEnum } from '@/enums';
-import { FetchOptions } from '@/types';
+import { HTTPMethodEnum } from '@/enums/index.ts';
+import { FetchOptions } from '@/types/index.ts';
 
 export const customFetch = (url: string, options: FetchOptions) => {
   const { method, data, headers } = options;
